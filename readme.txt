@@ -31,3 +31,20 @@ git commit => 放进版本库之中;
 版本退回 : git reset --hard 版本号;
 
 查看版本不同; git diff
+
+
+2. 放进版本库之中;  
+
+git commit -m "注释"
+
+git commit => 放进版本库之中;
+
+-m  => 所有的暂存区中的文件;
+
+"注释" => 必须有注释;当前版本提交注释信息;
+
+版本日志 :  git reflog ;
+
+版本退回 : git reset --hard 版本号;
+
+查看版本不同; git diff

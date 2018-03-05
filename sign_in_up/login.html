@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="./css/register.css" />
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/cookie.js"></script>
+    <script>
+        $(function(){
+            //加载footer
+            $(".footer").load("http://localhost/secoo/data/footer.html footer");
+            //header_r移入移出效果
+            $("#header_r").find("a").hover(function(){
+                $(this).css({ color:"#997E28"});
+            },function(){
+                $(this).css({color:"#bbb"});
+            });
+            //
+            $(".inp").focus(function(){
+                $(this).removeAttr("placeholder")
+            })
+            $(".inp1").blur(function(){
+                $(this).attr("placeholder","用户名/手机号/邮箱")
+            })
+            $(".inp2").blur(function(){
+                $(this).attr("placeholder","密码")
+            })
+            //检验用户名和密码是否正确
+            console.log(getCookie())
+            $("#login").click(function(){
+                var user = $("#username").val();
+                var pass = $("#password").val();
+                // 校验用户名和密码是否正确
+                var usersStr = getCookie("users");
+                usersStr = usersStr ? usersStr : "{}";
+                // 将json字符串转成js可以方便操作的obj
+                var usersObj = JSON.parse(usersStr);
+                if(usersObj[user] == pass){
+                    // 登录成功     在cookie中保存用户名   跳转回首页
+                    setCookie("loginedUser", user, 7);
+                    location.href = "../index.html";
+                } else {
+                    alert('用户名或密码错误');
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <!--header start-->
+    <div class="header">
+        <div class="layout">
+            <img src = "../img/logo2.png"/>
+            <div class="header_r" id = "header_r">
+                <a href="../index.html">寺库首页</a>
+                <a href="javascript:;">收藏寺库</a>
+                <a href="javascript:;">寺库app</a>
+            </div>
+        </div>
+    </div>
+    <!--header end-->
+    <!--main start-->
+    <div class="main">
+        <div class="layout">
+            <img src="../img/bg.jpg" class="bg_img"/>
+            <div class = "login_box">
+                <P><span class="welcome">欢迎登录</span></P>
+                <P><input type="text" id="username" class="inp inp1" placeholder="用户名/手机号/邮箱"/></P>
+                <P><input type="password" id="password" class="inp inp2" placeholder="密码"/></P>
+                <P><span><input type="checkbox" id="che_btn">&nbsp;&nbsp;记住账号</span></P>
+                <P><a href="#" class="login" id="login">立即登录</a></P>
+                <P><span>使用合作网站账号登录</span></P>
+                <p>还不是寺库会员？&nbsp;&nbsp;&nbsp;&nbsp;<a href="register.html" class="register_l">免费注册</a><span class="register_r">忘记密码！</span></p>
+            </div>
+
+        </div>
+    </div>
+    <!--main end-->
+    <!--footer start-->
+    <div class="footer">
+
+    </div>
+    <!--footer end-->
+
+</body>
+</html>

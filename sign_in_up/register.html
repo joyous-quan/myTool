@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="./css/register.css" />
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/cookie.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //加载footer
+            $(".footer").load("http://localhost/secoo/data/footer.html footer");
+            //header_r移入移出效果
+            $("#header_r").find("a").hover(function(){
+                $(this).css({color:"#997E28"});
+            },function(){
+                $(this).css({color:"#bbb"});
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <!--header start-->
+    <div class="header">
+        <div class="layout">
+        <img src = "./img/logo2.png"/>
+        <div class="header_r" id = "header_r">
+            <a href="./index.html">寺库首页</a>
+            <a href="javascript:;">收藏寺库</a>
+            <a href="javascript:;">寺库app</a>
+        </div>
+    </div>
+    </div>
+    <!--header end-->
+    <!--main start-->
+    <div class="main">
+        <div class="layout">
+            <img src="./img/bg.jpg" class="bg_img"/>
+            <div class = "reg_box">
+                <p><span>用户名</span><span class="username_r">请输入手机号或邮箱</span></p>
+                <P><input type="text" id="username" class="inp"/></P>
+                <p><span>密码</span> <span class="password_r"></span></p>
+                <P><input type="password" id="password" class="inp"/></P>
+                <p><span>确认密码</span><span class="repassword_r"></span></p>
+                <P><input type="password" id="repassword" class="inp"/></P>
+                <P><span><input type="checkbox" id="che_btn">&nbsp;贵宾邀请码</span></P>
+                <P><a href="#" class="register" id="register">立即注册</a></P>
+                <P><span><input type="checkbox" checked="checked" id="che_btn">&nbsp;我已同意并阅读《寺库网用户注册协议》</span></P>
+                <p>已经是寺库会员？<a href="login.html" class="login">立即登录</a></p>
+            </div>
+
+        </div>
+    </div>
+    <!--main end-->
+    <!--footer start-->
+    <div class="footer"></div>
+    <!--footer end-->
+<script>
+    $(function(){
+        //username表单正则验证
+        $("#username").blur(function(){
+            var reg = /(^1(3|5|7|8)[0-9]{9}$)|(^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+)/;
+            console.log(reg.test($(this).val()));
+            if(reg.test($(this).val()) == false || reg.test($(this).val()) == ""){
+                $(".username_r").css({color : "red"});
+                return;
+            }else{
+                $(".username_r").css({color : "#bbb"});
+            }
+        });
+        //password表单验证 repassword_r
+        $("#password").blur(function(){
+            if($(this).val() == ""){
+                $(".password_r").html("请输入密码").css({
+                    color : "red"});
+                return;
+            }else{
+                $(".password_r").html("");
+            }
+        });
+        //repassword表单验证
+        $("#repassword").blur(function(){
+            if($(this).val() != $("#password").val()){
+                $(".repassword_r").html("密码不一致！请输入密码").css({
+                    color : "red"});
+                return;
+            }else{
+                $(".repassword_r").html("");
+            }
+        });
+        //ajax 验证   http://datainfo.duapp.com/shopdata/userinfo.php
+        $("#register").click(function(){
+            var user = $("#username").val();
+            var pass = $("#password").val();
+            $.ajax({
+                url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+                data:{
+                    status:"register",
+                    userID:user,
+                    password:pass
+                }
+            })
+            .then(function(res){
+                console.log(res);
+                switch(res){
+                    case "0":$(".username_r").html("用户名重名,请重新注册!").css({color:"red"});break;
+                    case "1":location.href = "login.html";break;
+                    case "2":$(".username_r").html("系统繁忙，请稍后再来！");break
+                    default:$(".inp").html("不能为空")
+                    }
+            })
+            //console.log(user,pass);
+            //cookie设置
+            var usersStr = getCookie("users");
+            usersStr = usersStr ? usersStr : "{}";
+            var usersObj = JSON.parse(usersStr);
+            if(user in usersObj){
+               $(".username_r").val("用户名重名,请重新注册!");
+            }else {
+                usersObj[user] = pass;
+                // 存回cookie
+                setCookie("users", JSON.stringify(usersObj), 7);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

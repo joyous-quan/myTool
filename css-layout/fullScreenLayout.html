@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>全屏布局</title>
+	<style type="text/css" media="screen">
+		html,body,.parent{
+		    margin:0;
+		    height:100%;
+		    overflow:hidden;
+		}
+		body{
+		    color:white;
+		}
+		.top{
+		    position:absolute;
+		    top:0;
+		    left:0;
+		    right:0;
+		    height:100px;
+		    background:#6E9EEA;
+		}
+		.left{
+		    position:absolute;
+		    left:0;
+		    top:100px;
+		    bottom:50px;
+		    width:200px;
+		    background:#abc;
+		}
+		.right{
+		    position:absolute;
+		    left:200px;
+		    top:100px;
+		    bottom:50px;
+		    right:0;
+		    background:#adc;
+		    overflow: auto;
+		}
+		.right .inner{
+		    min-height: 1000px;
+		}
+		.bottom{
+		    position:absolute;
+		    left:0;
+		    right:0;
+		    bottom:0;
+		    height:50px;
+		    background: #aaa;
+		}
+
+/* html,body,.parent{
+    margin:0;
+    height:100%;
+    overflow:hidden;
+}
+body{
+    color:white;
+} 
+.parent{
+    display:flex;
+    flex-direction:column;
+}
+.top{
+    background:#6E9EEA;
+}
+.bottom{
+    background:#aaa;
+}
+.middle{
+    flex:1;
+    display:flex;
+}
+.left{
+    background: #adc;
+}
+.right{
+    flex:1;
+    overflow:auto;
+    background: pink;
+}
+.right .inner{
+    min-height:1000px;
+} */
+	</style>
+</head>
+<body>
+
+<!-- 使用position
+
+	原理：将上下部分固定，中间部分使用定宽+自适应+两块高度一样高。
+	优点：兼容性好，ie6下不支持 -->
+
+<div class="parent">
+    <div class="top">top</div>
+    <div class="left">left</div>
+    <div class="right">
+        <div class="inner">right</div>
+    </div>
+    <div class="bottom">bottom</div>
+</div>
+
+
+
+
+<!-- 使用flex
+
+原理：通过灵活使用CSS3布局利器flex中的flex属性和flex-direction属性以达到全屏布局。
+缺点：兼容性差，ie9及ie9以下不兼容 -->
+
+<!--<div class="parent">
+    <div class="top">top</div>
+    <div class="middle">
+        <div class="left">left</div>
+        <div class="right">
+            <div class="inner">right</div>
+        </div>
+    </div>
+    <div class="bottom">bottom</div>
+</div> -->
+
+
+</body>
+</html>

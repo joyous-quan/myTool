@@ -1,0 +1,46 @@
+html,body{height:100%; color:#323232;}
+html{overflow-y:auto;}
+body{font:14px arial;background:#fff;}
+body,p,ul,li,img{margin:0;padding:0;list-style:none;}
+body{position:relative;}
+img{border:0;}
+a{text-decoration: none;}
+input{-webkit-appearance:none; -moz-appearance: none;}
+.layout{ width:100%; height:100%; }
+.layout_bg {width:500px;position:relative; left:15%; top:10%;}
+
+/* login */
+.login_box{width:400px;height:400px;position:absolute; top:50%; left:50%; margin-top:-200px;
+		background: #efefef;border-radius:5px;}
+.login_title{height:100px; text-align:center; line-height:120px; font-size:24px; color:#323232;}
+.login_content{width:300px; margin:0 auto;}
+.login_content p{height:54px;line-height: 54px;}
+.login_content p span{display:inline-block; width:100px;}
+.login_content p input{height:38px; width:200px;box-sizing: border-box; text-decoration:none;
+        font-size:14px; border-radius:4px; border:1px solid #c8cccf;  color:#6a6f77; padding:10px;
+        -webkit-appearance:none;  -moz-appearance: none; display:inline-block; outline:0; }
+.login_content p a{display:inline-block;float:right;padding:0 10px;}
+.login{display:block; height:45px; width:100%; background:#adc; color:#fff;font-weight:bold;
+		line-height:45px; text-align:center; border-radius:4px; margin-top:10px;}
+/* register */
+.register_box{width:416px;height:460px;position:absolute; top:50%; left:50%; margin-top:-230px;
+		background: #efefef;border-radius:5px;}
+.register_title{height:100px; text-align:center; line-height:120px; font-size:24px; color:#323232;}
+.register_content{width:316px; margin:0 auto;}
+.register_content p{height:54px;line-height: 54px;}
+.register_content p span{display:inline-block; width:116px;}
+.register_content p input{height:38px; width:200px;box-sizing: border-box; text-decoration:none;
+        font-size:14px; border-radius:4px; border:1px solid #c8cccf;  color:#6a6f77; padding:10px;
+        -webkit-appearance:none;  -moz-appearance: none; display:inline-block; outline:0; }
+.register_content p a{display:inline-block;float:right;padding:0 10px;}
+.register{display:block; height:45px; width:100%; background:#adc; color:#fff;font-weight:bold;
+		line-height:45px; text-align:center; border-radius:4px; margin-top:15px;}
+.tips{color:red;}
+
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>register</title>
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<link rel="stylesheet" type="text/css" href="css/login_register.css">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/cookie.js"></script>
+	
+	<script>
+		$(function(){
+	        //username表单正则验证
+	        $("#username").blur(function(){
+	            var reg = /(^1(3|5|7|8)[0-9]{9}$)|(^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+)/;
+	            console.log(reg.test($(this).val()));
+	            if(reg.test($(this).val()) == false || reg.test($(this).val()) == ""){
+	                $(".username_r").css({color : "red"});
+	                return;
+	            }else{
+	                $(".username_r").css({color : "#bbb"});
+	            }
+	        });
+	        //password表单验证 repassword_r
+	        $("#password").blur(function(){
+	            if($(this).val() == ""){
+	                $(".password_r").html("enter your PIN").css({
+	                    color : "red"});
+	                return;
+	            }else{
+	                $(".password_r").html("");
+	            }
+	        });
+	        //repassword表单验证
+	        $("#repassword").blur(function(){
+	            if($(this).val() != $(".password").val()){
+	                $(".repassword_r").html("Entered passwords differ！enter your PIN").css({
+	                    color : "red"});
+	                return;
+	            }else{
+	                $(".repassword_r").html("");
+	            }
+	        });
+	        //ajax 验证   http://datainfo.duapp.com/shopdata/userinfo.php
+	        $("#register").click(function(){
+	            var user = $("#username").val();
+	            var pass = $("#password").val();
+	            $.ajax({
+	                url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+	                data:{
+	                    status:"register",
+	                    userID:user,
+	                    password:pass
+	                }
+	            })
+	            .then(function(res){
+	                console.log(res);
+	                switch(res){
+	                    case "0":$(".username_r").html("username, Please re-register!").css({color:"red"});break;
+	                    case "1":location.href = "login.html";break;
+	                    case "2":$(".username_r").html("System is busy, Please come back later !");break
+	                    default:$(".inp").html("Can not be empty")
+	                    }
+	            })
+	            //console.log(user,pass);
+	            //cookie设置
+	            var usersStr = getCookie("users");
+	            usersStr = usersStr ? usersStr : "{}";
+	            var usersObj = JSON.parse(usersStr);
+	            if(user in usersObj){
+	               $(".username_r").val("username, Please re-register!");
+	            }else {
+	                usersObj[user] = pass;
+	                // 存回cookie
+	                setCookie("users", JSON.stringify(usersObj), 7);
+	            }
+	        });
+	    });
+	</script>
+</head>
+<body>
+	<div class="register_box">
+		<div class="register_title">
+			<p>Welcome Register</p>
+		</div>
+		<div class="register_content">
+			<p><span> Username: </span><input id="username" type="text" name="username"></p>
+			<p><span> Password: </span><input id="psssword" type="password" name="password"></p>
+			<p><span> ConfirmPassword: </span><input id="repassword" type="password" name="repassword"></p>
+			<p class="tips"> Existing Account <a href="login.html">Go To Login</a></p>
+			<a class="register" id="register" href="javascript:;"> Register </a>
+		</div>
+	</div>
+</body>
+</html>

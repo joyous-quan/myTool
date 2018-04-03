@@ -10,7 +10,7 @@ function getCookie(name){
     var cookieStr = document.cookie;
 
     // 将name和value对都取出来
-    var cookies = cookieStr.split('; '); // alue["name1=v1", "name2=value2", "name3=value3"]
+    var cookies = cookieStr.split('; '); // value["name1=v1", "name2=value2", "name3=value3"]
     // 遍历所有的nv对
     for(var i = 0; i < cookies.length; i++){
         var detail = cookies[i].split('='); // ["name1", "value1"]

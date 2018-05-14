@@ -1,0 +1,39 @@
+@charset "utf-8";
+*{margin:0; padding:0;}
+html,body{height:100%;width:100%;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;color:#343434;background:#ffffff;}
+ul,li{list-style:none;}
+a {text-decoration:none;color:#343434;}
+
+.header{ height:50px; background:#333;}
+.header_nav li {cursor:pointer; float:right;padding:0px 25px;line-height:50px; color:#fff;}
+.header_nav li.left{float:left;}
+.product_list{min-height:640px;overflow:hidden;}
+.content{margin:0;}
+.con {background:#fdfdfd;}
+.con h3{font-weight:300; font-size:18px;padding:10px;padding-top:20px;}
+.mycar{text-align:right;padding:10px 20px;border-bottom: 1px solid #ddd;}
+.price,.price span{color:red;}
+
+#ccount{display:inline-block;width:20px;height:20px;padding:5px;background:#8a6d67;
+      text-align:center;border-radius:15px;color:#fff;font-weight: 600;font-size:15px;}
+dl dt{margin-top:;}
+h3{padding-left:15px;}
+dl{float:left;height:330px; width:220px;text-align:center;line-height: 18px;
+    border:1px solid #ddd;margin:10px 0 5px 15px;}
+dl:hover{box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);}
+dl dt img{height:220px; width:220px;}
+dl button{width:130px;margin-top:5px;line-height:30px;color:#fff;font-weight: 600;
+      background:#6e544e;outline:none; border:none;cursor:pointer;}
+dl button:hover{background-color: #8a6d67;}
+.footer{background:#eee;height:60px;line-height:60px;margin-top:50px; text-align:center;}
+.footer a {padding-left:30px;}
+@media (max-width:980px){
+      .layout{width:725px;margin:0 auto;}
+}
+@media screen and (min-width:980px) and (max-width:1280px) {
+      .layout{width:965px;margin:0 auto;}
+}
+@media (min-width:1280px) {
+      .layout{width:1200px;margin:0 auto;}
+}

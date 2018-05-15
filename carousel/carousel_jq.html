@@ -7,23 +7,25 @@
     <style>
         .middle_right{ margin:100px 400px; }
         #lunbobox {
-            width:500px;
-            height:300px;
+            width:300px;
+            height:340px;
             position:relative;
+			background:#eee;
         }
         .lunbo {
-            width:500px;
+            width:280px;
             height:300px;
+			margin:15px 20px;
+			overflow:hidden;
         }
-        .lunbo img {
-            width:500px;
+        .lunbo a img {
             height:300px;
             position:absolute;
             top:0px;
             left:0px;
         }
         #lunbobox ul {
-            width:285px;
+            width:185px;
             position:absolute;
             bottom:10px;
             right:0px;
@@ -43,32 +45,34 @@
         #toleft {
             display:none;
             width:30px;
-            height:100px;
+            height:30px;
             font-size:40px;
-            line-height:100px;
+            line-height:24px;
             text-align:center;
             color:#f4f4f4;
             position:absolute;
             top:90px;
-            left:12px;
+            left:-20px;
             cursor:pointer;
             z-index:99;
             opacity:0.4;
+			background:#ddd;
         }
         #toright {
             display:none;
             width:30px;
-            height:100px;
+            height:30px;
             font-size:40px;
-            line-height:100px;
+            line-height:24px;
             text-align:center;
             color:#f4f4f4;
             position:absolute;
             top:90px;
-            right:0px;
+            right:-30px;
             cursor:pointer;
             z-index:99;
             opacity:0.4;
+			background:#ddd;
         }
     </style>
 </head>
@@ -78,11 +82,11 @@
         <div id="lunbobox">
             <div id="toleft">&lt;</div>
             <div class="lunbo">
-                <a href="#"><img src="./img/1.jpg" alt=""></a>
-                <a href="#"><img src="./img/2.jpg" alt=""></a>
-                <a href="#"><img src="./img/3.jpg" alt=""></a>
-                <a href="#"><img src="./img/4.jpg" alt=""></a>
-                <a href="#"><img src="./img/5.jpg" alt=""></a>
+                <a href="#"><img src="../img/1.png" alt=""></a>
+                <a href="#"><img src="../img/2.png" alt=""></a>
+                <a href="#"><img src="../img/3.png" alt=""></a>
+                <a href="#"><img src="../img/4.png" alt=""></a>
+                <a href="#"><img src="../img/5.png" alt=""></a>
             </div>
             <div id="toright">&gt;</div>
             <ul>
@@ -126,7 +130,7 @@
                 "border": "1px solid #ffffff"
             }).siblings().css({
                 "background": "#cccccc",
-                "border": ""
+                "border": "none"
             })
             $(".lunbo a ").eq(index).fadeIn(1000).siblings().fadeOut(1000);
         };

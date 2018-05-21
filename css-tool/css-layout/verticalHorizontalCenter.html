@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>垂直水平居中</title>
+	<style type="text/css" media="screen">
+		* { margin:0; padding:0; }
+		html,body { width:100%; }
+		.parent{
+            position:relative; height:220px; width:100%; background: #adc;
+        }
+		.child{
+			position:absolute;
+		    left:50%;top:50%;
+		    transform:translate(-50%,-50%);
+            width:400px; height:140px; background: #abc;
+        }
+        .parent2{
+            text-align:center;
+		    display:table-cell;
+		    vertical-align:middle;
+            height:120px; background: #abc;
+        }
+        .child2 {
+		    display:inline-block; width:600px; height:80px; background: #adcccc;
+		}
+		.parent3 {
+			display:flex;
+		    justify-content:center;
+		    align-items:center;
+		    height:320px; width:100%; background: #adc;
+		}
+		.child3 {
+			width:300px; height:180px; background: #abcccc;
+		}
+		
+	</style>
+	<script type="text/javascript" charset="utf-8" async defer>
+		window.onload = function(){
+			var parent = document.getElementById('parent2');
+			parent.style.width = window.innerWidth + 'px'
+		}
+	</script>
+</head>
+<body>
+<div class="parent">
+	    <div class="child">DEMO</div>
+	</div>
+<!--优缺点
+	优点:child元素不会对其他元素产生影响
+	缺点:兼容性存在一定问题 -->
+	
+	<div class="parent2" id="parent2">
+	    <div class="child2">DEMO</div>
+	</div>
+<!--优缺点：
+	优点:居中元素不会对其他的产生影响
+	缺点:transform属于css3内容，兼容性存在一定问题，高版本浏览器需要添加一些前缀 -->
+
+	<div class="parent3">
+	    <div class="child3">DEMO</div>
+	</div>
+<!-- 优缺点
+	优点:只设置parent
+	缺点:兼容性存在一定问题 -->
+
+
+
+</body>
+</html>

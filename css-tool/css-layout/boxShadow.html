@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-shadow的用法</title>
+    <style type="text/css">
+        div{
+            width:60px;
+            height:60px;
+            margin:40px auto;
+            background-color: grey;
+        }
+        /*右下阴影*/
+        .box-shadow-1{
+            -webkit-box-shadow: 3px 3px 3px;
+            -moz-box-shadow: 3px 3px 3px;
+            box-shadow: 3px 3px 3px;
+        }
+        /*四边同色阴影*/
+        .box-shadow-2{
+            -webkit-box-shadow:0 0 10px #0CC;
+            -moz-box-shadow:0 0 10px #0CC;
+            box-shadow:0 0 10px #0CC;
+        }
+        /*四边同色阴影扩展*/
+        .box-shadow-3{
+            -webkit-box-shadow:0 0 10px 15px #0CC;
+            -moz-box-shadow:0 0 10px 15px #0CC;
+            box-shadow:0 0 10px 15px #0CC;
+        }
+        /*四边同色内阴影*/
+        .box-shadow-4{
+            -webkit-box-shadow:inset 0 0 10px #0CC;
+            -moz-box-shadow:inset 0 0 10px #0CC;
+            box-shadow:inset 0 0 10px #0CC;
+        }
+        /*四边异色外阴影*/
+        .box-shadow-5{
+            box-shadow:-10px 0 10px red, /*左边阴影*/
+            10px 0 10px yellow, /*右边阴影*/
+            0 -10px 10px blue, /*顶部阴影*/
+            0 10px 10px green; /*底边阴影*/
+        }
+        /*叠加异色阴影*/
+        .box-shadow-6{
+            box-shadow:0 0 10px 5px black,
+            0 0 10px 20px red;
+        }
+        /*类border边框效果（只设置阴影扩展半径和阴影颜色）*/
+        .box-shadow-7{
+            box-shadow: 0 0 0 1px red;
+        }
+        /*兼容ie*/
+        .box-shadow{
+            filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696',Direction=135, Strength=5);/*for ie6,7,8*/
+            background-color: #ccc;
+            -moz-box-shadow:2px 2px 5px #969696;/*firefox*/
+            -webkit-box-shadow:2px 2px 5px #969696;/*webkit*/
+            box-shadow:2px 2px 5px #969696;/*opera或ie9*/
+        }
+    </style>
+</head>
+<body>
+<div class="box-shadow-1"></div>
+<div class="box-shadow-2"></div>
+<div class="box-shadow-3"></div>
+<div class="box-shadow-4"></div>
+<div class="box-shadow-5"></div>
+<div class="box-shadow-6"></div>
+<div class="box-shadow-7"></div>
+<div class="box-shadow"></div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>不定宽+自适应</title>
+	<style type="text/css" media="screen">
+		* { margin:0; padding:0; }
+		html,body { width:100%; }
+		.parent {height:240px; width:100%;padding:20px;box-sizing: border-box; background: #adc;}
+		.left{
+	        float: left; background: #abcdee;height:100%;
+	        margin-right: 20px;
+	    }
+		.right{
+		    overflow: hidden; background: #cfffff;height:100%;
+		}
+		.left p{
+		    width: 200px;
+		}
+		.parent2{
+		    display:table; height:260px; width:100%; padding:20px; box-sizing:border-box; background:#abc;
+		   }
+		.left2,.right2{
+		    display: table-cell;
+		}
+		.right2{
+		    background: #eff;
+		}
+		.left2{
+		    width: 0.1%;
+		    padding-right: 20px; background: #cfffff;
+		}
+		.left2 p{
+		    width:200px;
+		}
+		.parent3 {
+		    display:flex; height:250px; width:100%; padding:20px; box-sizing:border-box; background:#adc;
+		}
+		.left3 {
+		    margin-right:20px; background:#abc;
+		}
+		.right3 {
+		    flex:1; background:#adbbbc;
+		}
+		.left3 p{
+		    width: 200px;
+		}
+		.parent4 {
+		    display:flex; height:250px; width:100%; padding:20px; box-sizing:border-box; background:#abc;
+		}
+		.left4,.center4{
+		    float: left;
+		    margin-right: 20px;
+		}
+		.left4 {background: #adc}
+		.center4{
+		    background:#affffc;
+		}
+		.right4{
+		    overflow: hidden; background:#eee;
+		}
+		.left4 p,.center4 p{
+		    width: 100px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="parent">
+    <div class="left">
+        <p>left</p>
+    </div>
+    <div class="right">
+        <p>right</p>
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
+<!-- 优点:简单
+缺点:ie6下兼容性存在一定问题 -->
+
+<div class="parent2">
+    <div class="left2">
+        <p>left</p>
+    </div>
+    <div class="right2">
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
+<!-- 缺点:ie6 ie7不支持 -->
+
+<div class="parent3">
+    <div class="left3">
+        <p>left</p>
+    </div>
+    <div class="right3">
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
+
+<!-- 优点:flex很强大
+缺点:兼容性存在一定问题，性能存在一定问题 -->
+
+
+
+<!-- 两列不定宽+一列自适应 -->
+<div class="parent4">
+    <div class="left4">
+        <p>left</p>
+    </div>
+    <div class="center4">
+        <p>center</p>
+    </div>
+    <div class="right4">
+        <p>right两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应 两列不定宽+一列自适应</p>
+        <p>right两列不定宽+一列自适应两列不定宽+一列自适应两列不定宽+一列自适应两列不定宽+一列自适应</p>
+    </div>
+</div>
+
+
+</body>
+</html>

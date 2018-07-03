@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <style>
+        div {
+            background: #f99;
+            height:50px
+        }
+    </style>
+	<!--[if lte IE 8]>
+        <script>
+            var div = document.getElementsByTagName('div');
+            div.style.height ="100px";
+        </script>
+    <![endif]-->
+
+    
+
+    <!--[if IE 9]>
+    <style type="text/css">
+     /* 针对IE9定义的样式 */
+     div {
+        background:green;
+    }
+    </style>
+    <![endif]-->
+</head>
+<body>
+	<div>
+		
+	</div>
+
+
+<script>
+	
+    (function(w) {
+        if(!("WebSocket" in w && 2 === w.WebSocket.CLOSING)) {
+            var d = document.createElement("div");
+            d.className = "browsehappy";
+            d.innerHTML = '<div style="width:100%;height:60px;font-size:20px;line-height:60px;text-align:center;background-color:#E90D24;color:#fff;margin-bottom:10px;"><strong>\u4f60\u7684\u6d4f\u89c8\u5668\u7248\u672c\u8fc7\u4f4e !  \u8bf7\u7acb\u5373\u5347\u7ea7</strong></div>';
+            var f = function() {
+                var s = document.getElementsByTagName("body")[0];
+                if("undefined" == typeof(s)) {
+                    setTimeout(f, 10)
+                } else {
+                    s.insertBefore(d, s.firstChild)
+                }
+            };
+            f()
+        }
+    }(window));
+</script>
+</body>
+</html>

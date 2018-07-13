@@ -52,5 +52,24 @@
         }
     }(window));
 </script>
+
+<script type="text/javascript">
+    //识别移动设备 ipad 
+    $(function(){
+        var u = navigator.userAgent;
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1||u.indexOf('iPhone') > -1||u.indexOf('Windows Phone') > -1||navigator.userAgent.indexOf("iPad")>-1) {
+               $(".row_list .hover-bg,.hover-text").css({'opacity':'1'});
+               
+               $(".row_list .hover-text li.a").css({'top':'30%'});
+               
+               $(".row_list .hover-text li.c").css({'top':'65%'});
+
+               $(".nav").css({'background':'#000','padding':'0'});
+            }
+     });
+
+</script>
+
+
 </body>
 </html>

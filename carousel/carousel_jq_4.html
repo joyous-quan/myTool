@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片轮播jq</title>
+	<meta charset="utf-8">
+	<style>
+		*{margin:0;padding:0;}
+		a {text-decoration:none;}
+		img {border : none;}
+		ul,li {list-style:none;}
+		.container {width:1050px;margin:100px auto;position:relative;}
+		.btn {position:absolute;width:30px; height:35px;font-size:30px;line-height:30px;
+			text-align:center;top:110px; cursor:pointer;background: #cde;color:#fff;}
+			.prev {left:0;}
+			.next {right:0;}
+		.slider-container {height:240px;width:970px;padding:10px 0; overflow:hidden; 
+			background: #eee;margin:0 auto;}
+		.slider {height:240px;width:1620px;}
+		.slider li {display:inline-block; width:300px;height:240px;box-sizing:border-box;
+			border:1px solid #d5d5d5; margin:0 10px;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="slider-container">
+			<ul class="slider">
+				<li style="background:#abc"><img src="" alt=""></li>
+				<li style="background:#bcd"><img src="" alt=""></li>
+				<li style="background:#acd"><img src="" alt=""></li>
+				<li style="background:#ade"><img src="" alt=""></li>
+				<li style="background:#aef"><img src="" alt=""></li>
+			</ul>
+		</div>
+		<div class="prev btn"><</div>
+		<div class="next btn">></div>
+			
+	</div>
+
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	var flag = "left";
+	function my_scroll(container,prev,next,slider,speed,auto){
+		var container = $(container), prev = $(prev), next = $(next), slider = $(slider), speed = speed;
+		var w = slider.find('li').outerWidth(true);
+		prev.click(function(){
+			slider.animate({ marginLeft : -w},function(){
+				slider.find('li').eq(0).appendTo(slider);
+				slider.css({marginLeft : 0});
+			});
+			flag = "left";
+		});
+		next.click(function(){
+			slider.find('li:last').prependTo(slider);
+			slider.css({ marginLeft : -w});
+			slider.animate({ marginLeft : 0});
+			flag = "right";
+		})
+		if(auto == true) {
+			timer = setInterval(function(){
+				flag = "left" ? prev.click() : next.click();
+			},speed);
+			container.hover(
+				function(){clearInterval(timer)},
+				function(){
+					timer = setInterval(function(){
+						flag = "left" ? prev.click() : next.click();
+					},speed);
+				}
+			)
+		}
+	}
+	my_scroll('.container','.next','.prev','.slider', 3000, true);
+
+
+
+})
+
+
+
+
+
+</script>
+
+</body>
+</html>

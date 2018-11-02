@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+<style>
+html{font-size: 50px;}
+* {margin:0;padding:0;}
+body {max-width: 100%;}
+
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding: 0; margin: 0; outline: 0}
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+.apply {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    display: block;
+    height: 3.1rem;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    zoom: 1;
+    overflow: hidden;
+    padding: 0 .75rem;
+}
+.apply .item div {
+    font-size: .7rem;
+}
+.apply .pic {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-top: .35rem;
+    float: left;
+}
+.apply .pic img {
+    width: 100%;
+    height: 2.25rem;
+}
+
+.apply .name2 {
+    margin-left: 2.75rem;
+    padding-top: .6rem;
+}
+.apply .name2 span {
+    display: block;
+}
+.addit {
+    height: 3.1rem;
+    line-height: 3.1rem;
+    position: absolute;
+    right: 0rem;
+    width: 0rem;
+    top: 0;
+    background: red;
+    color: #fff;
+    text-align: center;
+}
+</style>
+
+
+</head>
+<body>
+<div style="position: relative">
+    <div class="apply">
+        <div class="item">
+            <a href="javascript:void(0)">
+                <div class="pic"><img src="../images/01.jpg"/></div>
+                <div class="name">
+                    <span class="fl">订单通知</span>
+                    <span class="fr f_clr99">2016-05-12</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="addit delete">删除</div>
+</div>
+<div style="position: relative">
+    <div class="apply">
+        <div class="item">
+            <a href="javascript:void(0)">
+                <div class="pic"><img src="../images/01.jpg"/></div>
+                <div class="name">
+                    <span class="fl">订单通知2</span>
+                    <span class="fr f_clr99">2016-05-12</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="addit delete">删除</div>
+</div>
+<div style="position: relative">
+    <div class="apply">
+        <div class="item">
+            <a href="javascript:void(0)">
+                <div class="pic"><img src="../images/01.jpg"/></div>
+                <div class="name">
+                    <span class="fl">订单通知3</span>
+                    <span class="fr f_clr99">2016-05-12</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="addit delete">删除</div>
+</div>
+
+<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script>
+	$(function(){
+		$('.apply').on("swipeleft", function () {//左滑显示隐藏按键
+	        //console.log("lll")
+	        $(this).animate({left: '-3rem'}, 200, 'linear');
+	        $(this).siblings('.addit').animate({width: '3rem'}, 200, 'linear');
+	        // $(this).parent('li').siblings('li').find('.apply').animate({left: '0'}, 200).siblings('.addit').animate({width: '0'}, 200);
+	    });
+	    $('.apply').on("swiperight", function () {//右滑恢复
+	        $(this).animate({left: '0'}, 200, 'linear');
+	        $(this).siblings('.addit').animate({width: '0rem'}, 200, 'linear');
+	    });
+	    $('.delete').on("tap", function () { //删除
+	        $(this).parent().remove();
+	    });
+
+	})
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+<style>
+
+body { font-family:"Microsoft Yahei",Arial; font-size:14px; color:#333; }
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,p,img{ margin:0px; padding:0px; }
+a { display:inline-block;text-decoration:none; color:#333; }
+li { list-style:none }
+em,i { font-style:normal; }
+table,img { border:0; }
+table { width:100%; border-collapse:collapse; }
+input,textarea,button,select { outline:none;-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+input::-ms-clear,input::-ms-reveal { display:none; }
+input:-webkit-autofill { -webkit-box-shadow:0 0 0 1000px #fff inset;}
+input,textarea,select {
+	font-family:"Microsoft Yahei",Arial;
+	font-size:14px;
+	color:#333;
+	vertical-align:middle;
+	padding: 3px 10px;
+}
+
+button:focus { outline:none; }
+button::-moz-focus-inner { border:0;}
+.clearboth:after{
+	display:block;
+	content:" ";
+	clear:both; 
+	visibility:hidden;  
+}
+.clearboth { zoom:1; }
+.position_r { position:relative; }
+.position_a { position:absolute; }
+.float_l { float:left; }
+.float_r { float:right; }
+.align_r { text-align:right; }
+.align_c { text-align:center; }
+.border_box { 
+	-webkit-box-sizing:border-box; 
+	-moz-box-sizing:border-box; 
+	box-sizing:border-box;
+}
+/* 多行溢出 仅chrome有效 其余浏览器设置max-height值 */
+.overflow-duo{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* 英文单词强制换行 */
+.EN-word{
+	word-wrap: break-word;
+	word-break: normal;
+}
+.hidden { display: none; }
+
+select {min-width: 120px;}
+.change select { -webkit-appearance:none;-moz-appearance:none;appearance:none;}
+.change select::-ms-expand { display:none; }
+.change select {
+	appearance:none;  
+    -moz-appearance:none;  
+    -webkit-appearance:none;
+	outline: none;
+	border: 1px solid #aaa;
+	background:#fff url(./images/down.png) no-repeat;
+	background-position: 95% center;
+}
+.change select option:hover {
+	background: #8fbbee;
+}
+
+.ipt-radio{
+    display: none;
+}
+.ipt-span{
+    display: inline-block;
+    border:1px solid #8fbbee;
+    width:16px;
+    height: 16px;
+    border-radius:16px;
+    vertical-align: middle;
+    margin-right: 5px;
+    position: relative;
+}
+.ipt-span:before{
+    content: '';
+    font-size: 0;
+    width: 8px;
+    height: 8px;
+    background: #8fbbee;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -4px;
+    margin-top: -4px;
+    border-radius: 8px;
+    display: none;
+}
+.ipt-radio:checked~.ipt-span:before{
+    display: block;
+}
+
+
+
+.change input[type="checkbox"] {
+	appearance: none; 
+	-webkit-appearance: none;
+	outline: none;
+	display:none;
+}
+label { 
+	display:inline-block;
+	width:20px;height:20px;
+	cursor:pointer;
+}
+label input[type="checkbox"] + span{
+	display:inline-block;
+	width:20px;height:20px;
+	background:url(./images/dui.png) no-repeat;
+	background-position:0 -21px;
+	border: 1px solid #ddd;
+}
+label input[type="checkbox"]:checked + span{
+	background-position:3px 3px;
+}
+
+
+.change input[type="checkbox"] {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	visibility: hidden;
+	bottom: 0;
+}
+.change input[type="checkbox"] +label {
+	display: inline-block;
+	width: 16px;height: 16px; 
+	background:#fff url(./images/dui.png) no-repeat;
+	background-position: -17px 0;
+	border: 1px solid #ddd; 
+	border-radius: 2px;
+	position: relative;
+	top:5px;
+	margin-right: 5px;
+}
+.change input[type="checkbox"]:checked +label {
+	background-position: 1px 1px;
+}
+
+.img-box {
+	position: relative;
+	height:200px;
+	width:260px;
+	background: #eee;
+	margin: 5px;
+}
+.img-box img {
+	position: absolute;
+	top: 0; right: 0;
+	bottom:0; left:0;
+	margin: auto;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/* 移动端 */
+
+/* html{font-size: 10px}
+@media screen and (min-width: 321px) and (max-width: 375px){html{font-size: 11px}}
+@media screen and (min-width: 376px) and (max-width: 414px){html{font-size: 12px}}
+@media screen and (min-width: 415px) and (max-width: 639px){html{font-size: 15px}}
+@media screen and (min-width: 640px) and (max-width: 719px){html{font-size: 20px}}
+@media screen and (min-width: 720px) and (max-width: 749px){html{font-size: 22.5px}}
+@media screen and (min-width: 750px) and (max-width: 799px){html{font-size: 23.5px}}
+@media screen and (min-width: 800px){html{font-size: 25px}}
+ */
+
+
+/* 取消链接高亮 
+	a { -webkit-tap-highlight-color:rgba(0, 0, 0, 0);} */
+
+/*  加载 jquery.mobile.js 使得a标签加载网页不刷新：解决方法
+	a标签添加  target="_top"*/
+/* 
+加载 jquery.mobile.css 页面底部出现loading:解决方法：
+添加样式：
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding:0; margin:0; outline:0}
+*/
+
+/*jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. See https://www.chromestatus.com/features/5093566007214080*/
+/*Unable to preventDefault inside passive event listener due to target being treated as passive.*/ 
+/* 出现上述提示：解决方法
+1，注册处理函数时，用如下方式，明确声明为不是被动的
+window.addEventListener('touchmove', fn, { passive:false })
+2、应用 CSS 属性 touch-action:none; 这样任何触摸事件都不会产生默认行为，但是 touch 事件照样触发。
+*/
+
+
+
+</style>
+</head>
+<body >
+<div style="width:800px;margin:0 auto;line-height: 30px;">
+	
+	<h2 style="text-align: center;">常用样式总结</h2>
+	<div>
+		<h3>多行溢出</h3>
+		<p class="overflow-duo">
+			jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.
+		</p>
+		<br>
+		<h3>英文单词强制换行</h3>
+		<p class="EN-word" style="width:300px;border:1px solid #ccc">
+			jqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjquery.
+		</p>
+		<br>
+		<p class="" style="width:300px;border:1px solid #ccc">
+			jqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjqueryjquery.
+		</p>
+	</div>
+	<br>
+	<div>
+		<h3>input</h3>
+		<div>(原)radio :
+			<span class="radio1">
+				radio1 ：<input type="radio" name="radio1">	
+				<b class="hidden">check radio1</b>
+			</span>
+			<span class="radio2">
+				radio2 ：<input type="radio" name="radio1">
+				<b class="radio2 hidden">check radio2</b>
+			</span>
+		</div>
+		<div class="change">(改)radio :
+			<span class="radio1">
+				radio1 ：<label class="radio-label"><input type="radio" name="radio2" class="ipt-radio"><span class="ipt-span"></span></label>	
+				<b class="hidden">check radio1</b>
+			</span>
+			<span class="radio2">
+				radio2 ：<label class="radio-label"><input type="radio" name="radio2" class="ipt-radio"><span class="ipt-span"></span></label>	
+				<b class="radio2 hidden">check radio2</b>
+			</span>
+		</div>
+	</div>
+	<div>
+		<p>
+			(原)select : 
+			<select name="">
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+			</select>
+		</p>
+		<p class="change">
+			(改)select :
+			<select name="">
+				<option value="">11</option>
+				<option value="">22</option>
+				<option value="">33</option>
+				<option value="">44</option>
+			</select>
+		</p>
+	</div>
+	<br>
+	<h3>中国省市区地址三级联动</h3>
+	<div data-toggle="distpicker">
+	  <select data-province="---- 选择省 ----"></select>
+	  <select data-city="---- 选择市 ----"></select>
+	  <select data-district="---- 选择区 ----"></select>
+	</div>
+	<br>
+	<div>
+		<h3>checkbox 关联全选/全不选</h3>
+		<table>
+			<thead>
+				<tr>
+					<td class="change">
+						<label><input type="checkbox" name="" id="selectAll"><span></span></label>
+					</td>
+					<td>全选(改)</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="checkitem"></td>
+					<td>checkitem</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="checkitem"></td>
+					<td>checkitem</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="checkitem"></td>
+					<td>checkitem</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="checkitem"></td>
+					<td>checkitem</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="checkitem"></td>
+					<td>checkitem</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<div>
+		<h3>图片居中：</h3>
+		<a href="javascript:;" class="img-box">
+			<img src="./images/1.jpg">
+		</a>
+		<a href="javascript:;" class="img-box"> <!-- -->
+			<img src="./images/04.jpg">
+		</a>
+	</div>
+
+
+</div>
+
+<!-- <script src="./js/jquery.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/distpicker.js"></script>
+ <!--  <script src="js/main.js"></script> -->
+<script>
+
+
+$(function(){
+
+	//中国省市区地址三级联动
+	$("#distpicker").distpicker();
+
+	//单选框点击选择取消
+	$('input:radio').click(function(){
+	    //var domName = $(this).attr('name');
+	    var $radio = $(this);
+	    // if this was previously checked
+	    if ($radio.data('waschecked') == true){
+	        $radio.prop('checked', false);
+	        //$("input:radio[name='" + domName + "']").data('waschecked',false);
+	        $radio.data('waschecked', false);
+	    } else {
+	        $radio.prop('checked', true);
+	        //$("input:radio[name='" + domName + "']").data('waschecked',false);
+	        $radio.data('waschecked', true);
+	    }
+
+	    if( $radio.data('waschecked') == true){
+	    	$radio.siblings('b').show()
+	    	$radio.parent().siblings('b').show()
+	    }else{
+	    	$radio.siblings('b').hide()
+	    	$radio.parent().siblings('b').hide()
+	    }
+
+	})
+
+
+	/*JQuery实现全选/全不选，取消子checkbox时，全选checkbox取消对勾号*/
+	$("#selectAll").click(function () {//判断全选框的改变
+	    var boolean1 = $(this).is(":checked");//全选选中为true，否则为false
+	    $("table input[type=checkbox]").each(function () {
+	        $(this).prop("checked", boolean1);
+	    })
+	});
+	//当子元素都选全选选中，其中一个不选取消全选
+	$("input[name=checkitem]").click(function () {
+	    var boolean2 = true;
+	    for (var i = 0; i < $("input[name=checkitem]").length; i++) {
+	        if (!$($("input[name=checkitem]")[i]).is(":checked")) {
+	            boolean2 = false;
+	            break;
+	        }
+	    }
+	    $("#selectAll").prop("checked", boolean2);
+	})
+
+
+
+})	
+</script>
+</body>
+</html>

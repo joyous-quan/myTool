@@ -19,26 +19,26 @@
      <div class="jq22-container">
           <div class="jq22-content bgcolor-3">
                <div id="div1">
-                    <div class="box"><img src="images/01.jpg" alt=""></div>
-                    <div class="box"><img src="images/02.jpg" alt=""></div>
-                    <div class="box"><img src="images/03.jpg" alt=""></div>
-                    <div class="box"><img src="images/04.jpg" alt=""></div>
-                    <div class="box"><img src="images/05.jpg" alt=""></div>
-                    <div class="box"><img src="images/06.jpg" alt=""></div>
-                    <div class="box"><img src="images/07.jpg" alt=""></div>
-                    <div class="box"><img src="images/08.jpg" alt=""></div>
-                    <div class="box"><img src="images/02.jpg" alt=""></div>
-                    <div class="box"><img src="images/03.jpg" alt=""></div>
-                    <div class="box"><img src="images/04.jpg" alt=""></div>
-                    <div class="box"><img src="images/05.jpg" alt=""></div>
-                    <div class="box"><img src="images/06.jpg" alt=""></div>
-                    <div class="box"><img src="images/07.jpg" alt=""></div>
-                    <div class="box"><img src="images/06.jpg" alt=""></div>
-                    <div class="box"><img src="images/07.jpg" alt=""></div>
-                    <div class="box"><img src="images/08.jpg" alt=""></div>
-                    <div class="box"><img src="images/02.jpg" alt=""></div>
-                    <div class="box"><img src="images/03.jpg" alt=""></div>
-                    <div class="box"><img src="images/04.jpg" alt=""></div>
+                    <div class="box"><img src="../images/01.jpg" alt=""></div>
+                    <div class="box"><img src="../images/02.jpg" alt=""></div>
+                    <div class="box"><img src="../images/03.jpg" alt=""></div>
+                    <div class="box"><img src="../images/04.jpg" alt=""></div>
+                    <div class="box"><img src="../images/05.jpg" alt=""></div>
+                    <div class="box"><img src="../images/06.jpg" alt=""></div>
+                    <div class="box"><img src="../images/07.jpg" alt=""></div>
+                    <div class="box"><img src="../images/08.jpg" alt=""></div>
+                    <div class="box"><img src="../images/02.jpg" alt=""></div>
+                    <div class="box"><img src="../images/03.jpg" alt=""></div>
+                    <div class="box"><img src="../images/04.jpg" alt=""></div>
+                    <div class="box"><img src="../images/05.jpg" alt=""></div>
+                    <div class="box"><img src="../images/06.jpg" alt=""></div>
+                    <div class="box"><img src="../images/07.jpg" alt=""></div>
+                    <div class="box"><img src="../images/06.jpg" alt=""></div>
+                    <div class="box"><img src="../images/07.jpg" alt=""></div>
+                    <div class="box"><img src="../images/08.jpg" alt=""></div>
+                    <div class="box"><img src="../images/02.jpg" alt=""></div>
+                    <div class="box"><img src="../images/03.jpg" alt=""></div>
+                    <div class="box"><img src="../images/04.jpg" alt=""></div>
                </div>
           </div>
     </div>
@@ -55,7 +55,7 @@
 	            { "src": "03.jpg" }, { "src": "04.jpg" }, { "src": "02.jpg" }, { "src": "05.jpg" }, { "src": "01.jpg" }, { "src": "06.jpg" }
 	        ]};
 	        var str = "";
-	        var templ = '<div class="box" style="opacity:0;filter:alpha(opacity=0);"><div class="pic"><img src="images/{{src}}" /></div></div>'
+	        var templ = '<div class="box" style="opacity:0;filter:alpha(opacity=0);"><div class="pic"><img src="../images/{{src}}" /></div></div>'
 	        for(var i = 0; i < data.data.length; i++) {
 	            str += templ.replace("{{src}}", data.data[i].src);
 	        }

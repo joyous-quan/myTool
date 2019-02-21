@@ -1,11 +1,8 @@
-
 function setCookie(name, value, expires, path){
 	var exp = new Date();
 	exp.setDate(exp.getDate() + expires );
 	var gmtStr = exp.toGMTString();
-	if(!path){
-		path = "/";
-	}
+	if(!path){ path = "/"; }
 	//设置cookie
 	document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + gmtStr + ";path=" + path;
 }

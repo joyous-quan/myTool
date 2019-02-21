@@ -3,17 +3,17 @@
 <head>
 	<title></title>
 	<meta charset="utf-8">
-
 <style>
-
+/* 通用样式 */
+* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 body { font-family:"Microsoft Yahei",Arial; font-size:14px; color:#333; }
 body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,p,img{ margin:0px; padding:0px; }
-a { display:inline-block;text-decoration:none; color:#333; }
+a { text-decoration:none; color:#333; }
 li { list-style:none }
 em,i { font-style:normal; }
 table,img { border:0; }
 table { width:100%; border-collapse:collapse; }
-input,textarea,button,select { outline:none;-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+input,textarea,button,select { outline:none;}
 input::-ms-clear,input::-ms-reveal { display:none; }
 input:-webkit-autofill { -webkit-box-shadow:0 0 0 1000px #fff inset;}
 input,textarea,select {
@@ -23,15 +23,9 @@ input,textarea,select {
 	vertical-align:middle;
 	padding: 3px 10px;
 }
-
 button:focus { outline:none; }
 button::-moz-focus-inner { border:0;}
-.clearboth:after{
-	display:block;
-	content:" ";
-	clear:both; 
-	visibility:hidden;  
-}
+.clearboth:after{display:block;content:" ";clear:both;visibility:hidden;}
 .clearboth { zoom:1; }
 .position_r { position:relative; }
 .position_a { position:absolute; }
@@ -39,11 +33,7 @@ button::-moz-focus-inner { border:0;}
 .float_r { float:right; }
 .align_r { text-align:right; }
 .align_c { text-align:center; }
-.border_box { 
-	-webkit-box-sizing:border-box; 
-	-moz-box-sizing:border-box; 
-	box-sizing:border-box;
-}
+
 /* 多行溢出 仅chrome有效 其余浏览器设置max-height值 */
 .overflow-duo{
 	overflow: hidden;
@@ -58,8 +48,44 @@ button::-moz-focus-inner { border:0;}
 	word-break: normal;
 }
 .hidden { display: none; }
+/* 透明度问题 (单独使用，影响子父元素)*/
+.opacity6 {
+	opacity: .6;
+	filter: alpha(opacity=60);
+}
+/* 弹窗建议 层级*/
+.mask {
+	position:fixed;
+	top:0; left:0;
+	z-index: 100;
+	height:100%; width:100%;
+	background: #000;
+	opacity: .6;
+	filter:alpha(opacity=60);
+}
+.popups {
+	position:fixed;
+	top: 0; left: 0;
+    right: 0; bottom: 0;
+    margin:auto;
+	z-index:101;
+	height:300px; width:480px;
+	background: #fff;
+}
 
-select {min-width: 120px;}
+/* IE　兼容CSS 
+http://www.webhek.com/post/conditional-comments-in-ie11-10.html */
+
+.border-table {
+	border: 1px solid #ddd;
+	border-bottom: none;
+}
+.border-table td {
+	padding: 5px 10px;
+	border-bottom: 1px solid #ddd;
+}
+.border-table td:first-child { border-right: 1px solid #ddd; }
+select { min-width: 120px;}
 .change select { -webkit-appearance:none;-moz-appearance:none;appearance:none;}
 .change select::-ms-expand { display:none; }
 .change select {
@@ -155,8 +181,6 @@ label input[type="checkbox"]:checked + span{
 
 .img-box {
 	position: relative;
-	height:200px;
-	width:260px;
 	background: #eee;
 	margin: 5px;
 }
@@ -168,49 +192,195 @@ label input[type="checkbox"]:checked + span{
 	max-height: 100%;
 	max-width: 100%;
 }
+.images-box {
+	position: relative;
+	height: 600px;
+}
+.big-img {
+	position: relative;
+	width:360px;
+	height:280px;
+}
+.big-img img {
+	width:340px;
+	height:260px;
+}
+.small-img .img-box{
+	width:100px;
+	height:80px;
+}
+.small-img .img-box img {
+	width:90px;
+	height:70px;	
+}
+.current {background: #ccc;}
+.magnifying-img {
+	position: absolute;
+	top: 0; left:0;
+	z-index: 15;
+	width:560px;
+	height:400px;
+}
+.magnifying-img img {
+	width:560px;
+	height:400px;
+}
+.magnifying {
+	position: absolute;
+	background: #ddd;
+	right:0;
+	bottom:0;
+	padding: 5px 3px;
+	font-size: 12px;
+}
 
-/* 移动端 */
 
-/* html{font-size: 10px}
-@media screen and (min-width: 321px) and (max-width: 375px){html{font-size: 11px}}
-@media screen and (min-width: 376px) and (max-width: 414px){html{font-size: 12px}}
-@media screen and (min-width: 415px) and (max-width: 639px){html{font-size: 15px}}
-@media screen and (min-width: 640px) and (max-width: 719px){html{font-size: 20px}}
-@media screen and (min-width: 720px) and (max-width: 749px){html{font-size: 22.5px}}
-@media screen and (min-width: 750px) and (max-width: 799px){html{font-size: 23.5px}}
-@media screen and (min-width: 800px){html{font-size: 25px}}
+.popups a {
+	position:absolute;
+	right:20px;top:40px;
+	width:38px;height:38px;
+	font-size:24px;
+	color:#007bc4;
+}
+.popups p {
+	position:absolute;
+	bottom:135px;left:150px;
+	font-size:24px;
+	color:#007bc4;
+	letter-spacing:1px;
+}
+.popups b {
+	display:inline-block;
+	padding:10px;
+	font-size:34px;
+}
+/*
+A3 {
+	width:1200px;
+	height:1730px;
+} 
+A4 {
+	width:900px;
+	height:1310px;
+}
+A5{
+	width:600px;
+	height:885px;
+}
  */
 
 
-/* 取消链接高亮 
-	a { -webkit-tap-highlight-color:rgba(0, 0, 0, 0);} */
 
-/*  加载 jquery.mobile.js 使得a标签加载网页不刷新：解决方法
-	a标签添加  target="_top"*/
-/* 
-加载 jquery.mobile.css 页面底部出现loading:解决方法：
-添加样式：
-.ui-loader-default{ display:none}
-.ui-mobile-viewport{ border:none;}
-.ui-page {padding:0; margin:0; outline:0}
+/* {
+transition-property	规定设置过渡效果的 CSS 属性的名称。
+transition-duration	规定完成过渡效果需要多少秒或毫秒。
+	请始终设置 transition-duration 属性，否则时长为 0，就不会产生过渡效果。
+transition-timing-function	规定速度效果的速度曲线。
+transition-delay	定义过渡效果何时开始。
+transition: transition-property transition-duration transition-timing-function transition-delay;
+
+
+	transition: width 2s;
+	-moz-transition: width 2s; Firefox 4
+	-webkit-transition: width 2s; Safari 和 Chrome
+	-o-transition: width 2s; Opera 
+}
 */
 
-/*jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. See https://www.chromestatus.com/features/5093566007214080*/
-/*Unable to preventDefault inside passive event listener due to target being treated as passive.*/ 
-/* 出现上述提示：解决方法
-1，注册处理函数时，用如下方式，明确声明为不是被动的
-window.addEventListener('touchmove', fn, { passive:false })
-2、应用 CSS 属性 touch-action:none; 这样任何触摸事件都不会产生默认行为，但是 touch 事件照样触发。
-*/
+/* 渐变动画背景 */
+.Gradient-box {
+	height:100px;
+	color: #fff;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
 
 
 
 </style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
 </head>
 <body >
+
+<div class="Gradient-box">
+	<br><br>
+	<h1 style="text-align: center;">常用样式总结</h1>
+</div>
+
+<div class="mask"></div>
+<div class="popups">
+   	<a href="javascript:;" class="del-mask">X</a>
+   	<p>
+   		<b id="show">5</b>秒钟广告
+   	</p>
+</div>
+<script type="text/javascript">
+	
+    var t = 5;//设定跳转的时间
+    var timer = setInterval("refer()",1000); //启动1秒定时
+    function refer(){
+    	if(t==0){
+			$('.mask,.popups').hide();//关闭弹窗
+			clearInterval(timer);//关闭计时器
+	    	//location = "http://www.baidu.com"; //#设定跳转的链接地址
+	    }
+	    document.getElementById('show').innerHTML = t ; // 显示倒计时
+	    t --; // 计数器递减
+	}
+	$('.del-mask').click(function(){
+		$('.mask,.popups').hide();//关闭弹窗
+		clearInterval(timer);//关闭计时器
+	})
+</script>
+
+
+
 <div style="width:800px;margin:0 auto;line-height: 30px;">
 	
-	<h2 style="text-align: center;">常用样式总结</h2>
+	
 	<div>
 		<h3>多行溢出</h3>
 		<p class="overflow-duo">
@@ -273,14 +443,14 @@ window.addEventListener('touchmove', fn, { passive:false })
 	<br>
 	<h3>中国省市区地址三级联动</h3>
 	<div data-toggle="distpicker">
-	  <select data-province="---- 选择省 ----"></select>
-	  <select data-city="---- 选择市 ----"></select>
-	  <select data-district="---- 选择区 ----"></select>
+		<select data-province="---- 选择省 ----"></select>
+		<select data-city="---- 选择市 ----"></select>
+		<select data-district="---- 选择区 ----"></select>
 	</div>
 	<br>
 	<div>
 		<h3>checkbox 关联全选/全不选</h3>
-		<table>
+		<table class="border-table">
 			<thead>
 				<tr>
 					<td class="change">
@@ -315,20 +485,36 @@ window.addEventListener('touchmove', fn, { passive:false })
 	</div>
 	<br>
 	<div>
-		<h3>图片居中：</h3>
+		<h3>图片切换：</h3>
+		<div class="images-box">
+			<div class="big-img img-box">
+    			<img src="./images/1.jpg">
+				<span class="magnifying">magnifying</span>
+    	    </div>
+    		<div class="magnifying-img hidden">
+    			<img src="./images/1.jpg">
+    	    </div>
+    	    <div class="small-img">
+    	    	<a href="javascript:;" class="img-box current">
+    	    		<img src="./images/1.jpg">
+    	    	</a>
+    	    	<a href="javascript:;" class="img-box">
+    	    		<img src="./images/04.jpg">
+    	    	</a>
+    	    </div>
+    	</div>
+<!-- 
+
 		<a href="javascript:;" class="img-box">
 			<img src="./images/1.jpg">
 		</a>
-		<a href="javascript:;" class="img-box"> <!-- -->
+		<a href="javascript:;" class="img-box"> 
 			<img src="./images/04.jpg">
-		</a>
+		</a> -->
 	</div>
-
-
 </div>
 
 <!-- <script src="./js/jquery.js"></script> -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="js/distpicker.js"></script>
  <!--  <script src="js/main.js"></script> -->
 <script>
@@ -384,6 +570,23 @@ $(function(){
 	    $("#selectAll").prop("checked", boolean2);
 	})
 
+	//放大图
+	$('.magnifying').click(function(){
+		$('.magnifying-img img')[0].src = $('.big-img img')[0].src;
+		$('.magnifying-img').show();
+	})
+	$('.magnifying-img').click(function(){
+		$('.magnifying-img').hide();
+	})
+	$('.magnifying-img').mouseleave(function(){
+		$('.magnifying-img').hide();
+	})
+	//图片切换
+	$('.small-img .img-box').click(function(){
+		$(this).addClass('current').siblings().removeClass('current');
+		//console.log($(this).find("img")[0].src)
+		$('.big-img img')[0].src = $(this).find("img")[0].src;
+	})
 
 
 })	

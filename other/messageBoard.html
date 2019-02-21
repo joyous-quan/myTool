@@ -11,7 +11,6 @@
         var oUl = document.getElementById('ul1');
 
         oBtn.onclick = function() {
-
             var oLi = document.createElement('li');
 
             //oLi.innerHTML = oText.value + '<a href="javascript:;">删除</a>';
@@ -21,13 +20,13 @@
             oA.innerHTML = '删除';
             oA.href = 'javascript:;';
             oA.onclick = function() {
-
+               
                 oUl.removeChild( this.parentNode );
 
             }
 
             oLi.appendChild( oA );
-
+            oText.value =''
             /*
                 父级.insertBefore(新的元素，被插入的元素) 方法 在指定元素前面插入一个新元素
                 在ie下如果第二个参数的节点不存在，会报错

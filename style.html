@@ -3,6 +3,41 @@
 <head>
 	<title></title>
 	<meta charset="utf-8">
+<!-- 
+<!DOCTYPE html>  H5标准声明，使用 HTML5 doctype，不区分大小写
+<head lang="en"> 标准的 lang 属性写法
+<meta charset=’utf-8′>  声明文档使用的字符编码
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>   优先使用 IE 最新版本和 Chrome
+<meta name="description" content="不超过150个字符"/>  页面描述
+<meta name="keywords" content=""/>  页面关键词
+<meta name="author" content="name, email@gmail.com"/>  网页作者
+<meta name="robots" content="index,follow"/>  搜索引擎抓取
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 为移动设备添加 viewport
+<meta name="apple-mobile-web-app-title" content="标题"> iOS 设备 begin
+<meta name="apple-mobile-web-app-capable" content="yes"/>  添加到主屏后的标题（iOS 6 新增）
+是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏
+<meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no, email=no"/>  设置苹果工具栏颜色
+<meta name="renderer" content="webkit">  启用360浏览器的极速模式(webkit)
+<meta http-equiv="X-UA-Compatible" content="IE=edge">  避免IE使用兼容模式
+<meta http-equiv="Cache-Control" content="no-siteapp" />  不让百度转码
+<meta name="HandheldFriendly" content="true">  针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓
+<meta name="MobileOptimized" content="320″>  微软的老式浏览器
+<meta name="screen-orientation" content="portrait"> uc强制竖屏
+<meta name="x5-orientation" content="portrait">  QQ强制竖屏
+<meta name="full-screen" content="yes">          UC强制全屏
+<meta name="x5-fullscreen" content="true">       QQ强制全屏
+<meta name="browsermode" content="application">  UC应用模式
+<meta name="x5-page-mode" content="app">    QQ应用模式
+<meta name="msapplication-tap-highlight" content="no"> windows phone 点击无高光
+设置页面不缓存
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0″>
+ -->
+
 <style>
 /* 通用样式 */
 * {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
@@ -25,7 +60,7 @@ input,textarea,select {
 }
 button:focus { outline:none; }
 button::-moz-focus-inner { border:0;}
-.clearboth:after{display:block;content:" ";clear:both;visibility:hidden;}
+.clearboth:after{display:block;height:0;content:" ";clear:both;visibility:hidden;}
 .clearboth { zoom:1; }
 .position_r { position:relative; }
 .position_a { position:absolute; }
@@ -300,58 +335,232 @@ transition: transition-property transition-duration transition-timing-function t
 }
 
 @-webkit-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
 }
 
 @-moz-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
 }
 
 @keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
 }
 
 
+#item {
+	width: 0;
+	height: 0;
+	border-left: 50px solid yellow;
+	border-right: 50px solid red;
+	border-top: 50px solid green;
+	border-bottom: 50px solid blue;
+	background: white;
+	/* transparent 透明 */
+}
 
+
+main {
+  padding: 2em 12em;
+}
+
+main h1 {
+  padding: 0.5em;
+  background: white;
+  font-size: 80px;
+  box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.3);
+}
+
+main h1 span {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg {
+  background-image: linear-gradient(45deg, lightblue, lightgreen);
+  background-attachment: fixed;
+}
+
+
+.wrapper {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 0.6em;
+  font-size: 4em;
+  font-family: monospace;
+  font-weight: bolder;
+  text-align: center;
+  background-image:url("https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+}
+.before {
+	/* display:none; */
+}
+.wrapper.after {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.big {
+  line-height: 0.6em;
+  font-size: 1.9em;
+  font-weight: 900;
+}
+.box {
+    position: relative;
+    width: 200px;
+    min-height: 100px;
+    background: #ff8605;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    padding: 10px;
+    color:#fff;
+    font-size: 18px;
+    text-indent: 2em;
+}
+.box::before {
+    position: absolute;
+    bottom: -5px;
+    left: 45px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #ff8605;
+    transform: rotate(135deg);
+    box-shadow: 1px -2px 5px rgba(0, 0, 0, .4);
+}
+.box::after {
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    content: '';
+    width: 20px;
+    height: 10px;
+    background: #ff8605;
+}
 /* 
 小tips:
 可以设置所有元素为 border-box;
 设置循环float元素 父元素利用margin负值达到左右距离为零  不用css3的属性使子元素第n倍的margin值为0 
 */
 </style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 
-
+<script>
+	
+$(function(){
+	function isIE() { //ie?
+	    if (!!window.ActiveXObject || "ActiveXObject" in window){ 
+	    	console.log('IE'); 
+	    	$(".ie").css({
+	    		'backgroundColor':"red"
+	    	})
+	    } else { 
+	    	console.log('other'); 
+	    	$(".ie").css({
+	    		'backgroundColor':"green"
+	    	})
+	    }
+	}
+	isIE()
+}) 
+</script>
 </head>
+ <!--[if lt IE 10]>
+      <div class="browsehappy alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        您正在使用 <strong>旧浏览器</strong> . 为了更好的体验，请 <a href="https://browsehappy.com/" target="_blank">更新</a> 您的浏览器.
+      </div>
+    <![endif]-->
 <body >
 
+<div id="scroll-bar">
+	
+</div>
+<script type="text/javascript">
+function getBrowser() {  
+    var ua = window.navigator.userAgent;  
+    var isIE = window.ActiveXObject != undefined && ua.indexOf("MSIE") != -1;//新版的ie11已经不支持了  
+    var isFirefox = ua.indexOf("Firefox") != -1;  
+    var isOpera = window.opr != undefined;  
+    var isChrome = ua.indexOf("Chrome") && window.chrome;  
+    var isSafari = ua.indexOf("Safari") != -1 && ua.indexOf("Version") != -1;  
+    if (isIE) {  
+        return "IE"; 
+    } else if (isFirefox) {  
+        return "Firefox";  
+    } else if (isOpera) {  
+        return "Opera";  
+    } else if (isChrome) {  
+        return "Chrome";  
+    } else if (isSafari) {  
+        return "Safari";  
+    } else {  
+        return "Unkown"; 
+
+       
+    }  
+}
+ console.log(window.navigator.userAgent) 
+var linkNode = document.createElement("link"),scriptNode = document.createElement("script");
+linkNode.setAttribute("rel","stylesheet");
+linkNode.setAttribute("type","text/css");
+scriptNode.setAttribute("type", "text/javascript");
+
+if(getBrowser()=="IE"){
+    linkNode.setAttribute("href","css/index-ie.css");
+    scriptNode.setAttribute("src", "js/index-ie.js");
+}else if(getBrowser()=="Firefox"){
+    linkNode.setAttribute("href","css/index-firefox.css");
+    scriptNode.setAttribute("src", "js/index-firefox.js");
+}else if(getBrowser()=="Opera"){
+    linkNode.setAttribute("href","css/index-opera.css");
+    scriptNode.setAttribute("src", "js/index-opera.js");
+}else if(getBrowser()=="Chrome"){
+    linkNode.setAttribute("href","css/index-chrome.css");
+    scriptNode.setAttribute("src", "js/index-chrome.js");
+}else if(getBrowser()=="Safari"){
+    linkNode.setAttribute("href","css/index-safari.css");
+    scriptNode.setAttribute("src", "js/index-safari.js");
+}
+
+document.head.appendChild(linkNode);
+document.head.appendChild(scriptNode);
+document.getElementById("scroll-bar").innerHTML = "您的浏览器是："+getBrowser();
+</script>	
+<div class="ie" style="height:900px;width:100%;">
+	<div style="height:100px;width:100px;background:red; margin:0 auto;">
+		
+	</div>
+</div>
+
+
+<div style="height:216px;overflow: hidden;">
+	<div class="wrapper before">
+	  <span class="big">CSS is Good</span><br> &nbsp;
+	</div>
+
+	<div class="wrapper after">
+	  <span class="big">CSS is Good <br><span style="font-size: 14px;">(仅chrome有效)</span></span><br>  &nbsp;
+	</div>
+</div>
+
+<main class="bg">
+  <h1>
+    <span class="bg">
+      Hello World!<span style="font-size: 14px;">(仅chrome有效)</span>
+    </span>
+  </h1>
+</main>
 <div class="Gradient-box">
 	<br><br>
-	<h1 style="text-align: center;">常用样式总结</h1>
+	<h1 style="text-align:center;">常用样式总结</h1>
 </div>
 
 <div class="mask"></div>
@@ -381,12 +590,14 @@ transition: transition-property transition-duration transition-timing-function t
 </script>
 
 
-
 <div style="width:800px;margin:0 auto;line-height: 30px;">
-	
+	<br>
+	<h3>三角形</h3>	
+	<div id="item"></div>
+	<br>
 	
 	<div>
-		<h3>多行溢出</h3>
+		<h3>多行溢出(仅chrome有效)</h3>
 		<p class="overflow-duo">
 			jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.
 		</p>
@@ -488,6 +699,9 @@ transition: transition-property transition-duration transition-timing-function t
 		</table>
 	</div>
 	<br>
+	<div class="box">CSS实现带阴影效果的三角形</div>
+	
+	<br>
 	<div>
 		<h3>图片切换：</h3>
 		<div class="images-box">
@@ -507,8 +721,7 @@ transition: transition-property transition-duration transition-timing-function t
     	    	</a>
     	    </div>
     	</div>
-<!-- 
-
+		<!-- 
 		<a href="javascript:;" class="img-box">
 			<img src="./images/1.jpg">
 		</a>
@@ -516,6 +729,7 @@ transition: transition-property transition-duration transition-timing-function t
 			<img src="./images/04.jpg">
 		</a> -->
 	</div>
+
 </div>
 
 <!-- <script src="./js/jquery.js"></script> -->
@@ -546,7 +760,9 @@ $(function(){
 
 	    if( $radio.data('waschecked') == true){
 	    	$radio.siblings('b').show()
+
 	    	$radio.parent().siblings('b').show()
+	    	$radio.parent().siblings().find('b').hide()
 	    }else{
 	    	$radio.siblings('b').hide()
 	    	$radio.parent().siblings('b').hide()
@@ -591,6 +807,24 @@ $(function(){
 		//console.log($(this).find("img")[0].src)
 		$('.big-img img')[0].src = $(this).find("img")[0].src;
 	})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 })	

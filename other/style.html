@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		* {margin:0 ;padding:0;}
+		li { list-style:none; }
+		a { text-decoration:none; }
+		img { border:none;max-width:100%;max-height:100%; }
+		.layout { max-width: 1200px;min-width:1000px;margin:0 auto; }
+		.header { height:100px; background:#fff;line-height: 100px; text-align:center; }
+		.nav { height:60px;background:#333; }
+		.nav .menu { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;position:relative;float:left;width:25%;background:red;border-right: 1px solid #eee;}
+		.nav .menu:last-child { border-right:none; }
+		.nav .menu:last-child .submenu{ left:auto; right:0; }
+		.menu dt>a { display: block;height:60px;line-height:60px;text-align:center;font-size: 16px;color:#fff; }
+		.menu:hover .submenu {display: block;}
+		.submenu { display:none;position: absolute;top:60px;left:0;width:600px;overflow:hidden;background:red;border-top:1px solid #eee;padding:10px 0;}
+		.submenu dd { float:left;width:33%; }
+		.submenu dd a {display:block;line-height: 24px;padding-left:20px;}
+		/* 渐变动画背景 */
+		.banner {
+			height:300px;
+			color: #fff; margin-bottom:20px;
+			background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+			background-size: 400% 400%;
+			
+			-webkit-animation: Gradient 15s ease infinite;
+			-moz-animation: Gradient 15s ease infinite;
+			animation: Gradient 15s ease infinite;
+		}
+		@-webkit-keyframes Gradient {
+			0% { background-position: 0% 50% }
+			50% { background-position: 100% 50% }
+			100% { background-position: 0% 50% }
+		}
+		@-moz-keyframes Gradient {
+			0% { background-position: 0% 50% }
+			50% { background-position: 100% 50% }
+			100% { background-position: 0% 50% }
+		}
+		@keyframes Gradient {
+			0% { background-position: 0% 50% }
+			50% { background-position: 100% 50% }
+			100% { background-position: 0% 50% }
+		}
+		.others { height:200px;text-align:center;padding-top:20px; }
+		.contect { margin:0 -1%; }
+		.clearboth:after{display:block;height:0;content:" ";clear:both;visibility:hidden;}
+		.clearboth { zoom:1; }
+		.card-dl {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box; float:left;
+			background:#fff; margin:1%;
+			width:23%; height:320px;
+			border-radius: 8px;
+			padding: 10px;
+			overflow: hidden;
+		}
+		.card-dl
+		.footer { height:60px;background:#ddd;text-align:center; }
+	</style>
+</head>
+<body style="background:#eef2f5;">
+
+<div class="container">
+	<div class="header">
+		<div class="layout">
+			header
+		</div>
+	</div>
+	<div class="nav">
+		<div class="layout">
+			<dl class="menu">
+				<dt><a href="">menu 1</a></dt>
+				<dt>
+					<dl class="submenu">
+						<dd>
+							<a href="" ><b>submenu 1-1</b></a>
+							<a href="" >submenu 1-1.1</a>
+							<a href="" >submenu 1-1.2</a>
+							<a href="" >submenu 1-1.3</a>
+							<a href="" >submenu 1-1.4</a>
+						</dd>
+						<dd>
+							<a href="" ><b>submenu 1-2</b></a>
+							<a href="" >submenu 1-2.1</a>
+							<a href="" >submenu 1-2.2</a>
+							<a href="" >submenu 1-2.3</a>
+						</dd>
+						<dd>
+							<a href="" ><b>submenu 1-3</b></a>
+							<a href="" >submenu 1-3.1</a>
+							<a href="" >submenu 1-3.2</a>
+							<a href="" >submenu 1-3.3</a>
+						</dd>
+					</dl>
+				</dt>
+			</dl>
+			<dl class="menu">
+				<dt><a href="">menu 2</a></dt>
+				<dt>
+					<dl class="submenu">
+						<dd>
+							<a href="" ><b>submenu 2-1</b></a>
+							<a href="" >submenu 2-1.1</a>
+							<a href="" >submenu 2-1.2</a>
+							<a href="" >submenu 2-1.3</a>
+						</dd>
+						<dd>
+							<a href="" ><b>submenu 2-2</b></a>
+							<a href="" >submenu 2-2.1</a>
+							<a href="" >submenu 2-2.2</a>
+							<a href="" >submenu 2-2.3</a>
+							<a href="" >submenu 2-2.4</a>
+						</dd>
+					</dl>
+				</dt>
+			</dl>
+			<dl class="menu">
+				<dt><a href="">menu 3</a></dt>
+				<dt>
+					<dl  class="submenu">
+						<dd>
+							<a href="" >submenu 1-1.1</a>
+							<a href="" >submenu 1-1.2</a>
+							<a href="" >submenu 1-1.3</a>
+							<a href="" >submenu 1-1.4</a>
+						</dd>
+					</dl>
+				</dt>
+			</dl>
+			<dl class="menu ">
+				<dt><a href="">menu 4</a></dt>
+				<dt>
+					<dl class="submenu">
+						<dd>
+							<a href="" >submenu 2-1.1</a>
+							<a href="" >submenu 2-1.2</a>
+							<a href="" >submenu 2-1.3</a>
+						</dd>
+					</dl>
+				</dt>
+			</dl>
+		</div>
+	</div>
+	<div class="layout">
+		<div class="banner"></div>
+		<div class="contect clearboth">
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner1.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner2.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner3.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner4.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner5.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner6.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner1.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner2.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner3.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner4.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner5.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+			<dl class="card-dl">
+				<dt><a href="" title=""><img src="../images/banner6.jpg"></a></dt>
+				<dd>text</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="others">
+		others
+	</div>
+	<div class="footer">
+		<div class="layout">
+			footer
+		</div>
+	</div>
+	
+</div>
+
+</body>
+</html>

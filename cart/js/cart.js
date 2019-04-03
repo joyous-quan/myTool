@@ -22,7 +22,7 @@ if(listObj.length == 0) {
             '</td><td>' +
             listObj[i].pDesc +
             '</td><td>' +
-            '<button class="down">-</button><input type="text" value="' + listObj[i].pCount + '" readonly="readonly" /><button class="up">+</button>' +
+            '<button class="down">&nbsp;-&nbsp;</button><input style="width:30px;text-align:center;" type="text" value="' + listObj[i].pCount + '" readonly="readonly" /><button class="up">&nbsp;+&nbsp;</button>' +
             '</td><td>' +
             '￥<span>' + listObj[i].price + '</span>' +
             '</td><td>' +

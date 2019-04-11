@@ -25,4 +25,49 @@ function removeCookie(name){
 	setCookie(name, "", -1)
 }
 
+
+function setCookie(name, value, expires, path){
+	var exp = new Date();
+	exp.setDate(exp.getDate() + expires);
 	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

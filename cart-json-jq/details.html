@@ -4,10 +4,7 @@
 	<title>产品详情页</title>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
-    <!--cookie操作的js库-->
 
-    <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/cookie.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <div class="header">
@@ -43,43 +40,87 @@
 			<li class="left">&copy; copyRight @2018 <a href="mailto:joyousquan@outlook.com">Contact Us</a></li>
 		</ul>
 	</div>
+
+<!--cookie操作的js库-->
+<script src="/js/jquery.js" ></script>
+<script src="/js/cookie.js"></script>
+<script src="/js/server.js"></script>
 <script>
 $(function(){
     //获取url中的参数
     function getUrlParam(name) {
-       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+       var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)'); //构造一个含有目标参数的正则表达式对象
        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
        if (r != null) return unescape(r[2]); return null; //返回参数值
     }
 
-
    //接收URL中的参数Id
    var id = getUrlParam('id');
-
     $.ajax({
         type:'get',
         url:'/data/cart.json',
         dataType:'json',
         success:function(res,status){
-            //console.log(status)
             $.each(res, function(idx,item) {
                 //根据id获取详情数据
                 if(id == item.id){
-                    var str = "<ul><li class='float-L'><img src='"+item.img+"'/></li>"
-                        +"<li class='float-R'><p>产品中文名："+item.CNname+"(请以英文为准,中文仅做参考)</p>"
-                        +"<p>产品英文名："+item.ENname+"</p><br><p>价格："+item.price1+" &nbsp; &nbsp; &nbsp; 数量：<input style='width:36px;height:20px;' type='number' value='1' min='1' max='10'></p><br><a href='javascript:;' class='btn' id='"+item.id+"'>加入购物车</a>";
-                    //console.log('index:'+idx);
+                    var str = "<ul class='ul' pid='"+item.id+"'><li class='float-L'><img src='"+item.img+"'/></li>"
+                        +"<li class='float-R'>产品中文名："+item.CNname+"(请以英文为准,中文仅做参考)</li>"
+                        +"<li class='float-R'>产品英文名：<span class='pName'>"+item.ENname+"</span></li>"
+                        +"<li class='float-R'>价格：$<span class='price'>"+item.price1+"</span></li>"
+                        +"<li class='float-R'> 数量：<input style='width:36px;height:20px;text-align:center;' type='number' value='1' min='1' max='99'></li>"
+                        +"<li class='float-R'><a href='javascript:;' class='btn' onclick='addCart()'>加入购物车</a></li></ul>";
                 }
                 $('.alljson').append(str);
+                $('#ccount').html( getTotalCount());
             });
+           
         }
     })
 
-})
+});
+
+function addCart() {
+    var listStr = cookieObj.get("datas_cart");
+    if(!listStr) { 
+        cookieObj.set({
+            name: "datas_cart",
+            value: "[]"
+        });
+        listStr = cookieObj.get("datas_cart");
+    }
+    var listObj = JSON.parse(listStr);
+      
+    var ul = $('.ul')
+    var pid = ul.attr("pid");//获取自定义属性
+    var pCount = Number(ul.find('input').val());
+    if(checkObjByPid(pid)) {
+        listObj = updateObjById(pid, pCount);
+        //console.log(listObj);
+        //console.log(cookieObj.get("datas_cart"));
+    } else {
+        var imgSrc = ul.find('img').attr('src');
+        var pName = ul.find('.pName').html();
+        var price = ul.find('.price').html();
+        var obj = {
+            pid: pid,
+            pImg: imgSrc,
+            pName: pName,
+            price: price,
+            pCount: pCount
+        };
+
+        listObj.push(obj);
+        listObj = updateData(listObj);
+        //console.log(listObj);
+        //console.log(listStr);
+        $('#ccount').html( getTotalCount());
+    }
+    $('#ccount').html( getTotalCount());
+    
+}
 
 
 </script>
-
-<script src="/js/details.js"></script>
 </body>
 </html>

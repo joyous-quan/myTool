@@ -1,6 +1,6 @@
  @charset "utf-8";
-*{margin:0; padding:0;}
-html,body{height:100%;width:100%;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+*{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box; margin:0; padding:0;}
+body{height:100%;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;color:#343434;background:#ffffff;}
 ul,li{list-style:none;}
 a {text-decoration:none;color:#343434;}
@@ -8,16 +8,14 @@ a {text-decoration:none;color:#343434;}
 .header{ height:50px; background:#333;}
 .header_nav li {cursor:pointer; float:right;padding:0px 25px;line-height:50px; color:#fff;}
 .header_nav li.left{float:left;}
-.product_list{min-height:640px;overflow:hidden;}
-.content{margin:0;}
-.con {background:#fdfdfd;min-height:640px;}
+.container {min-height:808px;overflow:hidden;}
 .con h3{font-weight:300; font-size:18px;padding:10px;}
 .mycar{text-align:right;padding:10px 20px;border-bottom: 1px solid #ddd;}
 .price,.price span{color:red;}
 .header span{display:block;float:right;line-height:50px;}
 .header a{color:#fff;display:inline-block;width:100px;text-align: right;}
 .list{overflow:hidden;}
-img{width:60px;}
+img{width:60px;border:none;}
 .hide {display:none;}
 .box{padding-left:15px;line-height: 30px;}
 h3{line-height:50px;padding-left:15px;}

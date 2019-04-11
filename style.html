@@ -387,7 +387,6 @@ main h1 span {
   background-attachment: fixed;
 }
 
-
 .wrapper {
   width: 50%;
   box-sizing: border-box;
@@ -449,6 +448,19 @@ main h1 span {
 可以设置所有元素为 border-box;
 设置循环float元素 父元素利用margin负值达到左右距离为零  不用css3的属性使子元素第n倍的margin值为0 
 */
+
+
+/*alert(); //浏览器当前窗口可视区域高度
+
+alert($(document).height()); //浏览器当前窗口文档的高度
+alert($(document.body).height());//浏览器当前窗口文档body的高度
+alert($(document.body).outerHeight(true));//浏览器当前窗口文档body的总高度 包括border padding margin
+
+alert($(window).width()); //浏览器当前窗口可视区域宽度
+alert($(document).width());//浏览器当前窗口文档对象宽度
+alert($(document.body).width());//浏览器当前窗口文档body的宽度
+alert($(document.body).outerWidth(true));//浏览器当前窗口文档body的总宽度 包括border padding margin
+*/
 </style>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 
@@ -483,7 +495,56 @@ $(function(){
 <div id="scroll-bar">
 	
 </div>
+
+<script type="text/javascript"> 
+//判断IE版本
+
+$(function(){
+	var browser=navigator.appName 
+var b_version=navigator.appVersion 
+var version=b_version.split(";"); 
+var trim_Version=version[1].replace(/[ ]/g,""); 
+/*
+//方法一：
+if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0") { 
+alert("IE 6.0"); 
+} 
+else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0") { 
+alert("IE 7.0"); 
+} 
+else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0") { 
+alert("IE 8.0"); 
+} 
+else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE9.0") { 
+alert("IE 9.0"); 
+} 
+else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE10.0") { 
+alert("IE 10.0"); 
+} */
+
+
+//方法二：
+if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE6.0") { 
+alert("IE 6.0"); 
+} 
+else if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE7.0") { 
+alert("IE 7.0"); 
+} 
+else if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE8.0") { 
+alert("IE 8.0"); 
+} 
+else if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE9.0") { 
+alert("IE 9.0"); 
+}
+
+
+
+})
+</script>
+
+
 <script type="text/javascript">
+
 function getBrowser() {  
     var ua = window.navigator.userAgent;  
     var isIE = window.ActiveXObject != undefined && ua.indexOf("MSIE") != -1;//新版的ie11已经不支持了  
@@ -507,7 +568,7 @@ function getBrowser() {
        
     }  
 }
- console.log(window.navigator.userAgent) 
+//console.log(window.navigator.userAgent) 
 var linkNode = document.createElement("link"),scriptNode = document.createElement("script");
 linkNode.setAttribute("rel","stylesheet");
 linkNode.setAttribute("type","text/css");
@@ -534,7 +595,9 @@ document.head.appendChild(linkNode);
 document.head.appendChild(scriptNode);
 document.getElementById("scroll-bar").innerHTML = "您的浏览器是："+getBrowser();
 </script>	
-<div class="ie" style="height:900px;width:100%;">
+
+
+<div class="ie" style="height:200px;width:100%;">
 	<div style="height:100px;width:100px;background:red; margin:0 auto;">
 		
 	</div>

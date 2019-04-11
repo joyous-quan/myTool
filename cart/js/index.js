@@ -24,7 +24,7 @@ for(var i = 0, len = btns.length; i < len; i++) {
         var dl = this.parentNode.parentNode;
         var pid = dl.getAttribute("pid");//获取自定义属性
         var arrs = dl.children;//获取所有子节点
-        console.log(arrs)
+        //console.log(arrs)
         if(checkObjByPid(pid)) {
             listObj = updateObjById(pid, 1)
         } else {
@@ -42,6 +42,7 @@ for(var i = 0, len = btns.length; i < len; i++) {
             };
             listObj.push(obj)
             listObj = updateData(listObj);
+            console.log(obj)
         }
         ccount.innerHTML = getTotalCount();
         //window.location.href='cart.html'

@@ -7,7 +7,8 @@
     <!--cookie操作的js库-->
 
     <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/cookie.js"></script>
+    <script src="/js/server.js"></script>
     <style>
         dd a { display: block;height:36px;overflow: hidden; }
     </style>
@@ -22,6 +23,7 @@
         </ul>
     </div>
     <div class="container content">
+
         <div class="layout con">
             <div class="mycar">
                 <a href="cart.html">我的购物车</a> <i id="ccount">0</i>
@@ -50,25 +52,31 @@
     </div>
 
 <script>
-$.ajax({
-    type: "GET",
-    url: "/data/cart.json",
-    dataType: "json", 
-    success: function(res) {
-        //1.加载数据成功 进行字符串拼接
-        $(".alljson").html('');
-        
-        $.each(res,function (idx,item) {
-            $(".alljson").append("<dl><dt><a href='details.html?id="
-                +item.id+"'><img src='"+item.img+"'/></a></dt><dd><a href='#'>"
-                +item.ENname+"</a><b>"+item.price1+"</b> &nbsp; <span>"+item.price3+"</span><br><strong>"
-                +item.num+"<strong> <a class='details-btn' href='details.html?id="+item.id+"'>详情</a></dd></dl>"
-            )     
-        })
-    },
-    error: function(){ alert(error) }        
+
+$(function(){
+    $.ajax({
+        type: "GET",
+        url: "/data/cart.json",
+        dataType: "json", 
+        success: function(res) {
+            //1.加载数据成功 进行字符串拼接
+            $(".alljson").html('');
+            
+            $.each(res,function (idx,item) {
+                $(".alljson").append("<dl><dt><a href='details.html?id="
+                    +item.id+"'><img src='"+item.img+"'></a></dt><dd><a href='#'>"
+                    +item.ENname+"</a><b>"+item.price1+"</b> &nbsp; <span>"+item.price3+"</span><br><strong>"
+                    +item.num+"</strong> <a class='details-btn' href='details.html?id="+item.id+"'>详情</a></dd></dl>"
+                )     
+            })
+            $('#ccount').html( getTotalCount());
+        },
+        error: function(){ alert("error") }        
+    });
+    //$('#ccount').html( getTotalCount());
 })
- 
+
+
 </script>
 
 </body>

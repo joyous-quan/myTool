@@ -9,7 +9,7 @@ carousel	=>	轮播图
 
 login_out / sign_in_up	=>	登陆注册 
 
-cart	=>	购物车 
+cart-json-jq	=>	json数据加载 购物车 
 
 scrollScreen	=>	滚轮控制页面
 

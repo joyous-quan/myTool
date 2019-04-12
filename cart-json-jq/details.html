@@ -90,7 +90,6 @@ function addCart() {
         listStr = cookieObj.get("datas_cart");
     }
     var listObj = JSON.parse(listStr);
-      
     var ul = $('.ul')
     var pid = ul.attr("pid");//获取自定义属性
     var pCount = Number(ul.find('input').val());
@@ -116,10 +115,8 @@ function addCart() {
         //console.log(listStr);
         $('#ccount').html( getTotalCount());
     }
-    $('#ccount').html( getTotalCount());
-    
+    $('#ccount').html( getTotalCount());    
 }
-
 
 </script>
 </body>

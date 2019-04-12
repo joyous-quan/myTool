@@ -83,7 +83,6 @@
 		</ul>
 	</div>
 
-
 <!--操作cookie的js文件-->
 <script src="/js/jquery.js" ></script>
 <script src="/js/cookie.js"></script>
@@ -98,7 +97,7 @@
             for(var i = 0, len = listObj.length; i < len; i++) {
                 var tr = document.createElement("tr");
                 tr.setAttribute("pid", listObj[i].pid);
-                    //{"pid":值,"pImg":值,"pName":值,"price":值,"pCount":值},
+                //{"pid":值,"pImg":值,"pName":值,"price":值,"pCount":值},
                 tr.innerHTML = '<td>' +
                     '<input type="checkbox" class="ck" /></td><td>' +
                     '<img src="' + listObj[i].pImg + '" alt="" />' +
@@ -113,27 +112,7 @@
                 $('#tbody').append(tr);
             }
         }
-
-
-        /*JQuery实现全选/全不选，取消子checkbox时，全选checkbox取消对勾号*/
-       /*$("#allCheck").click(function () {//判断全选框的改变
-            var boolean1 = $(this).is(":checked");//全选选中为true，否则为false
-            $("table input[type=checkbox]").each(function () {
-                $(this).prop("checked", boolean1);
-            })
-        });
-        //当子元素都选全选选中，其中一个不选取消全选
-        $("input[name=checkitem]").click(function () {
-            var boolean2 = true;
-            for (var i = 0; i < $("input[name=checkitem]").length; i++) {
-                if (!$($("input[name=checkitem]")[i]).is(":checked")) {
-                    boolean2 = false;
-                    break;
-                }
-            }
-            $("#allCheck").prop("checked", boolean2);
-
-        })*/
+        
         /* 删除 */
         $('.del').click(function(event){
           console.log($(this).parent().parent().index())
@@ -218,15 +197,7 @@
             }
             allCheck.checked = isSelected;
         }
-    
-
     })
-
-
-
-
-
-
 </script>
 </body>
 </html>

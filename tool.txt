@@ -148,3 +148,19 @@ http://www.webhek.com/post/conditional-comments-in-ie11-10.html
 svg在线编辑器
 https://c.runoob.com/more/svgeditor/
 
+
+
+
+https://www.cnblogs.com/qiujianmei/p/7192481.html
+
+IE浏览器兼容问题(上)——html和css的兼容写法
+
+
+https://blog.csdn.net/wjnf012/article/details/72773130
+
+关于input不同type值的样式重置
+
+
+http://www.cnblogs.com/PeunZhang/p/3407453.html
+
+移动web资源整理

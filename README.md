@@ -19,7 +19,7 @@ flowLoad	=>	图片瀑布流特效
 
 css-layout ==> css布局
 
-JsCompatible.js ==>部分js原生兼容性总结
+JsCompatible.js ==> 部分js原生兼容性总结
 
 
 

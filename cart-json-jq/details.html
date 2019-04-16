@@ -9,11 +9,11 @@
 <body>
     <div class="header">
         <ul class="layout header_nav">
-		<li class="left">xx 商城</li>
-		<li>联系我们</li>
-		<li>产品详情</li>
-		<li><a href="index.html">首页</a></li>
-	</ul>
+            <li class="left"><a href="index.html">xx 商城</a></li>
+    		<li>联系我们</li>
+    		<li>产品详情</li>
+    		<li><a href="index.html">首页</a></li>
+    	</ul>
     </div>
     <div class="container content">
         <div class="layout con">
@@ -105,7 +105,8 @@ function addCart() {
         //console.log(listStr);
         $('#ccount').html( getTotalCount());
     }
-    $('#ccount').html( getTotalCount());    
+    $('#ccount').html( getTotalCount()); 
+    window.location.href='cart.html'   
 }
 
 </script>

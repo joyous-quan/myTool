@@ -461,3 +461,36 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     }
     return s.join(dec);
 }
+
+
+/**
+ * 截取指定字节的字符串
+ * @param str 要截取的字符穿
+ * @param len 要截取的长度，根据字节计算
+ * @param suffix 截取前len个后，其余的字符的替换字符，一般用“…”
+ * @returns {*}
+
+ * charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。
+ */
+function cutString(str, len, suffix) {
+    if (!str) return "";
+    if (len <= 0) return "";
+    if (!suffix) suffix = "";
+    var templen = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) > 255) {
+            templen += 2;
+        } else {
+            templen++
+        }
+        if (templen == len) {
+            return str.substring(0, i + 1) + suffix;
+        } else if (templen > len) {
+            return str.substring(0, i) + suffix;
+        }
+    }
+    return str;
+}
+cutString('zhouquanxiang', 9, '...')
+//"zhouquanx..."
+

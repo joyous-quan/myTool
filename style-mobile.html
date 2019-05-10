@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>mobile</title>
 	<meta charset="utf-8">
 <style type="text/css">
 	
@@ -14,6 +14,29 @@ html{font-size: 10px}
 @media screen and (min-width: 720px) and (max-width: 749px){html{font-size: 22.5px}}
 @media screen and (min-width: 750px) and (max-width: 799px){html{font-size: 23.5px}}
 @media screen and (min-width: 800px){html{font-size: 25px}}
+
+@media screen and(min-width: 320px)and(max-width: 359px){ 
+	html{  font-size: 12.8px; } 
+} 
+@media screen and(min-width: 360px)and(max-width: 374px){ 
+	html{ font-size: 14.4px; } 
+} 
+@media screen and(min-width: 375px)and(max-width: 385px){ 
+	html{ font-size: 15px; } 
+} 
+@media screen and(min-width: 386px)and(max-width: 392px) { 
+	html { font-size: 15.44px; } 
+} 
+@media screen and(min-width: 393px)and(max-width: 400px){ 
+	html{ font-size: 16px; } 
+} 
+@media screen and(min-width: 401px)and(max-width: 414px){ 
+	html{ font-size: 16.48px; } 
+} 
+@media screen and(min-width: 750px)and(max-width: 799px){ 
+	html{ font-size: 30.72px; } 
+} 
+
 
 body { font-family:"Microsoft Yahei",Arial; font-size:14px; color:#333; }
 body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,p,img{ margin:0px; padding:0px; }
@@ -118,9 +141,16 @@ window.addEventListener('touchmove', fn, { passive:false })
 
 
 
-</style>	
+</style>
+<script>
+	if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {  
+    //window.location.href="style-mobile.html";  
+}else{  
+    window.location.href="style.html";  
+}
+</script>	
 </head>
 <body>
-
+mobile
 </body>
 </html>

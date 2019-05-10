@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>pc</title>
 	<meta charset="utf-8">
 <!-- 
 <!DOCTYPE html>  H5标准声明，使用 HTML5 doctype，不区分大小写
@@ -37,6 +37,33 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0″>
  -->
+<!-- 1. BEM简介
+  BEM(Block Element Modifier)是由Yandex(俄罗斯的网络服务门户之一)团队提出的一种前端命名规范，这里讲的BEM风格是经过改良的（没有具体阅读过相关文章，不探讨有关如何改良的细节）：
+
+Block：块
+Element：元素——块的组成部分
+Modifier：修饰符——表示一种形态/状态
+
+.block {}
+.block_element
+.block--modifier
+
+:
+.aside {}
+.aside__toggle--show {}
+.aside__toggle--hide {}
+.aside__menu {}
+.aside__menu__item {}
+-->
+
+<script type="text/javascript">
+
+if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {  
+    window.location.href="style-mobile.html";  
+}else{  
+    //window.location.href="style.html";  
+} 
+</script>
 
 <style>
 /* 通用样式 */
@@ -59,6 +86,7 @@ input,textarea,select {
 	padding: 3px 10px;
 }
 button:focus { outline:none; }
+button:active { transform: scale(0.95);} /* btn点击缩放效果 */
 button::-moz-focus-inner { border:0;}
 .clearboth:after{display:block;height:0;content:" ";clear:both;visibility:hidden;}
 .clearboth { zoom:1; }

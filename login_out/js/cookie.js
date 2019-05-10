@@ -26,13 +26,6 @@ function removeCookie(name){
 }
 
 
-function setCookie(name, value, expires, path){
-	var exp = new Date();
-	exp.setDate(exp.getDate() + expires);
-	
-
-}
-
 
 
 

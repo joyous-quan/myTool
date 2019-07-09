@@ -5,9 +5,13 @@
 	<meta charset="utf-8">
     <style>
         div {
-            background: #f99;
+            /* background: #f99; */
             height:50px
         }
+
+ .molSearchContent .inputFile-box {overflow:hidden; height:50px;display:block; border:1px solid #ddd;background:url("https://ambeed.com/static/img/products-details/p-details-download.png") no-repeat 5px center}
+.molSearchContent input[type="file"] { position:relative;left:-160px;width:90%;height:50px;font-size:12px;border:none;background:none; }
+.molSearchContent button,.listSearchContent button {margin-top:5px;width:120px;height:40px;line-height:40px;font-size:18px;font-weight:bold;border:none; background: #f39800 url(https://www.ambeed.com/static/img/search.png)no-repeat 85px center;border-radius:3px;}
     </style>
 	<!--[if lte IE 8]>
         <script>
@@ -29,8 +33,15 @@
 	<div id="box">
 		
 	</div>
-
-
+    <input class="change" type="file" />
+<div class="search_content" style="width:1000px">
+    <div class="molSearchContent hidden">
+        <a href="javascript:;" class="inputFile-box">
+            <input class="change" type="file" />
+        </a>
+        <button>Search &nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </div>
+</div>
 <script>
 	
     (function(w) {

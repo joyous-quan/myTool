@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script language="javascript" src="https://www.ambeed.com/static/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://www.ambeed.com/static/css/common-new.css">
+</head>
+<body>
+
+
+
+<style>
+.menu-three-new  { 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width:1200px;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+	margin:0 auto;
+}
+.waterfall-item {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom:5px;	 
+	-moz-page-break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+	break-inside: avoid;
+}
+.menu-three-new {border: 1px dashed #ddd ;margin-top:-15px;padding:10px;}
+.menu-three-new .waterfall-item {line-height:20px;box-sizing:border-box; }
+.waterfall-item span { font-weight:bold;font-size:16px;color:#222; }
+.waterfall-item i { padding:0 10px 0 6px;font-style:normal;font-size:14px;color:#666; }
+.waterfall-item a {display:inline-block; position:relative;margin-right:18px;font-size:12px;color:#666;white-space:nowrap; }
+
+/*修改提示框*/
+ #mytitle {
+    position:absolute;padding:5px 15px;background:#fff;font-size:14px;white-space:nowrap;font-weight:normal;border:1px solid #aaa;
+}
+#mytitle::before {
+	position:absolute;bottom:-6px;left:20px;content: '';width:10px;height:10px;background:#fff;transform:rotate(135deg);border-top:1px solid #aaa;border-right:1px solid #aaa;
+}
+.menu-three-new div a:hover { color:#f39800; }
+</style>
+
+<script type="text/javascript"> 
+$(function () {
+        var x = 26;
+        var y = 5;
+        var newtitle = '';
+        $('a.mytooltip').mouseenter(function (e) {
+            newtitle = this.title;
+            this.title = '';
+            $('body').append('<span id="mytitle" >' + newtitle + '</span>');
+            $('#mytitle').css({
+                'left': (e.pageX - x + 'px'),
+                'top': (e.pageY + y - 50 + 'px')
+            }).show();
+        }).mouseleave(function () {
+            this.title = newtitle;
+            $('#mytitle').remove();
+        }).mousemove(function (e) {
+            $('#mytitle').css({
+                'left': (e.pageX - x + 'px'),
+                'top': (e.pageY + y - 50 + 'px')
+            }).show();
+        })
+    });
+</script>
+<br><br><br><br><br><br>
+
+
+
+<div class="menu-three-new">
+	<div class="waterfall-item">
+		<span>S</span><i>></i>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics">R–C(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">R(217)</a>
+		<a href="javascript:;"  title="Endocyclics Endocyclics Endocyclics">BN(217)</a>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocyclics Endocyclics">E(487)</a>
+		<a href="javascript:;">CnH2n-1(217)</a>
+	</div>
+	<div class="waterfall-item">
+		<span>C</span><i>></i>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;" class="mytooltip" title="EndoEndocyclics">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocy">R(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NH+4 (487)</a>
+	</div>
+	<div class="waterfall-item">
+		<span>Heterocyclic compounds</span><i>></i>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocyclics">R(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a href="javascript:;">CnH2n-1(217)</a>
+		<a href="javascript:;">CnH2n-1(217)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocyclics">Endocyclics(217)</a>
+		<a href="javascript:;">CnH2n-1(217)</a>
+		<a href="javascript:;">CnH2n-1(217)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a href="javascript:;">CnH2n-1(217)</a>
+		<a href="javascript:;">CnH2n-1(217)</a>
+		<a href="javascript:;">NBD(217)</a>
+	</div>
+	<div class="waterfall-item">
+		<span>Boronic</span><i>></i>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocyclics">R–C≡C–R′(487)</a>
+		<a href="javascript:;" title="Endocyclics">R(487)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+	</div>
+	<div class="waterfall-item">
+		<span>Halogen</span><i>></i>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocyclics">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocyclics">NBD(217)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+	</div>
+	<div class="waterfall-item">
+		<span>Metal</span><i>></i>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a class="mytooltip" href="javascript:;" title="Endocyclics Endocyclics">NBD(217)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+	</div>
+	<div class="waterfall-item">
+		<span>S</span><i>></i>
+		<a class="mytooltip" href="javascript:;" title="R–C≡C–R′R–C≡C–R′">R–C≡C–R′(487)</a>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+	</div>
+	<div class="waterfall-item">
+		<span>C</span><i>></i>
+		<a href="javascript:;">R–C≡C–R′(487)</a>
+		<a href="javascript:;">NBD(217)</a>
+		<a href="javascript:;">Endocyclics(217)</a>
+		<a class="mytooltip"  href="javascript:;" title="R–C≡C–R′ Endocyclics">R–C≡C–R′(487)</a>
+	</div>
+</div>
+
+</body>
+</body>
+</html>

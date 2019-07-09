@@ -10,10 +10,8 @@ img { border:none; }
 
 .header{ height:50px; background:#333;}
 .header_nav li {cursor:pointer; float:right;padding:0px 25px;line-height:50px; color:#fff;}
-.header_nav li a { color:#fff; }
 .header_nav li.left{float:left;}
-.container {min-height:808px;overflow:hidden;}
-.product_list {overflow:hidden;}
+.container {min-height:808px;}
 .con h3{font-weight:300; font-size:18px;padding:10px;padding-top:20px;}
 .mycar{text-align:right;padding:10px 20px;border-bottom: 1px solid #ddd;}
 .price,.price span{color:red;}

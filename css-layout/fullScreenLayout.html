@@ -49,39 +49,41 @@
 		    background: #aaa;
 		}
 
-/* html,body,.parent{
-    margin:0;
-    height:100%;
-    overflow:hidden;
-}
-body{
-    color:white;
-} 
-.parent{
-    display:flex;
-    flex-direction:column;
-}
-.top{
-    background:#6E9EEA;
-}
-.bottom{
-    background:#aaa;
-}
-.middle{
-    flex:1;
-    display:flex;
-}
-.left{
-    background: #adc;
-}
-.right{
-    flex:1;
-    overflow:auto;
-    background: pink;
-}
-.right .inner{
-    min-height:1000px;
-} */
+		/* html,body,.parent{
+		    margin:0;
+		    height:100%;
+		    overflow:hidden;
+		}
+		body{
+		    color:white;
+		} 
+		.parent{
+		    display:flex;
+		    flex-direction:column;
+		}
+		.top{
+		    background:#6E9EEA;
+		    height:80px;
+		}
+		.bottom{
+		    background:#aaa;
+		}
+		.middle{
+		    flex:1;
+		    display:flex;
+		}
+		.left{
+			width:180px;
+		    background: #adc;
+		}
+		.right{
+		    flex:1;
+		    overflow:auto;
+		    background: pink;
+		}
+		.right .inner{
+		    min-height:1000px;
+		} */
 	</style>
 </head>
 <body>
@@ -90,7 +92,6 @@ body{
 
 	原理：将上下部分固定，中间部分使用定宽+自适应+两块高度一样高。
 	优点：兼容性好，ie6下不支持 -->
-
 <div class="parent">
     <div class="top">top</div>
     <div class="left">left</div>
@@ -101,14 +102,11 @@ body{
 </div>
 
 
-
-
 <!-- 使用flex
 
 原理：通过灵活使用CSS3布局利器flex中的flex属性和flex-direction属性以达到全屏布局。
 缺点：兼容性差，ie9及ie9以下不兼容 -->
-
-<!--<div class="parent">
+<!-- <div class="parent">
     <div class="top">top</div>
     <div class="middle">
         <div class="left">left</div>
@@ -118,7 +116,6 @@ body{
     </div>
     <div class="bottom">bottom</div>
 </div> -->
-
 
 </body>
 </html>

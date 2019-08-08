@@ -79,7 +79,7 @@ body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,p,img{ margin:0px; padding:0px; }
 a { text-decoration:none; color:#333; }
 li { list-style:none }
 em,i { font-style:normal; }
-table,img { border:0; }
+table,img { border:0;max-width:100%; }
 table { width:100%; border-collapse:collapse; }
 input,textarea,button,select { outline:none;}
 input::-ms-clear,input::-ms-reveal { display:none; }
@@ -322,6 +322,13 @@ label input[type="checkbox"]:checked + span{
 	display:inline-block;
 	padding:10px;
 	font-size:34px;
+}
+
+
+.grid-box{
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 }
 /*
 A3 {
@@ -630,6 +637,12 @@ document.head.appendChild(scriptNode);
 document.getElementById("scroll-bar").innerHTML = "您的浏览器是："+getBrowser();
 </script>	
 
+<div class="grid-box">
+	<div>header</div>
+	<div style=" border:1px solid #eee;">main</div>
+	<div>footer</div>
+</div>
+
 
 <div class="ie" style="height:200px;width:100%;">
 	<div style="height:100px;width:100px;background:red; margin:0 auto;">
@@ -904,25 +917,6 @@ $(function(){
 		//console.log($(this).find("img")[0].src)
 		$('.big-img img')[0].src = $(this).find("img")[0].src;
 	})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })	
 </script>

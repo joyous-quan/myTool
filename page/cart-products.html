@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>产品购物车</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/cart.css">
+</head>
+<body>
+
+<div class="base-body">
+    <header id="header"></header>
+    <div class="layout"> 
+        <div class="mycar">
+            <a href="/page/cart.html">我的购物车</a> 
+        </div>
+        <br><br>
+        <h2>产品列表</h2>
+        <div class="product_list clearboth alljson">
+            <!-- <dl pid="1">
+                <dt>
+                    <a href=""><img src="/img/1.jpg" /></a>
+                </dt>
+                <dd><b></b>&nbsp;&nbsp;<span></span>&nbsp;&nbsp;<strong></strong></dd>
+                <dd><a class='details-btn' href=''>详情</a></dd>
+            </dl> -->
+        </div>
+    </div>
+    <div class="footer">
+        <ul class="layout">
+            <li class="left">&copy; copyRight @2019 <a href="mailto:joyousquan@outlook.com">Contact</a></li>
+        </ul>
+    </div>
+
+</div>
+<!--cookie操作的js库-->
+<script src="/tool/js/jquery-2.1.1.min.js"></script>
+<script src="/tool/js/cookie.js"></script>
+<script src="/js/server.js"></script>
+<script src="/js/common.js"></script>
+
+<script>
+    $(function(){
+        $.ajax({
+            type: "GET",
+            url: "/data/cart.json",
+            dataType: "json", 
+            success: function(res) {
+                //1.加载数据成功 进行字符串拼接
+                $(".alljson").html("");
+                $.each(res,function (idx,item) {
+                    $(".alljson").append(
+                        "<dl><dt><a href='cart-product-detail.html?id="
+                        + item.id + "'><img src='"
+                        + item.img + "'></a></dt><dd>"
+                        + item.ENname + "</dd><dd><b>￥"
+                        + item.price1 + "</b><span>"
+                        + item.num + "</span></dd><dd><a class='details-btn' href='cart-product-detail.html?id="
+                        + item.id + "'>详情</a></dd></dl>"
+                    )     
+                })
+            },
+            error: function(){ alert("error") }        
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+.product_list dl {
+	float: left;
+	overflow: hidden;
+	margin: 1%;
+	padding: 1%;
+	width: 23%;
+	height: 350px;
+	border-radius: 4px;
+	background: #f5f5f5;
+}
+.product_list dl:hover {
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+}
+.product_list  dl dt {
+	min-height: 240px;
+	background: #ffffff;
+}
+.product_list dt a {
+	display: block;
+	height:240px;
+}
+.product_list dd {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.product_list dd {
+	padding-top: 5px;
+	text-align: center;
+}
+.product_list dd b {
+	padding-right: 15px;
+}
+.details-btn {
+	display: inline-block;
+	width: 130px;
+	background: #6e544e;
+	color: #fff;
+	font-weight: 600;
+	line-height: 30px;
+}
+.details-btn:hover {
+	background-color: #8a6d67;
+}
+
+
+/*product-detail*/
+.mycar {
+	padding: 10px 20px;
+	border-bottom: 1px solid #ddd;
+	text-align: right;
+}
+.details-con .floatL {
+	margin-right: 2%;
+	width: 40%;
+	min-height: 300px;
+	background: #eeeeee;
+}
+.details-con .floatL img {
+	max-width: 75%;
+}
+.details-con .floatR {
+	margin-top: 30px;
+	width: 58%;
+}
+.details-con .floatR p {
+	line-height: 30px;
+}
+.btn {
+	display: inline-block;
+	margin-top: 5px;
+	width: 130px;
+	background: #6e544e;
+	color: #fff;
+	text-align: center;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+
+/*cart*/
+
+thead tr {
+	background: #f5f5f5;
+}
+tbody tr:hover {
+	background: lightyellow;
+}
+td {
+	padding: 6px 12px;
+	border: 1px solid #ddd;
+}
+h3 {
+	padding: 20px 10px;
+	text-align: right;
+}
+.box {
+	display: none;
+}
+.back_products {
+	text-align: right;
+}
+.back_products a {
+	display: inline-block;
+	width: 150px;
+	background: #6e544e;
+	color: #fff;
+	text-align: center;
+	font-weight: 600;
+	line-height: 34px;
+}

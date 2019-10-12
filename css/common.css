@@ -14,7 +14,6 @@ input,textarea,select {
 	font-size:14px;
 	color:#333333;
 	vertical-align:middle;
-	padding: 3px 10px;
 }
 input::-webkit-input-placeholder{color:#dddddd}
 input:-ms-input-placeholder{color:#dddddd}
@@ -33,3 +32,9 @@ sub,sup {display: inline-block;transform: scale(.9)}
 .layout {max-width: 1200px;min-width:960px;margin:0 auto;}
 body {min-width:960px;}
 .footer {position: absolute;width:100%;bottom:0;left:0;height:50px;line-height:50px;background: #eeeeee;text-align:center;}
+
+
+h2 {
+	font-size:16px;
+	line-height: 40px;
+}

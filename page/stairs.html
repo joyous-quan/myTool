@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>楼梯效果</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		#header {
+			width: 1000px;
+			height:100vh;
+			text-align: center;
+			font-size: 20px;
+			line-height: 50px;
+			margin : 0 auto;
+		}
+		#footer {
+			width: 1000px;
+			height:100px;
+			margin : 0 auto;
+		}
+		.Louti {
+			width: 1000px; 
+			height: 600px;
+			text-align: center;
+			font-size: 50px;
+			line-height: 600px;
+			margin : 0 auto;
+		}
+		#LoutiNav {
+			position: fixed; 
+			top: 150px; 
+			right: 50px;
+			width: 32px;
+			border : 1px solid #DDD;
+			display : none;
+		}
+		#LoutiNav li{
+			position: relative;
+			width: 32px; height: 32px;
+			list-style: none;
+			text-align: center;
+			font-size: 12px;
+			line-height: 32px;
+			border-bottom : 1px dotted #DDD;
+		}
+		#LoutiNav li.last {
+			border-bottom: none;
+			background: #c00;
+			color : #fff;
+		}
+		#LoutiNav li span{
+			top: 0;left: 0; 
+			width: 32px;
+			height: 32px;
+			background: #fff;
+			display : block;
+			position : absolute;
+			display : none;
+		}
+		#LoutiNav li span.active {
+			background: #fff;
+			color : red;
+			display : block;
+		}
+		#LoutiNav li.hover span {
+			background: #c00;
+			display : block;
+			color : #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="LoutiNav">
+		<ul>
+			<li>1F<span>服饰</span></li>
+			<li>2F<span>美妆</span></li>
+			<li>3F<span>手机</span></li>
+			<li>4F<span>家电</span></li>
+			<li>5F<span>数码</span></li>
+			<li>6F<span>运动</span></li>
+			<li>7F<span>居家</span></li>
+			<li>8F<span>母婴</span></li>
+			<li>9F<span>食品</span></li>
+			<li>10F<span>图书</span></li>
+			<li>11F<span>服务</span></li>
+			<li class="last">Top</li>
+		</ul>
+	</div>
+	<!--楼层内容开始-->
+	<div id="header" style="background: #f6e6e6;">
+		<br><br><br>向<br>下<br>滑<br>动
+	</div>
+	<div id="main">
+		<div class="Louti" style="background: #cc0033;">
+			服饰
+		</div>
+		<div class="Louti" style="background: #999933;">
+			美妆
+		</div>
+		<div class="Louti" style="background: #ccff33;">
+			手机
+		</div>
+		<div class="Louti" style="background: #006633;">
+			家电
+		</div>
+		<div class="Louti" style="background: #6666cc;">
+			数码
+		</div>
+		<div class="Louti" style="background: #ff6600;">
+			运动
+		</div>
+		<div class="Louti" style="background: #ffff00;">
+			居家
+		</div>
+		<div class="Louti" style="background: #3333ff;">
+			母婴
+		</div>
+		<div class="Louti" style="background: #ff00cc;">
+			食品
+		</div>
+		<div class="Louti" style="background: #669900;">
+			图书
+		</div>
+		<div class="Louti" style="background: #ff66cc;">
+			服务
+		</div>
+	</div>
+	<div id="footer" style="background: #eeeeee;"></div>
+<!--楼层内容结束-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function (){
+		$(window).scroll(function (){
+			var st = $(this).scrollTop();
+			if(st >= 1000){
+				$('#LoutiNav').show();
+			} else {
+				$('#LoutiNav').hide();
+			}
+			$('.Louti').each(function (){
+				var toTop = $(this).offset().top + 500;
+				if(toTop >= st){
+					var index = $(this).index();
+					$('#LoutiNav li').eq(index).find('span').addClass('active')
+					.end().siblings().find('span').removeClass('active');
+					return false;
+				}
+			});
+		});
+
+		$('#LoutiNav li').not('.last').click(function (){
+			var index = $(this).index();
+			var target = $('.Louti').eq(index).offset().top;
+			$('html,body').animate({scrollTop:target}, 500);
+		});
+
+		$('#LoutiNav li.last').click(function (){
+			$('html,body').animate({scrollTop:0}, 500);
+		});
+
+		$('#LoutiNav li').not('.last').hover(function (){
+			$(this).addClass('hover').siblings().removeClass('hover');
+		}, function (){
+			$(this).removeClass('hover');
+		});
+	});
+</script>
+</body>
+</html>

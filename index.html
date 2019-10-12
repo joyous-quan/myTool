@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>常用样式集锦</title>
+	<title>基本样式</title>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> <!-- 优先使用 IE 最新版本和 Chrome -->
-	<meta name="format-detection" content="telephone=no, email=no"/>  <!-- 设置苹果工具栏颜色 -->
-	<meta name="renderer" content="webkit">  <!-- 启用360浏览器的极速模式(webkit) -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- 避免IE使用兼容模式 -->
-	<meta http-equiv="Cache-Control" content="no-siteapp" />  <!-- 不让百度转码 -->
-	<meta name="description" content="不超过150个字符"/>  <!-- 页面描述 -->
-	<meta name="keywords" content=""/>  <!-- 页面关键词 -->
-	<meta name="author" content="joyousquan@outlook.com"/> <!--  网页作者 -->
-	<meta name="robots" content="index,follow"/>  <!-- 搜索引擎抓取 -->
-<style type="text/css">
-/* 初始通用样式 */
-html {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-html,body {
-	margin:0;
-	padding:0;
-	width:100%;
-}
-*, *:before, *:after { box-sizing: inherit; }
-body { font-family:"Microsoft Yahei",Arial; font-size:14px; color:#333; }
-dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,img{ margin:0px; padding:0px; }
-a { text-decoration:none; color:#333; }
-li { list-style:none }
-table,img { border:0;max-width:100%; }
-table { width:100%; border-collapse:collapse; }
-input,textarea,button,select { outline:none;}
-input::-ms-clear,input::-ms-reveal { display:none; }
-input:-webkit-autofill { -webkit-box-shadow:0 0 0 1000px #fff inset;}
-input,textarea,select {
-	font-family:"Microsoft Yahei",Arial;
-	font-size:14px;
-	color:#333;
-	vertical-align:middle;
-	padding: 3px 10px;
-}
-button:focus { outline:none; }
-button:active { transform: scale(0.95);} /* btn点击缩放效果 */
-button::-moz-focus-inner { border:0;}
-.clearboth:after{display:block;height:0;content:" ";clear:both;visibility:hidden;}
-.clearboth { zoom:1; }
-.position_r { position:relative; }
-.position_a { position:absolute; }
-.float_l { float:left; }
-.float_r { float:right; }
-.align_r { text-align:right; }
-.align_c { text-align:center; }	
-	
-</style>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<meta name="referrer" content="origin-when-cross-origin">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/index.css">
 </head>
 <body>
+<div class="base-body">
+	<header id="header"></header>
+	<nav id="nav"></nav>
+	<div class="layout">
+		<div class=" banner container">
+			<div class="slider-container">
+				<ul class="slider">
+					<li style="background:#abc">1<img src="" alt=""></li>
+					<li style="background:#aef">2<img src="" alt=""></li>
+					<li style="background:#ccd">3<img src="" alt=""></li>
+					<li style="background:#aed">4<img src="" alt=""></li>
+				</ul>
+			</div>
+			<div class="prev btn"><</div>
+			<div class="next btn">></div>
+		</div>
+	</div>
+	<div class="layout main">
+		<h2>布局</h2>
+		<div class="clearboth">
+			<dl>
+				<dt><a href="/page/stairs.html"><img src="/img/stairs.png" alt=""></a></dt>
+				<dd>楼梯效果</dd>
+			</dl>
+			<dl>
+				<dt><a href="/page/table.html"><img src="/img/table.png" alt=""></a></dt>
+				<dd>table 相关样式</dd>
+			</dl>
+		</div>
 
+		<h2>花式轮播图</h2>
+		<div class="clearboth">
+			<dl>
+				<dt><a href="/page/carousel.html"><img src="/img/carousel.png" alt=""></a></dt>
+				<dd>carousel</dd>
+			</dl>
+			<dl>
+				<dt><a href="/page/skitter-slider.html"><img src="/img/skitter.png" alt=""></a></dt>
+				<dd>skitter slider</dd>
+			</dl>
+		</div>
+		<h2>动画效果</h2>
+		<div class="clearboth">
+			<dl>
+				<dt><a href=""><img src="" alt=""></a></dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt><a href=""><img src="" alt=""></a></dt>
+				<dd></dd>
+			</dl>
+		</div>
+		<h2>多行溢出</h2><br>
+		<p class="overflow-duo">
+			jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.
+			jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as 
+		</p>
+
+	</div>
+	<div class="footer">
+		@copyright 
+	</div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/slider.js"></script>
 </body>
 </html>

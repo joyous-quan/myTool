@@ -1,0 +1,96 @@
+<style type="text/css">
+	.nav {
+		height:40px;
+		background: lightgray;
+		position: relative;
+		z-index: 2;
+	}
+	.nav dt {
+		position: relative;
+		float: left;
+		width:25%;
+	}
+	.nav dt>a {
+		display: block;
+		height:40px;
+		line-height: 40px;
+		text-align:center;
+		border-left:1px solid #dddddd;
+	}
+ 	.nav a.border_right{
+
+		border-right:1px solid #dddddd;
+ 	}
+	.nav dt:hover dl {
+		display: block;
+	}
+	.nav dt dl {
+		padding: 8px 0;
+		display: none;
+		position: absolute;
+		background:#ffffff;
+		top:38px;
+		width:100%;
+		border:1px solid #dddddd;
+	    box-shadow: 1px 2px 5px rgba(0, 0, 0, .4);
+	}
+	.nav dt dl::before {
+	    position: absolute;
+	    top: -5px;
+	    left: 48%;
+	    content: '';
+	    width: 10px;
+	    height: 10px;
+	    background: #ffffff;
+	    transform: rotate(135deg);
+}
+	.nav dl dd {
+		height:30px;
+		line-height: 30px;
+		padding:0 10px;
+	}
+	.nav dl dd:hover {
+		background: #eeeeee;
+	}
+	.nav dl dd a {
+		display: block;
+	}
+</style>
+<div class="nav">
+	<dl class="layout">
+		<dt>
+			<a href="">一级菜单1</a>
+			<dl>
+				<dd><a href="">二级菜单1</a></dd>
+				<dd><a href="">二级菜单2</a></dd>
+				<dd><a href="">二级菜单3</a></dd>
+			</dl>
+		</dt>
+		<dt>
+			<a href="">一级菜单2</a>
+			<dl>
+				<dd><a href="">二级菜单1</a></dd>
+				<dd><a href="">二级菜单2</a></dd>
+				<dd><a href="">二级菜单3</a></dd>
+				<dd><a href="">二级菜单4</a></dd>
+				<dd><a href="">二级菜单5</a></dd>
+			</dl>
+		</dt>
+		<dt>
+			<a href="">一级菜单3</a>
+			<dl>
+				<dd><a href="">二级菜单1</a></dd>
+				<dd><a href="">二级菜单2</a></dd>
+				<dd><a href="">二级菜单3</a></dd>
+			</dl>
+		</dt>
+		<dt>
+			<a class="border_right" href="">一级菜单4</a>
+			<dl>
+				<dd><a href="">二级菜单</a></dd>
+				<dd><a href="">二级菜单</a></dd>
+				<dd><a href="">二级菜单</a></dd>
+			</dl>
+		</dt>
+	</dl>
+</div>

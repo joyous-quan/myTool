@@ -1,0 +1,74 @@
+[
+	{
+		"Cas" : "286961-14-6",
+		"Cat" : "BD33046",
+		"Name" : "tert-Butyl 4-(4,4,5,5-tetramethyl-1,3,2-dioxaborolan-2-yl)-5,6-dihydropyridine-1(2H)-carboxylate",
+		"Formula" : "C16H28BNO4",
+		"Mw" : "309.20",
+		"date" : "10/2019",
+		"img" : "/static/img/products/286961-14-6.png"
+	},
+	{
+		"Cas" : "31462-58-5",
+		"Cat" : "BD158817",
+		"Name" : "5-Iodopyrimidine",
+		"Formula" : "C4H3IN2",
+		"Mw" : "205.98",
+		"date" : "10/2019",
+		"img" : "/static/img/products/31462-58-5.png"
+	},
+	{
+		"Cas" : "32372-82-0",
+		"Cat" : "BD135148",
+		"Name" : "Isoindoline hydrochloride",
+		"Formula" : "C8H10ClN",
+		"Mw" : "155.63",
+		"date" : "09/2019",
+		"img" : "/static/img/products/32372-82-0.png"
+	},
+	{
+		"Cas" : "50595-15-8",
+		"Cat" : "BD78637",
+		"Name" : "tert-Butyl 2-hydroxyacetate",
+		"Formula" : "C6H12O3",
+		"Mw" : "132.16",
+		"date" : "09/2019",
+		"img" : "/static/img/products/50595-15-8.png"
+	},
+	{
+		"Cas" : "51564-92-2",
+		"Cat" : "BD70596",
+		"Name" : "6-Chloro-4-methylpyridin-2-amine",
+		"Formula" : "C6H7ClN2",
+		"Mw" : "142.58",
+		"date" : "09/2019",
+		"img" : "/static/img/products/51564-92-2.png"
+	},
+	{
+		"Cas" : "633328-95-7",
+		"Cat" : "BD160370",
+		"Name" : "5-Bromo-2-chloro-4-methylpyrimidine",
+		"Formula" : "C5H4BrClN2",
+		"Mw" : "207.46",
+		"date" : "09/2019",
+		"img" : "/static/img/products/633328-95-7.png"
+	},
+	{
+		"Cas" : "885693-20-9",
+		"Cat" : "BD208720",
+		"Name" : "tert-Butyl 3-(4,4,5,5-tetramethyl-1,3,2-dioxaborolan-2-yl)-5,6-dihydropyridine-1(2H)-carboxylate",
+		"Formula" : "C16H28BNO4",
+		"Mw" : "30920",
+		"date" : "07/2019",
+		"img" : "/static/img/products/885693-20-9.png"
+	},
+	{
+		"Cas" : "907545-47-5",
+		"Cat" : "BD168527",
+		"Name" : "2-Chloro-5-nitroisonicotinic acid",
+		"Formula" : "C6H3ClN2O4",
+		"Mw" : "202.55",
+		"date" : "04/2019",
+		"img" : "/static/img/products/907545-47-5.png"
+	}
+]

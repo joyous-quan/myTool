@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="msapplication-tap-highlight" content="no"/> 
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://s2.pstatp.com/cdn/expire-1-M/jquery-validate/1.19.0/jquery.validate.js"></script>
+	<script src="/tool/js/cookie.js"></script>
+
+<style>
+	*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+	body,html{margin:0;padding:0;width:100%}
+	body{min-width:320px;color:#333333;font-size:14px;font-family:Arial}
+	dd,dl,dt,h1,h2,h3,h4,h5,h6,img,li,ol,p,ul,hr{margin:0;padding:0}
+	header,article,aside,footer,head,main,nav,section{display:block}
+	a{text-decoration:none;color:#333}
+	li{list-style:none}
+	img,table{max-width:100%;border:0}
+	table{width:100%;border-collapse:collapse}
+	button,input,select,textarea{font-size:14px;font-family:Arial}
+	input::-ms-clear,input::-ms-reveal{display:none}
+	input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #fff inset}
+	.layout{margin:0 auto;max-width:1000px}
+	.clearfloat:after{clear:both;display:block;visibility:hidden;height:0;content:" "}
+	.clearfloat{zoom:1}
+	.floatR{float:right;}
+	.floatL{float:left}
+	.tips-text h2{font-size:24px;line-height:60px}
+	.tips-text p{margin-bottom:10px;text-align:justify;line-height:20px}
+	.error{color:#a30;font-size:12px}
+	input.error,textarea.error{background:#fff6f6}
+	.card-content .floatL,.card-content .floatR{width:49%;border:1px solid #ddd}
+	.card-content thead tr{height:30px;background:#f3f6fc}
+	.card-content table td{padding:5px 10px;vertical-align:top}
+	.card-content input,.card-content select,.card-content textarea{padding:3px 5px;width:100%;border:1px solid #aaa}
+	.card-content select.width70{width:70px}
+	.card-number div{display:inline-block;width:44px}
+	.card-number{white-space:nowrap}
+	.card-content textarea{width:100%;height:100px;resize:none}
+	.card-content #address{height:56px}
+	.red-color{padding-left:2px;color:#e5002d}
+	.F12{font-size:12px}
+	.btn-box{margin:10px 0 20px;text-align:right}
+	.btn-box .btn{display:inline-block;width:100px;height:36px;border-radius:2px;text-align:center;font-weight:700;line-height:34px}
+	.btn-clear{border:1px solid #1773e6;background:#fff;color:#1773e6}
+	.btn-pay{border:1px solid #1773e6;background:#1773e6;color:#fff}
+	.btn-clear:hover,.btn-pay:hover{background:#f0f7ff;-webkit-box-shadow:1px 2px 8px rgba(30,144,255,.6);-moz-box-shadow:1px 2px 8px rgba(30,144,255,.6);box-shadow:1px 2px 8px rgba(30,144,255,.6)}
+	.btn-pay:hover{background:#005bab}
+	.renew-code{color:#005bab;font-weight:700}
+	.renew-code:hover{text-decoration:underline}
+	.width36 { float:left;max-width:36%}
+	.width64 { float:right;width:62%}
+	@media only screen and (max-width:1024px){
+		.layout{padding:0 12px}
+	}
+	@media only screen and (max-width:767px){
+		.card-content .floatL,.card-content .floatR{width:100%}
+		.card-content .floatR{margin-top:10px}
+		.btn-box{text-align:center}
+		.card-content table td{padding:4px 8px}
+	}
+	@media only screen and (max-width:375px){
+		.width64 { width:58%;}
+	}
+	@media only screen and (max-width:321px){
+		.card-content input,.card-content select,.card-content textarea{padding:3px 2px;}
+		.card-content table td{padding:4px}
+		.card-number div{width:38px}
+		.width64 { width:52%;}
+	}
+</style>
+
+</head>
+<body>
+<div class="layout">
+ 	<div class="tips-text">
+ 		<h2>Billing</h2>
+		<p>
+			直接付款界面，需要三块信息<br>
+			1.Credit card information：卡号，CVN, Exp date <br>
+			2. Billing information: Holder Name, Address, City, State, Country, Zip, Phone<br>
+			3. Payment information: Authorized payer name, Company name, Email, Phone, Invoice/Order number, Total amount, Currency: USD, Other Comment
+		</p>
+ 	</div>
+ 	<form class="payForm" id="payForm">
+	 	<div class="card-content clearfloat">	
+	 		<table class="floatL">
+	 			<colgroup>
+	 				<col width=""><col width="64%">
+	 			</colgroup>
+	 			<thead>
+	 				<tr><th colspan="2">Billing information</th></tr>
+	 			</thead>
+	 			<tbody>
+	 				<tr>
+	 					<td>Authorized payer name<span class="red-color">*</span></td>
+	 					<td><input type="text" name="payerName" id="payerName" required="required"></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Company name<span class="red-color">*</span></td>
+	 					<td><input type="text" name="companyName" id="companyName" required="required"></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Payer e-mail<span class="red-color">*</span></td>
+	 					<td><input type="email" name="email" id="email"></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Phone number</td>
+	 					<td><input type="text" name="phone" id="phone"></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Invoice number(s)<span class="red-color">*</span></td>
+	 					<td><textarea name="invoiceNumber" id="invoiceNumber" required="required"></textarea></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Total sum by invoice(s)<span class="red-color">*</span></td>
+	 					<td><input type="text" name="totalSum" id="totalSun" required="required"><p class="F12">Equivalent sum for withdrawal is USD 0.0</p></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Currency</td>
+	 					<td>
+	 						<select class="currency" id="currency">
+	 							<option disabled="disabled">-- Pleaze specify option--</option>
+	 							<option selected="selected">USD</option>
+	 						</select>
+		 				</td>
+	 				</tr>
+	 				<tr>
+	 					<td>Other Comment</td>
+	 					<td><textarea id="comment"></textarea></td>
+	 				</tr>
+	 			</tbody>
+	 		</table>
+			<div class="floatR">
+		 		<table>
+		 			<colgroup>
+		 				<col width=""><col width="64%">
+		 			</colgroup>
+		 			<thead>
+		 				<tr><th colspan="2">Credit card information</th></tr>
+		 			</thead>
+		 			<tbody>
+		 				<tr>
+		 					<td>Credit card type<span class="red-color">*</span></td>
+		 					<td>
+		 						<select class="cardType" id="cardType">
+		 							<option>Visa</option>
+		 							<option>Mastercard</option>
+		 							<option>JCB</option>
+		 							<option>Diners Club</option>
+		 							<option>Discover</option>
+		 							<option>American Express</option>
+		 						</select>
+		 					</td>
+		 				</tr>
+		 				<tr>
+		 					<td>Credit card number<span class="red-color">*</span></td>
+		 					<td><input name="cardNumber" id="cardNumber" type="text" required="required" maxlength="16"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Credit card CVN<span class="red-color">*</span></td>
+		 					<td><input type="text" name="cardCVN" id="cardCVN" maxlength="4" required="required"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Credit card holder<span class="red-color">*</span></td>
+		 					<td><input type="text" name="cardHolder" id="cardHolder" required="required"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Expiration date<span class="red-color">*</span></td>
+		 					<td>
+		 						<select class="width70 month" id="month">
+									<option value="01" selected="selected">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+								<select class="width70 year" id="year">
+									<option value="2019">2019</option>
+									<option value="2020">2020</option>
+									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+									<option value="2024">2024</option>
+									<option value="2025">2025</option>
+									<option value="2026">2026</option>
+									<option value="2027">2027</option>
+									<option value="2028">2028</option>
+									<option value="2029">2029</option>
+								</select>
+							</td>
+		 				</tr>
+		 			</tbody>
+		 		</table>
+		 		<table>
+		 			<colgroup>
+		 				<col width=""><col width="64%">
+		 			</colgroup>
+		 			<thead>
+		 				<tr><th colspan="2">Billing address</th></tr>
+		 			</thead>
+		 			<tbody>
+		 				<tr>
+		 					<td>Country<span class="red-color">*</span></td>
+		 					<td>
+		 						<select required="required" id="country" name="country">
+		 							<option value="">-- please specify --</option>
+		 							<option selected="selected" region="AS" value="AF">Afghanistan</option>
+		 							<option region="EU" value="AL">Albania</option>
+		 							<option region="AS" value="AS">American Samoa</option>
+		 						</select>
+		 					</td>
+		 				</tr>
+		 				<tr>
+		 					<td>City<span class="red-color">*</span></td>
+		 					<td><input type="text" name="city" id="city" required="required"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Address<span class="red-color">*</span></td>
+		 					<td><textarea name="address" id="address" required="required"></textarea></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Postal code<span class="red-color">*</span></td>
+		 					<td><input type="text" name="postalCode" id="postalCode" required="required"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Contact Phone<span class="red-color">*</span></td>
+		 					<td><input type="text" name="contactPhone" id="contactPhone" required="required"></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Company<span class="red-color">*</span></td>
+		 					<td><input type="text" name="company" id="company" required="required"></td>
+		 				</tr>
+		 				<tr>
+		 					<td colspan="2"><hr style="color:#eee;"></td>
+		 				</tr>
+		 				<tr>
+		 					<td colspan="2">
+		 						<div class="width36">
+		 							<span style="white-space: nowrap;">Captcha security code</span><p><a href="javascript:;" class="renew-code">Renew code</a>.</p>
+		 							<p style="white-space: nowrap;padding-top:10px">Type captcha code<span class="red-color">*</span></p>
+		 						</div>
+		 						<div class="width64">
+		 							<p><canvas id="canvas" width="120" height="40"></canvas></p>
+		 							<input type="text" name="captchaCode" id="captchaCode">
+		 						</div>
+		 					</td>
+		 				</tr>
+		 			</tbody>
+		 		</table>
+			</div>
+	 	</div>
+	 	<div>
+	 		<br>
+	 		<p class="F12"><strong>I authorize BLD Pharmatech Ltd to charge entered credit card for the sum indicated above to clear off specified outstanding invoices.</strong></p>
+			<p class="btn-box">
+				<input type="reset" class="btn btn-clear" value="Clear form">
+				<a href="javascript:;"  class="btn btn-pay"  onclick="submit_payForm()">Pay now</a>
+			</p>
+	 	</div>
+	</form>
+</div>
+<script> 
+    //绘制随机验证码
+    function draw(show_num) {
+        var canvas_width=$('#canvas').width();
+        var canvas_height=$('#canvas').height();
+        var canvas = document.getElementById("canvas");//获取到canvas的对象，演员
+        var context = canvas.getContext("2d");//获取到canvas画图的环境，演员表演的舞台
+        canvas.width = canvas_width;
+        canvas.height = canvas_height;
+        var sCode = "A,B,C,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,W,X,Y,Z,1,2,3,4,5,6,7,8,9,0";
+        var aCode = sCode.split(",");
+        var aLength = aCode.length;//获取到数组的长度
+        
+        for (var i = 0; i <= 4; i++) {
+            var j = Math.floor(Math.random() * aLength);//获取到随机的索引值
+            var deg = Math.random() * 30 * Math.PI / 180;//产生0~30之间的随机弧度
+            var txt = aCode[j];//得到随机的一个内容
+            show_num[i] = txt.toLowerCase();
+            var x = 10 + i * 20;//文字在canvas上的x坐标
+            var y = 20 + Math.random() * 8;//文字在canvas上的y坐标
+            context.font = "bold 24px '宋体'";
+
+            context.translate(x, y);
+            context.rotate(deg);
+
+            context.fillStyle = randomColor();
+            context.fillText(txt, 0, 0);
+
+            context.rotate(-deg);
+            context.translate(-x, -y);
+        }
+        for (var i = 0; i <= 40; i++) { //验证码上显示小点
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            var x = Math.random() * canvas_width;
+            var y = Math.random() * canvas_height;
+            context.moveTo(x, y);
+            context.lineTo(x + 1, y + 1);
+            context.stroke();
+        }
+    }
+    //得到随机的颜色值
+    function randomColor() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    //表单验证
+	var validato; 
+	$(document).ready(function(e) {
+		//
+		jQuery.validator.addMethod("isEmail", function(value, element) {
+			return /^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/.test(value) ? true : false;
+		}, "Enter a valid email address.");
+
+		validator = $("#payForm").validate({
+			rules: {
+				payerName: "required",
+				companyName: "required",
+				email: {
+					required: true,
+					isEmail: true
+				},
+				invoiceNumber: "required",
+				totalSun: "required",
+				cardNumber: "required",
+				country: "required",
+				city: "required",
+				address: "required",
+				postalCode: "required",
+				contactPhone: "required",
+				company: "required"
+			},
+			messages: {
+				payerName: "Please specify payer name",
+				companyName: "Please specify company name",
+				email: "Please enter a valid email address",
+				invoiceNumber: "Please specify Invoice number(s)",
+				totalSum: "Please specify total sum by invoice",
+				cardNumber: "Card number is incorrect",
+				country: "You have to specify country",
+				city: "You have to specify city",
+				address: "You have to specify full address (please do not use quotation marks or other special symbols)",
+				postalCode: "You have to specify valid postal code",
+				contactPhone: "Please set correct phone number",
+				company: "You have to specify valid company"
+			}
+		});
+	});
+
+	function updateData(arr) {
+	    var payFormDataStr = JSON.stringify(arr);
+	    cookieObj.set({
+	        name: "datas_pay_info",
+	        value: payFormDataStr
+	    });
+	    payFormDataStr = cookieObj.get("datas_pay_info");
+	    return JSON.parse(payFormDataStr);
+	}
+	function getAllData() {
+	    var payFormDataStr = cookieObj.get("datas_pay_info");
+	    var payFormDataObj = JSON.parse(payFormDataStr);
+	    return payFormDataObj
+	}
+</script>
+<script>
+
+	//验证码 验证
+    var show_num = [];
+    draw(show_num);
+    //切换验证码
+    $(".renew-code").click(function(){
+        draw(show_num);
+    })
+	function checkCode(){
+    	var val = $("#captchaCode").val();
+        var num = show_num.join("");
+        if(val==''){
+            alert('Please enter verification code!');
+        }else if(val == num){
+            $("#captchaCode").val('');
+            draw(show_num);
+        }else{
+            alert('Verification code error, please re - enter!');
+            $("#captchaCode").val('');
+            draw(show_num);
+        }
+	}
+	//提交
+	function submit_payForm(){
+		checkCode()
+		var flag = $("#payForm").valid();
+		if (!flag) {
+			validator.focusInvalid();
+			return false;
+		}
+		addformdata()	
+		window.location.href = '/page/form/Form-validation.html';
+	}
+	var payerName = $('#payerName').val();
+	var companyName = $('#companyName').val();
+	var email = $('#email').val();
+	var phone = $('#phone').val();
+	var invoiceNumber = $('#invoiceNumber').val();
+	var totalSun = $('#totalSun').val();
+	var currency = $('#currency').val();
+	var comment = $('#comment').val();
+	var cardType = $('#cardType').val();
+	var cardNumber = $('#cardNumber').val();
+	var cardCVN = $('#cardCVN').val();
+	var cardHolder = $('#cardHolder').val();
+	var month = $('#month').val();
+	var year = $('#year').val();
+	var country = $('#country').val();
+	var city = $('#city').val();
+	var address = $('#address').val();
+	var postalCode = $('#postalCode').val();
+	var contactPhone = $('#contactPhone').val();
+	var company = $('#company').val();
+
+	var payFormData = {
+		"payerName" : payerName,
+		"companyName" : companyName,
+		"email" : email,
+		"phone" : phone,
+		"invoiceNumber" : invoiceNumber,
+		"totalSun" : totalSun,
+		"currency": currency,
+		"comment": comment,
+		"cardType" : cardType,
+		"cardNumber" : cardNumber,
+		"cardCVN" : cardCVN,
+		"cardHolder" : cardHolder,
+		"month" : month,
+		"year" : year,
+		"country" : country,
+		"city" : city,
+		"address" : address,
+		"postalCode" : postalCode,
+		"contactPhone" : contactPhone,
+		"company" : company
+	};
+	//console.log(payFormData)
+	//{payerName: "quan", companyName: "bide", email: "joyousquan@outlook.com", phone: "15112345678", invoiceNumber: "15112345678", …}
+
+	function addformdata() {
+	    var payFormDataStr = cookieObj.get("datas_pay_info");
+	    if(!payFormDataStr) { 
+	        cookieObj.set({
+	            name: "datas_pay_info",
+	            value: "[]"
+	        });
+	        payFormDataStr = cookieObj.get("datas_pay_info");
+	    }
+	    var payFormDataObj = JSON.parse(payFormDataStr);
+	    payFormDataObj.push(payFormData);
+	    payFormDataObj = updateData(payFormDataObj);
+	   // console.log(payFormDataObj);
+	   // console.log(payFormDataStr);
+	}
+
+</script>
+</body>
+</html>

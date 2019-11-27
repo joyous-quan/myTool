@@ -61,6 +61,7 @@
             color: #e22e1c;
             cursor: pointer;
         }
+       
     </style>
 </head>
 <body>
@@ -68,6 +69,10 @@
 <input type="text" value="" placeholder="请输入验证码（不区分大小写）" class="input-val" />
 <canvas id="canvas" width="100" height="43"></canvas>
 <button class="btn">提交</button>
+<br><br><br>
+<div>
+    
+</div>
 </div>
 </body>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
@@ -151,5 +156,74 @@
         var b = Math.floor(Math.random() * 256);
         return "rgb(" + r + "," + g + "," + b + ")";
     }
+</script>
+<script>
+(function($){
+    var tools={
+        TimeOutRun:function (obj, Event, callBack, time) {
+            var timeOutId = "",
+                reStart = true;
+            obj.on(Event, function () {
+                clearTimeout(timeOutId);
+                if (reStart) {
+                    timeOutRun(time)
+                }
+            });
+            function timeOutRun(time) {
+                reStart = false;
+                var timeOutId = setTimeout(function () {
+                    reStart = true;
+                    callBack()
+                }, time);
+            }
+        },
+        log:function(log){
+            if(window.console){}
+        }
+    };
+    function FixedPointShow($el,config){
+        var def = {
+            zIndex:100,
+            st:200 
+        };
+        this.opts = $.extend(true,def,config);
+        this.el = $el;
+    }
+    FixedPointShow.prototype = {
+        scrollNav:function(){
+            var isOpen = false,This = this,
+                fixTopH = This['el'].outerHeight();
+
+            This['el'].css({"z-index":this.opts.zIndex});
+
+            tools.TimeOutRun($(window),"scroll",function(){
+                var st = $(this).scrollTop();
+                if(st > This.opts.st){
+                    !isOpen && This.el.animate({"top":0},400,function(){
+                        isOpen = true;
+                    });
+                }else{
+                    This.el.animate({"top":-fixTopH},400,function(){
+                        isOpen = false;
+                    });
+                }
+                tools.log(st)
+            },200)
+        }
+    };
+    FixedPointShow.prototype.constructor = FixedPointShow;
+    $.extend($.fn,{
+        fixedPointShow:function(config){
+            
+            if(!("maxHeight" in document.createElement("div").style)){
+                $(this).remove();
+                return
+            }
+            var fixedPointNav = new FixedPointShow($(this));
+            fixedPointNav.scrollNav();
+            return this;
+        }
+    });
+}(jQuery));
 </script>
 </html>

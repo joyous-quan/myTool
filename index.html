@@ -11,26 +11,29 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/common.css">
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
+	<style>
+		.progress {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    height: 2px;
+		    background-color: #0A74DA;
+			z-index: 2;
+		}
+	</style>
 </head>
 <body>
 <div class="base-body">
+	<div class="progress"></div>
 	<header id="header"></header>
-	<nav id="nav"></nav>
-	<div class="layout">
-		<div class=" banner container">
-			<div class="slider-container">
-				<ul class="slider">
-					<li style="background:#abc">1<img src="" alt=""></li>
-					<li style="background:#aef">2<img src="" alt=""></li>
-					<li style="background:#ccd">3<img src="" alt=""></li>
-					<li style="background:#aed">4<img src="" alt=""></li>
-				</ul>
-			</div>
-			<div class="prev btn"><</div>
-			<div class="next btn">></div>
-		</div>
-	</div>
 	<div class="layout main">
+		<h2>CSS3 </h2>
+		<div class="clearboth">
+			<dl>
+				<dt><a href="/page/css3.html"><img src="" alt=""></a></dt>
+				<dd>CSS3 </dd>
+			</dl>
+		</div>
 		<h2>Demo</h2>
 		<div class="clearboth">
 			<dl>
@@ -57,6 +60,14 @@
 				<dd>产品页(基于cookie，加入购物车)</dd>
 			</dl>
 		</div>
+
+		<h2>表单验证</h2>
+		<div class="clearboth">
+			<dl>
+				<dt><a href="/page/form/FOrm-validation.html"><img src="" alt=""></a></dt>
+				<dd>表单验证(jquery.validate.js)</dd>
+			</dl>
+		</div>
 		<h2>Vue Demo</h2>
 		<div class="clearboth">
 			<dl>
@@ -71,11 +82,7 @@
 				<dd>实用的网址</dd>
 			</dl>
 		</div>
-		<h2>多行溢出</h2><br>
-		<p class="overflow-duo">
-			jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.
-			jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as 
-		</p>
+		
 
 	</div>
 	<div class="footer">
@@ -85,5 +92,8 @@
 <script src="/tool/js/jquery-2.1.1.min.js"></script>
 <script src="/js/common.js"></script>
 <script src="/js/slider.js"></script>
+<!--  -->
+<script src="/js/store.js"></script>
+<script src="/js/scroll-perc.js"></script>
 </body>
 </html>

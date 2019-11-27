@@ -1,44 +1,6 @@
 .container {
 	position: relative;
 }
-.banner:hover .btn{
-	display:block;
-}
-.btn {
-	display: none;
-	position: absolute;
-	top: 120px;
-	width: 30px;
-	height: 35px;
-	background: #cde;
-	color: #fff;
-	text-align: center;
-	font-size: 30px;
-	line-height: 30px;
-	cursor: pointer;
-}
-.prev { left: 0; }
-.next { right: 0; }
-.slider-container {
-	position: relative;
-	overflow: hidden;
-	margin: 0 auto;
-	width: 100%;
-	height: 280px;
-	background: #eee;
-}
-.slider {
-	position: absolute;
-	width: 200%;
-	height: 280px;
-}
-.slider li {
-	float: left;
-	width: 50%;
-	height: 280px;
-	text-align: center;
-	line-height: 280px;
-}
 h2 {
 	border-bottom: 1px dashed #dddddd;
 }
@@ -58,11 +20,3 @@ h2 {
 	display: block;
 }
 
-/* 多行溢出     其余设置max-height值 */
-.overflow-duo{
-	overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}

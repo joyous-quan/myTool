@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS 3</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+<style>
+	.multi-column{
+	    width: 1000px;
+	    column-count: 3;
+	    column-gap: 2em;
+	    -moz-column-count: 3;
+	    -webkit-column-count: 3;
+	    -moz-column-gap: 2em;
+	    -webkit-column-gap: 2em;
+	}
+	.multi-column dd {
+	    margin-bottom: 1em;
+	    break-inside: avoid;
+	    -moz-page-break-inside: avoid;
+	    -webkit-column-break-inside: avoid;
+	}
+	.multi-column a { 
+		display: block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	/* 多行溢出     其余设置max-height值 */
+	.overflow-duo{
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 2;
+	    -webkit-box-orient: vertical;
+	}
+</style>
+</head>
+<body>
+	<div class="layout">
+		<!-- <h2>CSS3 动画属性（Animation) </h2>
+		<div class="animation">
+			
+		</div> -->
+		<h2></h2>
+
+		<h2>多行溢出</h2>
+		<div class="overflow-duo">
+			jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as 
+		</div>
+
+		<h2>Marquee 属性</h2>
+   		<marquee id="affiche" align="center" behavior="scroll" bgcolor="lightblue" direction="up" height="200" width="200" hspace="50" vspace="20" loop="-1" scrollamount="10" scrolldelay="100" onMouseOut="this.start()" onMouseOver="this.stop()"> move </marquee>
+
+   		<h2>多列属性（Multi-column</h2>
+   		<dl class="multi-column">
+			<dd>
+				<a href=""><strong>Custom Synthesis</strong></a>
+				<a href="">Bulk Inquires</a>
+				<a href="">Contract Manufacturing</a>
+				<a href="">R&D Center Contract Manufacturing ManufacturingR&D Center Contract Manufacturing Manufacturing</a>
+				<a href="">Sourcing Team</a>
+			</dd>
+			<dd>
+				<a href=""><strong>Contract Manufacturing</strong></a>
+				<a href="">R&D Center Contract Manufacturing Manufacturing</a>
+				<a href="">Sourcing Team</a>
+			</dd>
+			<dd>
+				<a href=""><strong>Team</strong></a>
+				<a href="">R&D Center Contract Manufacturing</a>
+				<a href="">Sourcing Team</a>
+				<a href="">Contract Manufacturing</a>
+				<a href="">R&D Center Contract Manufacturing Manufacturing</a>
+				
+			</dd>
+			<dd>
+				<a href=""><strong>About</strong></a>
+				<a href="">R&D Center Contract Manufacturing</a>
+				<a href="">Sourcing Team</a>
+				<a href="">Contract Manufacturing</a>
+				<a href="">R&D Center Contract Manufacturing Manufacturing</a>
+				<a href="">Sourcing Team</a>
+				<a href="">R&D Center Contract Manufacturing Manufacturing</a>
+				<a href="">Sourcing Team</a>
+			</dd><dd>
+				<a href=""><strong>Custom Synthesis</strong></a>
+				<a href="">Bulk Inquires</a>
+				<a href="">R&D Center Contract Manufacturing ManufacturingR&D Center Contract Manufacturing Manufacturing</a>
+				<a href="">Sourcing Team</a>
+				<a href="">Contract Manufacturing</a>
+				<a href="">Sourcing Team</a>
+			</dd>
+			<dd>
+				<a href=""><strong>Contract Manufacturing</strong></a>
+				<a href="">R&D Center Contract Manufacturing Manufacturing</a>
+				<a href="">Sourcing Team</a>
+				
+			</dd>
+			<dd>
+				<a href=""><strong>Team</strong></a>
+				<a href="">R&D Center Contract Manufacturing</a>
+				<a href="">Sourcing Team</a>
+				<a href="">Contract Manufacturing</a>
+				<a href="">R&D Center Contract Manufacturing Manufacturing</a>
+				<a href="">Sourcing Team</a>
+			</dd>
+		</dl>
+
+		<h2>Paged Media 属性</h2>
+	</div>
+</body>
+</html>

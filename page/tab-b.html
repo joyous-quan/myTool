@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+<style type="text/css">
+*{margin: 0;padding: 0;}
+.tab-title a{display:inline-block;padding:5px 20px;border:1px solid #ddd;}
+.tab-title a.current,.tab-title a:hover{background:#eee}
+.container{width:600px;margin:50px auto;}
+.tab-content-box{min-height:400px;padding:20px;border:1px solid #ddd;}
+.tab-content{display:none;}
+.tab-content.current{display:block;}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="tab-title">
+			<a href="javascript:;" class="current">Tab one</a>
+			<a href="javascript:;">Tab two</a>
+			<a href="javascript:;">Tab three</a>
+		</div>
+		<div class="tab-content-box">
+			<div id="1" class="tab-content current">Tab one content</div>
+			<div id="2" class="tab-content">Tab two content</div>
+			<div id="3" class="tab-content">Tab three content</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$(function(){
+	//选项卡
+	$('.tab-title a').click(function(event) {
+		var $idx = $(this).index();
+		$(this).addClass('current').siblings().removeClass('current');
+		$('.tab-content').eq($idx).show().siblings().hide();
+	});
+	//获取被访问时的 url
+	var $url = location.href;
+	//获取该url = 后面的数字(id)
+	var $type = $url.split('?')[1].split("=")[1];
+	//使用传过来的 数字(id)来控制该选项卡的切换
+	//其实就是从页面tab-a通过URL？后面的参数给页面tab-b传一个index
+	$('.tab-content').hide();
+	$('.tab-title a').removeClass('current');
+	$('.tab-title a').eq($type-1).addClass('current');
+	$('.tab-content').eq($type-1).show();
+})
+</script>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - 导航3D效果</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css" media="screen">
+/* basic menu styles */
+.nav-menu {
+	margin-top: 20px;width: 950px;background: #74adaa;
+}
+.nav-menu>li {
+	float: left;border-right: 1px solid #94c0be;
+}
+.nav-menu>li:last-child {
+	border-right: none;
+}
+.nav-menu li a {
+	display: block;
+	overflow: visible;
+	padding: 15px 30px;
+	color: #fff;
+	text-transform: capitalize;/*none默认值 capitalize文本中的每个单词以大写字母开头  uppercase定义仅有大写字母  lowercase定义仅有小写字母 c1*/
+	font-size: 20px;
+	line-height: 20px;
+	-webkit-font-smoothing: antialiased;/*抗锯齿属性*/
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+/* animation domination */
+.three-d {
+	position: relative;
+	-webkit-transition: all .07s linear;
+	-moz-transition: all .07s linear;
+	-ms-transition: all .07s linear;
+	-o-transition: all .07s linear;
+	transition: all .07s linear;
+	-webkit-perspective: 200px;
+	-moz-perspective: 200px;
+	-ms-perspective: 200px;
+	-o-perspective: 200px;
+	perspective: 200px;/*透视*/
+}
+.three-d:not(.active):hover {
+	cursor: pointer;
+}
+.three-d:not(.active):focus .three-d-box,.three-d:not(.active):hover .three-d-box {
+	-webkit-transform: translateZ(-25px) rotateX(90deg);
+	-moz-transform: translateZ(-25px) rotateX(90deg);
+	-ms-transform: translateZ(-25px) rotateX(90deg);
+	-o-transform: translateZ(-25px) rotateX(90deg);
+	transform: translateZ(-25px) rotateX(90deg);
+}
+.three-d-box {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	-webkit-transform: translateZ(-25px);
+	-moz-transform: translateZ(-25px);
+	-ms-transform: translateZ(-25px);
+	-o-transform: translateZ(-25px);
+	transform: translateZ(-25px);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d; /*IE不支持*/
+	-webkit-pointer-events: none;
+	-moz-pointer-events: none;
+	-ms-pointer-events: none;
+	-o-pointer-events: none;
+	pointer-events: none;/*意思就是让鼠标事件失效（链接、点击等事件)*/
+}
+
+.back,.front {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	padding: 15px 30px 15px 31px;
+	width: 100%;
+	height: 100%;
+	background: #74adaa;
+	-webkit-pointer-events: none;
+	-moz-pointer-events: none;
+	-ms-pointer-events: none;
+	-o-pointer-events: none;
+	pointer-events: none;
+}
+.front {
+	-webkit-transform: rotateX(0) translateZ(25px);
+	-moz-transform: rotateX(0) translateZ(25px);
+	-ms-transform: rotateX(0) translateZ(25px);
+	-o-transform: rotateX(0) translateZ(25px);
+	transform: rotateX(0) translateZ(25px);
+}
+.back {
+	-webkit-transform: rotateX(-90deg) translateZ(25px);
+	-moz-transform: rotateX(-90deg) translateZ(25px);
+	-ms-transform: rotateX(-90deg) translateZ(25px);
+	-o-transform: rotateX(-90deg) translateZ(25px);
+	transform: rotateX(-90deg) translateZ(25px);
+}
+.nav-menu li .active .back,.nav-menu li .active .front,.nav-menu li a:hover .back,.nav-menu li a:hover .front {
+	background-color: #51938f;
+	background-image: -webkit-linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480),linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480);
+	background-image: -moz-linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480),linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480);
+	background-image: -ms-linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480),linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480);
+	background-image: -o-linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480),linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480);
+	background-image: linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480),linear-gradient(45deg,#478480 25%,transparent 25%,transparent 75%,#478480 75%,#478480);
+	background-position: 0 0,30px 30px;
+	-webkit-background-size: 5px 5px;
+	background-size: 5px 5px;
+}
+.nav-menu ul {
+	position: absolute;
+	width: 200px;
+	text-align: left;
+	font-size: 14px;
+	line-height: 40px;
+	-webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+	-webkit-transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+	-ms-transform: rotateX(-90deg);
+	-o-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;/*属性允许您改变被转换元素的位置*/
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;/*隐藏被旋转的元素的背面*/
+}
+.nav-menu>li:hover ul {
+	display: block;
+	-webkit-transform: rotateX(0);
+	-moz-transform: rotateX(0);
+	-ms-transform: rotateX(0);
+	-o-transform: rotateX(0);
+	transform: rotateX(0);
+}
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">3D导航效果</h2>
+		<div id="nav">
+			<ul class="nav-menu clearfix unstyled">
+				<li>
+					<a href="#" class="three-d active">
+						Home
+						<span class="three-d-box"><span class="front">Home</span><span class="back">Home</span></span>
+					</a>
+				</li>
+				<li>
+					<a href="" class="three-d">
+						Services
+						<span class="three-d-box"><span class="front">Services</span><span class="back">Services</span></span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="three-d">
+						Products
+						<span class="three-d-box"><span class="front">Products</span><span class="back">Products</span></span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="three-d">
+						About
+						<span class="three-d-box"><span class="front">About</span><span class="back">About</span></span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="three-d">
+						Contact
+						<span class="three-d-box"><span class="front">Contact</span><span class="back">Contact</span></span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="three-d">
+						Blog
+						<span class="three-d-box"><span class="front">Blog</span><span class="back">Blog</span></span>
+					</a>
+					<ul class="clearfix unstyled drop-menu">
+						<li>
+							<a href="#" class="three-d">
+								Html5
+								<span class="three-d-box"><span class="front">Html5</span><span class="back">Html5</span></span>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="three-d">
+								Css3
+								<span class="three-d-box"><span class="front">Css3</span><span class="back">Css3</span></span>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="three-d">
+								JavaScript
+								<span class="three-d-box"><span class="front">JavaScript</span><span class="back">JavaScript</span></span>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="three-d">
+								Videogames
+								<span class="three-d-box"><span class="front">Videogames</span><span class="back">Videogames</span></span>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

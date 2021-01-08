@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - ajax获取json数据</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">ajax获取json数据</h2>
+		<table>
+			<thead>
+				<tr><td width="20%">name</td><td width="10%">sku</td><td>description</td></tr>
+			</thead>
+			<tbody id="tbody_content">
+				<tr><td colspan="3" align="center"><img src="/static/img/loading.gif" alt=""></td></tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script>
+	$(function(){
+		$.ajax({
+			type: 'GET',
+			url: '/static/data/data.json',
+			dataType: 'json', 
+			success: function(res) {
+				//1.加载数据成功 进行字符串拼接
+				var tbodyHtml;
+				$.each(res,function (idx,item) {
+					tbodyHtml += '<tr><td>'
+						+ item.name + '</td><td>'
+						+ item.sku + '</td><td>'
+						+ item.description + '</td></tr>'
+				})
+				$('#tbody_content').html(tbodyHtml);
+			},
+			error: function(){
+				$('#tbody_content').html('<tr><td colspan="3" align="center">data error</td></tr>');
+			}
+		});
+	});
+</script>
+</body>
+</html>

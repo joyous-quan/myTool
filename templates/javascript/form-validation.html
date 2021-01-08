@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - copy</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css">
+		.validForm{padding:30px;width:100%;border:1px solid #ddd;}
+		.validForm label{position:relative;display:block;padding:5px 0 15px;color:#333;font-size:14px;}
+		.validForm input{margin-top:2px;padding:5px 10px;width:100%;height:36px;outline:0;border:1px solid #ddd;background-color:#fff;}
+		.validForm span{position:absolute;bottom:0;left:0;visibility:hidden;color:red;font-size:12px;}
+		.success input{border-color:#90ee90;}
+		.error input{border-color:red;}
+		.error span{visibility:visible;}
+		#btn{width:100%;height:36px;outline:0;border:none;background:#bdc5e2;cursor:pointer;}
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+
+		<h2 class="title_h2">表单验证 - javascript</h2>
+		<div class="validForm">
+			<label>用户名<input type="text" name="username" id="username" placeholder="请输入用户名"><span></span></label>
+			<label>邮箱<input type="email" name="emial" id="email" placeholder="请输入邮箱"><span></span></label>
+			<label>密码<input type="password" name="password" id="password" placeholder="请输入密码"><span></span></label>
+			<label>确认密码<input type="password" name="checkpassword" id="checkpassword" placeholder="请确认密码"><span></span></label>
+			<br>
+			<button id="btn">提交</button>
+		</div>
+	</div>
+</div>
+
+<script>
+var validForm = document.getElementById('validForm');
+var username = document.getElementById('username');
+var email = document.getElementById('email');
+var password = document.getElementById('password');
+var checkpassword = document.getElementById('checkpassword');
+
+function showSuccess(input){
+	const iptControl = input.parentElement;
+	iptControl.className = 'success';
+	const span = iptControl.querySelector('span');
+	span.innerHTML = '';
+}
+function showError(input,msg){
+	const iptControl = input.parentElement;
+	iptControl.className = 'error';
+	const span = iptControl.querySelector('span');
+	span.innerHTML = msg;
+}
+function checkEmail(input){
+	const reg = /^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;
+	if (reg.test(input.value.trim())){
+		showSuccess(input);
+	}else if(input.value == ''){
+		showError(input, '邮箱为必填项');
+	}else{
+		showError(input, '邮箱格式不正确');
+	}
+}
+function checklength(input,min,max){
+	if (input.value == '') {
+		showError(input, '密码为必填项');
+	} else if (input.value.length<min) {
+		showError(input, '密码至少'+min+'位数');
+	} else if (input.value.length>max){
+		showError(input, '密码最多'+max+'位数');
+	}else{
+		showSuccess(input);
+	}
+}
+function validPassword(input){
+	if (input.value == '') {
+		showError(input, '请确认密码');
+	} else if (input.value != password.value) {
+		showError(input, '密码不正确');
+	} else {
+		showSuccess(input);
+	}
+}
+function getKeywords(input){
+	return input.placeholder.slice(3);
+}
+function validform(inputArr){
+	inputArr.forEach( function(input) {
+		if (input.value == '') {
+			showError(input, getKeywords(input)+'为必填项');
+		}else{
+			showSuccess(input);
+		}
+	});
+}
+
+document.getElementById('btn').addEventListener('click',function(){
+	validform([username,password]);
+	checkEmail(email);
+	checklength(password,6,12);
+	validPassword(checkpassword);
+})
+
+</script>
+</body>
+</html>

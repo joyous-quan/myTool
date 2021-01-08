@@ -1,0 +1,370 @@
+[
+  {
+    "name": "Bioactive Compound Library ",
+    "sku": "CSN-L1001",
+    "description": "A collection of 4548 bioactive compounds for HTS and HCS, consists of inhibitors, agonists and natural products, over 350 targets distributed in fields of cancer, cardiovascular disease, metabolic disease, neurological disease, infection, inflammation, immunology, endocrinology and so on.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "FDA-approved Compound Library ",
+    "sku": "CSN-L1002",
+    "description": "A collection of 2070 marketed drugs for HTS and HCS, over 200 targets, covered fields in cancer, cardiovascular disease, metabolic disease, neurological disease, infection, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Kinase Inhibitor Library ",
+    "sku": "CSN-L1003",
+    "description": "A collection of 637 compounds for HTS and HCS, targeting over 80 kinases, such as tyrosine kinase receptors, protein kinases, lipid kinases, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Tyrosine Kinase Library ",
+    "sku": "CSN-L1004",
+    "description": "A collection of 377 compounds for HTS and HCS, used to research related diseases and drug screening, targeted over 30 tyrosine kinase targets, such as VEGFR, EGFR, FGFR, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Natural Product Library ",
+    "sku": "CSN-L1005",
+    "description": "A collection of 1284 natural products for HTS and HCS, isolated from plants or biological separation, contains Quinones, Flavonoids, Terpenoids, Glycosides, Steroids, Alkaloid, Phenols and Saccharides.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-virus Compound Library ",
+    "sku": "CSN-L1006",
+    "description": "A collection of 249 anti-virus compounds for HTS and HCS and a useful tool for the discovery of anti-virus drugs, targeting at HIV, HBV, HCV, HSV, RSV, CMV, CoV, Influenza Virus, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Neurodegenerative Diseases Compound Library ",
+    "sku": "CSN-L1007",
+    "description": "A collection of 516 drugs for HTS and HCS, which are used to treat 18 kinds of different neurodegenerative diseases in clinical studies, such as Alzheimer, Parkinson, Dementia with Lewy bodies, Multiple system atrophy, Huntington's disease, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Epigenetics Compound Library ",
+    "sku": "CSN-L1008",
+    "description": "A collection of 311 compounds for HTS and HCS, targeting on proteins involved in Epigenetics pathways, most of which can regulate methylation or acetylation modification.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Autophagy Compound Library ",
+    "sku": "CSN-L1009",
+    "description": "A collection of 688 compounds for HTS and HCS, targeting on proteins related with autophagy, including mTOR, PI3K, ULK, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Cell Cycle Compound Library ",
+    "sku": "CSN-L1010",
+    "description": "A collection of 296 compounds for HTS and HCS, targeting on proteins related in cell cycle pathway.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Apoptosis Compound Library ",
+    "sku": "CSN-L1011",
+    "description": "A collection of 579 compounds for HTS and HCS, targeting on proteins related in apoptosis pathways, such as PARP, Bcl-2, p53, MDM2, FAK, caspase, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-cancer Compound Library ",
+    "sku": "CSN-L1012",
+    "description": "A collection of 1847 compounds reported in cancer research articles, covering multiple cancers.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": " Human Endogenous Metabolite Compound Library ",
+    "sku": "CSN-L1013",
+    "description": "The Endogenous Metabolite Compound Library contains 295 human endogenous metabolites, including amino acids, organic acids, nucleic acids, fatty acids, amines, sugars, vitamins, cofactors, cancer metabolite.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "GPCR Protein Compound Library ",
+    "sku": "CSN-L1014",
+    "description": "A unique collection of 668 compounds targeting G protein coupled receptors used in GPCR screening for various research and drug development projects.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Histone Modification Compound Library ",
+    "sku": "CSN-L1015",
+    "description": "A unique collection of 185 compounds targeting histone modification, such as Epigenetic Reader Domain, HDAC, Histone Acetyltransferase, etc, for high throughput screening (HTS) and high content screening (HCS).",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Small Molecule Immuno-Oncology Compound Library ",
+    "sku": "CSN-L1016",
+    "description": "A unique collection of 126 bioactive tumor immunology compounds targeting on PD-1/PD-L1, IDO, CCR, CXCR, TLR, STAT3, etc, for high throughput screening (HTS) and high content screening (HCS).",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Differentiation Inducing Compound Library ",
+    "sku": "CSN-L1017",
+    "description": "A unique collection of 391 cell differentiation-inducing compounds for high throughput screening (HTS) and high content screening (HCS), cancer stem cells, neural stem cells, cardiomyocyte stem cells, osteogenic stem cells are included.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Immunology/Inflammation Compound Library ",
+    "sku": "CSN-L1018",
+    "description": "A unique collection of 361 compounds with biological activity used for Immunology/Inflammation research and related assays, targeting on COX, IL Receptor, Histamine Receptor, ROS, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Ubiquitination?Compound?Library ",
+    "sku": "CSN-L1019",
+    "description": "A unique collection of 138 compounds with biological activity used for Ubiquitination related research and for high throughput screening (HTS) and high content screening (HCS), targeting on Proteasome, DUB, E3 Ligase, E1 Activating, E2 conjugating, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-alzheimer Disease Compound Library ",
+    "sku": "CSN-L1020",
+    "description": "Anti-alzheimer's Disease Compound Library contains 395 alzheimer-related compounds for screening effective drugs for alzheimer treatment.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "CNS-penetrant Compound Library",
+    "sku": "CSN-L1021",
+    "description": "CNS-penetrant Compound Library contains 319 CNS-Penetrant compounds with biological activity for neurologic research and associated assays. Targets include AChR, 5-HT Receptor, Dopamine Receptor, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-coronavirus Compound Library",
+    "sku": "CSN-L1022",
+    "description": "A collection of 45 anti-coronavirus compounds for HTS and HCS and a useful tool for the discovery of anti- CoVID-19 drugs, targeting at SARS-CoV, MERS-CoV, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Clinical Compound Library",
+    "sku": "CSN-L1023",
+    "description": "A collection of 2260 clinical compounds for HTS and HCS.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Bioactive Compound Library ",
+    "sku": "CSN-L1001",
+    "description": "A collection of 4548 bioactive compounds for HTS and HCS, consists of inhibitors, agonists and natural products, over 350 targets distributed in fields of cancer, cardiovascular disease, metabolic disease, neurological disease, infection, inflammation, immunology, endocrinology and so on.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "FDA-approved Compound Library ",
+    "sku": "CSN-L1002",
+    "description": "A collection of 2070 marketed drugs for HTS and HCS, over 200 targets, covered fields in cancer, cardiovascular disease, metabolic disease, neurological disease, infection, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Kinase Inhibitor Library ",
+    "sku": "CSN-L1003",
+    "description": "A collection of 637 compounds for HTS and HCS, targeting over 80 kinases, such as tyrosine kinase receptors, protein kinases, lipid kinases, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Tyrosine Kinase Library ",
+    "sku": "CSN-L1004",
+    "description": "A collection of 377 compounds for HTS and HCS, used to research related diseases and drug screening, targeted over 30 tyrosine kinase targets, such as VEGFR, EGFR, FGFR, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Natural Product Library ",
+    "sku": "CSN-L1005",
+    "description": "A collection of 1284 natural products for HTS and HCS, isolated from plants or biological separation, contains Quinones, Flavonoids, Terpenoids, Glycosides, Steroids, Alkaloid, Phenols and Saccharides.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-virus Compound Library ",
+    "sku": "CSN-L1006",
+    "description": "A collection of 249 anti-virus compounds for HTS and HCS and a useful tool for the discovery of anti-virus drugs, targeting at HIV, HBV, HCV, HSV, RSV, CMV, CoV, Influenza Virus, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Neurodegenerative Diseases Compound Library ",
+    "sku": "CSN-L1007",
+    "description": "A collection of 516 drugs for HTS and HCS, which are used to treat 18 kinds of different neurodegenerative diseases in clinical studies, such as Alzheimer, Parkinson, Dementia with Lewy bodies, Multiple system atrophy, Huntington's disease, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Epigenetics Compound Library ",
+    "sku": "CSN-L1008",
+    "description": "A collection of 311 compounds for HTS and HCS, targeting on proteins involved in Epigenetics pathways, most of which can regulate methylation or acetylation modification.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Autophagy Compound Library ",
+    "sku": "CSN-L1009",
+    "description": "A collection of 688 compounds for HTS and HCS, targeting on proteins related with autophagy, including mTOR, PI3K, ULK, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Cell Cycle Compound Library ",
+    "sku": "CSN-L1010",
+    "description": "A collection of 296 compounds for HTS and HCS, targeting on proteins related in cell cycle pathway.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Apoptosis Compound Library ",
+    "sku": "CSN-L1011",
+    "description": "A collection of 579 compounds for HTS and HCS, targeting on proteins related in apoptosis pathways, such as PARP, Bcl-2, p53, MDM2, FAK, caspase, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-cancer Compound Library ",
+    "sku": "CSN-L1012",
+    "description": "A collection of 1847 compounds reported in cancer research articles, covering multiple cancers.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": " Human Endogenous Metabolite Compound Library ",
+    "sku": "CSN-L1013",
+    "description": "The Endogenous Metabolite Compound Library contains 295 human endogenous metabolites, including amino acids, organic acids, nucleic acids, fatty acids, amines, sugars, vitamins, cofactors, cancer metabolite.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "GPCR Protein Compound Library ",
+    "sku": "CSN-L1014",
+    "description": "A unique collection of 668 compounds targeting G protein coupled receptors used in GPCR screening for various research and drug development projects.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Histone Modification Compound Library ",
+    "sku": "CSN-L1015",
+    "description": "A unique collection of 185 compounds targeting histone modification, such as Epigenetic Reader Domain, HDAC, Histone Acetyltransferase, etc, for high throughput screening (HTS) and high content screening (HCS).",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Small Molecule Immuno-Oncology Compound Library ",
+    "sku": "CSN-L1016",
+    "description": "A unique collection of 126 bioactive tumor immunology compounds targeting on PD-1/PD-L1, IDO, CCR, CXCR, TLR, STAT3, etc, for high throughput screening (HTS) and high content screening (HCS).",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Differentiation Inducing Compound Library ",
+    "sku": "CSN-L1017",
+    "description": "A unique collection of 391 cell differentiation-inducing compounds for high throughput screening (HTS) and high content screening (HCS), cancer stem cells, neural stem cells, cardiomyocyte stem cells, osteogenic stem cells are included.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Immunology/Inflammation Compound Library ",
+    "sku": "CSN-L1018",
+    "description": "A unique collection of 361 compounds with biological activity used for Immunology/Inflammation research and related assays, targeting on COX, IL Receptor, Histamine Receptor, ROS, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Ubiquitination?Compound?Library ",
+    "sku": "CSN-L1019",
+    "description": "A unique collection of 138 compounds with biological activity used for Ubiquitination related research and for high throughput screening (HTS) and high content screening (HCS), targeting on Proteasome, DUB, E3 Ligase, E1 Activating, E2 conjugating, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-alzheimer Disease Compound Library ",
+    "sku": "CSN-L1020",
+    "description": "Anti-alzheimer's Disease Compound Library contains 395 alzheimer-related compounds for screening effective drugs for alzheimer treatment.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "CNS-penetrant Compound Library",
+    "sku": "CSN-L1021",
+    "description": "CNS-penetrant Compound Library contains 319 CNS-Penetrant compounds with biological activity for neurologic research and associated assays. Targets include AChR, 5-HT Receptor, Dopamine Receptor, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Anti-coronavirus Compound Library",
+    "sku": "CSN-L1022",
+    "description": "A collection of 45 anti-coronavirus compounds for HTS and HCS and a useful tool for the discovery of anti- CoVID-19 drugs, targeting at SARS-CoV, MERS-CoV, etc.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  },
+  {
+    "name": "Clinical Compound Library",
+    "sku": "CSN-L1023",
+    "description": "A collection of 2260 clinical compounds for HTS and HCS.",
+    "category1": "Screening Libraries",
+    "price": 0,
+    "enabled": "yes"
+  }
+]

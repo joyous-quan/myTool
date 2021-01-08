@@ -1,99 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>基本样式</title>
 	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-	<meta name="referrer" content="origin-when-cross-origin">
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
-
-	<link rel="stylesheet" type="text/css" href="/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/css/index.css">
-	<style>
-		.progress {
-		    position: fixed;
-		    top: 0;
-		    left: 0;
-		    height: 2px;
-		    background-color: #0A74DA;
-			z-index: 2;
-		}
-	</style>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - Home</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
 </head>
 <body>
-<div class="base-body">
-	<div class="progress"></div>
-	<header id="header"></header>
-	<div class="layout main">
-		<h2>CSS3 </h2>
-		<div class="clearboth">
-			<dl>
-				<dt><a href="/page/css3.html"><img src="" alt=""></a></dt>
-				<dd>CSS3 </dd>
-			</dl>
-		</div>
-		<h2>Demo</h2>
-		<div class="clearboth">
-			<dl>
-				<dt><a href="/page/stairs.html"><img src="/img/stairs.png" alt=""></a></dt>
-				<dd>楼梯效果</dd>
-			</dl>
-			<dl>
-				<dt><a href="/page/table.html"><img src="/img/table.png" alt=""></a></dt>
-				<dd>table 相关样式</dd>
-			</dl>
-			<dl>
-				<dt><a href="/page/carousel.html"><img src="/img/carousel.png" alt=""></a></dt>
-				<dd>轮播图-carousel</dd>
-			</dl>
-			<dl>
-				<dt><a href="/page/skitter-slider.html"><img src="/img/skitter.png" alt=""></a></dt>
-				<dd>轮播图-skitter slider</dd>
-			</dl>
-		</div>
-		<h2>购物车 Demo</h2>
-		<div class="clearboth">
-			<dl>
-				<dt><a href="/page/cart/cart-products.html"><img src="/img/cart.png" alt=""></a></dt>
-				<dd>产品页(基于cookie，加入购物车)</dd>
-			</dl>
-		</div>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">首页</h2>
+		<h3 class="title_h3">知识点</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/page/model.html">知识点网站、网址</a></dd>
+		</dl>
+		<h3 class="title_h3">CSS3</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/css3/css.html">css3 基础</a></dd>
+			<dd><a href="/templates/css3/nav-3d.html">导航3D效果</a></dd>
+			<dd><a href="/templates/css3/box-shadow.html">阴影效果</a></dd>
+		</dl> 
+		<h3 class="title_h3">Canvas</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/canvas/canvas-base.html">Canvas Base</a></dd>
+			<dd><a href="/templates/canvas/canvas-clock.html">Canvas Clock</a></dd>
+			<dd><a href="/templates/canvas/canvas-solar.html">Canvas Solar</a></dd>
+			<dd><a href="/templates/canvas/canvas-code.html">Canvas Code</a></dd>
+		</dl>
+		<h3 class="title_h3">js</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/javascript/copy.html">复制内容</a></dd>
+			<dd><a href="/templates/javascript/form-validation.html">js表单验证</a></dd>
+			<dd><a href="/templates/javascript/page-data.html">json数据分页</a></dd>
+			<dd><a href="/templates/javascript/stairs.html">仿京东楼梯效果</a></dd>
+			<!-- <dd><a href="/templates/javascript/cinema-booking.html">仿电影院订票</a></dd> -->
+		</dl>
+		<h3 class="title_h3">Form表单类型</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/form/checkbox.html">Checkbox</a></dd>
+			<dd><a href="/templates/form/determine-td-location.html">获取td的位置</a></dd>
+			<dd><a href="/templates/form/table-thead-fixed.html">table 冻结表头</a></dd>
+			<dd><a href="/templates/form/form-validation.html">Form Validation</a></dd>
+			<dd><a href="/templates/form/tab.html">Tab 跳转指定位置</a></dd>
+		</dl>
+		<h3 class="title_h3">Excel</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/excel/read-excel.html">读取Excel</a></dd>
+			<dd><a href="/templates/excel/read-json.html">读取json数据</a></dd>
+		</dl>
+		<h3 class="title_h3">layui</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/layui/data-table.html">数据表格</a></dd>
+		</dl>
 
-		<h2>表单验证</h2>
-		<div class="clearboth">
-			<dl>
-				<dt><a href="/page/form/FOrm-validation.html"><img src="" alt=""></a></dt>
-				<dd>表单验证(jquery.validate.js)</dd>
-			</dl>
-		</div>
-		<h2>Vue Demo</h2>
-		<div class="clearboth">
-			<dl>
-				<dt><a href="/page/vue/enter-score.html"><img src="/img/enter-score.png" alt=""></a></dt>
-				<dd>录入成绩</dd>
-			</dl>
-		</div>
-		<h2>实用网址</h2><br>
-		<div class="clearboth">
-			<dl>
-				<dt><a href="/page/charging-station.html"><img src="/img/text.png" alt=""></a></dt>
-				<dd>实用的网址</dd>
-			</dl>
-		</div>
-		
-
-	</div>
-	<div class="footer">
-		@copyright <a href="mailto:joyousquan@outlook.com">Contact</a>
+		<!-- <h3 class="title_h3">购物车</h3>
+		<dl class="dl_menu">
+			<dd><a href="/templates/cart/procucts-list.html">Procucts List</a></dd>
+			<dd><a href="/templates/cart/cart.html">Cart</a></dd>
+		</dl> -->
 	</div>
 </div>
-<script src="/tool/js/jquery-2.1.1.min.js"></script>
-<script src="/js/common.js"></script>
-<script src="/js/slider.js"></script>
-<!--  -->
-<script src="/js/store.js"></script>
-<script src="/js/scroll-perc.js"></script>
 </body>
 </html>

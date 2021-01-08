@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - 楼梯效果</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		#header{margin:0 auto;width:1000px;height:100vh;}
+		.Louti{margin:0 auto;width:1000px;height:600px;text-align:center;font-size:50px;line-height:600px;}
+		#LoutiNav{position:fixed;top:150px;left:50px;display:none;width:34px;border:1px solid #ddd;}
+		#LoutiNav li{position:relative;width:32px;height:33px;border-bottom:1px dotted #ddd;list-style:none;text-align:center;font-size:12px;line-height:32px;}
+		#LoutiNav li.last{border-bottom:none;background:#c00;color:#fff;}
+		#LoutiNav li span{position:absolute;top:0;left:0;display:block;display:none;width:32px;height:32px;background:#fff;}
+		#LoutiNav li span.active{display:block;background:#fff;color:red;}
+		#LoutiNav li.hover span{display:block;background:#c00;color:#fff;}
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div id="LoutiNav">
+		<ul>
+			<li>1F <span>服饰</span> </li>
+			<li>2F <span>美妆</span> </li>
+			<li>3F <span>手机</span> </li>
+			<li>4F <span>家电</span> </li>
+			<li>5F <span>数码</span> </li>
+			<li>6F <span>运动</span> </li>
+			<li>7F <span>居家</span> </li>
+			<li>8F <span>母婴</span> </li>
+			<li>9F <span>食品</span> </li>
+			<li>10F <span>图书</span> </li>
+			<li>11F <span>服务</span> </li>
+			<li class="last">Top</li>
+		</ul>
+	</div>
+	<!--楼层内容开始-->
+	<div id="header" style="background: #f6e6e6;">楼梯效果</div>
+	<div id="main">
+		<div class="Louti" style="background: #cc0033;">
+			服饰
+		</div>
+		<div class="Louti" style="background: #999933;">
+			美妆
+		</div>
+		<div class="Louti" style="background: #ccff33;">
+			手机
+		</div>
+		<div class="Louti" style="background: #006633;">
+			家电
+		</div>
+		<div class="Louti" style="background: #6666cc;">
+			数码
+		</div>
+		<div class="Louti" style="background: #ff6600;">
+			运动
+		</div>
+		<div class="Louti" style="background: #ffff00;">
+			居家
+		</div>
+		<div class="Louti" style="background: #3333ff;">
+			母婴
+		</div>
+		<div class="Louti" style="background: #ff00cc;">
+			食品
+		</div>
+		<div class="Louti" style="background: #669900;">
+			图书
+		</div>
+		<div class="Louti" style="background: #ff66cc;">
+			服务
+		</div>
+	</div>
+</div>
+<!--楼层内容结束-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function (){
+		
+		$(window).scroll(function (){
+			// 获取页面滚动距离
+			var st = $(this).scrollTop();
+			// 滚动距离到1000时将导航栏显示出来
+			if(st >= 1000){
+				$('#LoutiNav').show();
+			} else {
+				$('#LoutiNav').hide();
+			}
+
+			// 循环所有的div色块(.Louti), 去找第一个500高度线比滚动距离大的
+			$('.Louti').each(function (){
+				// 计算当前元素500高度线距离页面顶端的top值
+				var toTop = $(this).offset().top + 500;
+				if(toTop >= st){
+					// 获取当前楼层的index
+					var index = $(this).index();
+					// 将当行设到当前是第几楼
+					$('#LoutiNav li').eq(index).find('span').addClass('active')
+					.end().siblings().find('span').removeClass('active');
+					// 由于是要找第一个, 找到之后, 跳出循环
+					return false;
+				}
+			});
+		});
+
+		// 给除了回到顶部的li以外的li添加点击事件
+		$('#LoutiNav li').not('.last').click(function (){
+			// 看当前li是第几个
+			var index = $(this).index();
+			// 获得对应的楼层距离页面顶端的距离
+			var target = $('.Louti').eq(index).offset().top-60;
+			// 让滚动条滚动过去
+			$('html,body').animate({scrollTop:target}, 500);
+		});
+
+		// 给回到顶部的li添加事件
+		$('#LoutiNav li.last').click(function (){
+			// 瞬间回去
+			// $(window).scrollTop(0);
+			// 运动回去
+			$('html,body').animate({scrollTop:0}, 500);
+		});
+
+		// li的移入移出给添加一下hover的class
+		$('#LoutiNav li').not('.last').hover(function (){
+			// 良性冗余: 以少量代码及性能开销来换取功能不会受到其他代码的影响
+			// 移入是将li的class设为hover, 兄弟li取出hover这个class
+			$(this).addClass('hover').siblings().removeClass('hover');
+		}, function (){
+			// 移出时, 去掉自身的hover的class
+			$(this).removeClass('hover');
+		});
+
+	});
+</script>
+</body>
+</html>

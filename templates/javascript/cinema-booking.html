@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - 仿电影院订票</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css" media="screen">
+		.demo_body{display:flex;min-height:100vh;background:#334;align-items:center;flex-direction:column;justify-content:center;}
+		.container{color:#fff;}
+		.cinema-tips{margin:20px 0;}
+		.cinema-tips li{display:inline-block;margin:0 5px;}
+		.container{display:flex;height:350px;flex-direction:column;align-items:center;}
+		.seat{display:inline-block;margin:0 1px;width:15px;height:15px;border-top-right-radius:10px;border-top-left-radius:10px;background:#788;}
+		.raw:nth-child(3){margin-bottom:15px;}
+		.seat:nth-child(2){margin-right:15px;}
+		.seat:nth-last-child(2){margin-left:15px;}
+		.selected{background:#3fe;}
+		.unselect{background:#f92;}
+		li.seat:not(.unselect):hover{cursor:pointer;transform:scale(1.2);}
+		.price span{padding:0 3px;color:#f92;font-weight:700;}
+		select{height:24px;}
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="container">		
+		<h2 class="title_h2">仿电影院订票</h2>
+		<div>
+			电影选择：
+			<select id="cinema">
+				<option value="68">肖申克的救赎（票价：68元）</option>
+				<option value="48">霸王别姬（票价：48元）</option>
+				<option value="58">这个杀手不太冷（票价：58元）</option>
+				<option value="38">千与千寻（票价：38元）</option>
+			</select>
+		</div>
+		<ul class="cinema-tips">
+			<li>可选 <span class="seat"></span></li>
+			<li>已选 <span class="seat selected"></span></li>
+			<li>不可选 <span class="seat unselect"></span></li>
+		</ul>
+		<div class="cinema-screen"></div>
+		<div>
+			<ul class="raw">
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+			</ul>
+			<ul class="raw">
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+			</ul>
+			<ul class="raw">
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+			</ul>
+			<ul class="raw">
+				<li class="seat unselect"></li>
+				<li class="seat unselect"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+			</ul>
+			<ul class="raw">
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat unselect"></li>
+				<li class="seat unselect"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+			</ul>
+			<ul class="raw">
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat unselect"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+			</ul>
+			<ul class="raw">
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+				<li class="seat"></li>
+			</ul>
+		</div>
+		<br>
+		<div class="price">
+			您供选择了<span id="count">0</span>个座位，共<span id="total-price">0</span>元。
+		</div>
+	</div>
+</div>
+
+<script>
+var cinema = document.getElementById('cinema')	
+var count = document.getElementById('count')	
+var totalPrice = document.getElementById('total-price')
+
+var seats = document.querySelectorAll('li.seat:not(.unselect)')	
+//console.log(seats)//51
+//console.log(cinema.value)
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - 获取td的位置</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css" media="screen">
+		.location-p{margin:0 50px;height:32px;}
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">获取td的位置</h2>
+		<table>
+			<colgroup><col width="13%"><col width="250px"><col width="13%"><col width="53%"></colgroup>
+			<thead>
+				<tr><td>Cat. No.</td><td>Product Name</td><td>CAS No.</td><td>Description</td></tr>
+			</thead>
+			<tbody id="aacr-other-products">
+				<tr><td>CSN22095</td><td>Furafylline</td><td>80288-49-9</td><td>Furafylline is a potent and selective inhibitor of human cytochrome P450IA2 with IC50 of 0.07 μM.</td></tr>
+				<tr><td>CSN24062</td><td>NIngetinib</td><td>1394820-69-9</td><td>Ningetinib is an inhibitor of tyrosine kinase inhibitor (TKI) and the IC50 for c-Met, VEGFR2 and Axl are 6.7 nM, 1.9 nM and &lt;1.0 nM respectively.</td></tr>
+				<tr><td>CSN23888</td><td>GSK467</td><td>1628332-52-4</td><td>GSK467 is a selective KDM5 inhibitor with Ki of 10 nM. It has no measurable inhibitory effects toward other JmJ family members.</td></tr>
+				<tr><td>CSN23777</td><td>BTR-1</td><td>18331-34-5</td><td>BTR-1 is an active anti-cancer agent, causes S phase arrest, and affects DNA replication in leukemic cells. BTR-1 activates apoptosis and induces cell death[1].</td></tr>
+				<tr><td>CSN23876</td><td>COH000</td><td>1534358-79-6</td><td>COH000 is an irreversible inhibitor of ubiquitin-like 1-activating enzyme (SUMO-activating enzyme) with IC50 of 0.2 μM for SUMOylation in vitro.</td></tr>
+				<tr><td>CSN16394</td><td>Alantolactone</td><td>546-43-0</td><td>Alantolactone is a sesquiterpene lactone with potential activity against triple-negative breast cancer MDA-MB-231 cells by suppressing the signal transducer and activator of transcription 3 (STAT3) signaling pathway.</td></tr>
+				<tr><td>CSN22507</td><td>SLV-2436</td><td>2095704-43-9</td><td>SLV-2436 is a highly potent and ATP-competitive inhibitor of MNK1 and MNK2 with IC50s of 10.8  nM and 5.4 nM, respectively.</td></tr>
+				<tr><td>CSN24168</td><td>IKE</td><td>1801530-11-9</td><td>IKE is a potent, metabolically stable inhibitor of system X<sub>c</sub><sup>-</sup> and inducer of ferroptosis potentially suitable for in vivo applications. </td></tr></tbody>
+		</table>
+		<p class="location-p"></p>
+	</div>
+</div>
+<script type="text/javascript">
+$(function (){
+	$('td').click(function (){
+		var row = $(this).prevAll().length + 1;
+		var col = $(this).parent().prevAll().length + 1;
+		var val = $(this).html();
+		$('.location-p').html('当前位置是：第 ' + row + ' 列, 第 ' + col + ' 行, 内容是：' + val)
+	});
+	var td = '<td class="cas">CAS No.</td>';
+	$('thead tr').appendChild( td )
+	if ($('td').hasClass('cas')) {
+		$('td').prevAll().length - 1;
+	}	
+})
+</script>	
+</body>
+</html>

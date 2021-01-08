@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - Form Validation</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/jquery.validate.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style>
+		#signupForm {
+			width: 670px;
+		}
+		#signupForm label.error {
+			margin-left: 10px;
+			width: auto;
+			display: inline;
+		}
+		#newsletter_topics label.error {
+			display: none;
+			margin-left: 103px;
+		}
+	</style>	
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">Form Validation - jquery.validate.js插件</h2>
+		<form class="cmxform" id="signupForm" method="get" action="" novalidate="novalidate"> 
+			<fieldset>
+				<legend>Validating a complete form</legend>
+				<p>
+				<label for="username">Username</label>
+				<input id="username" name="username" type="text" aria-required="true" class="error"><label id="username-error" class="error" for="username">Please enter a username</label>
+				</p>
+				<p>
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email" aria-required="true" class="error"><label id="email-error" class="error" for="email">Please enter a valid email address</label>
+				</p>
+				<p>
+				<label for="password">Password</label>
+				<input id="password" name="password" type="password" aria-required="true" class="error"><label id="password-error" class="error" for="password">Please provide a password</label>
+				</p>
+				<p>
+				<label for="confirm_password">Confirm password</label>
+				<input id="confirm_password" name="confirm_password" type="password" aria-required="true" class="error"><label id="confirm_password-error" class="error" for="confirm_password">Please provide a password</label>
+				</p>
+				<p>
+				<label for="agree">Please agree to our policy</label>
+				<input type="checkbox" class="checkbox error" id="agree" name="agree" aria-required="true"><label id="agree-error" class="error" for="agree">Please accept our policy</label>
+				</p>
+				<p>
+				<label for="newsletter">I'd like to receive the newsletter</label>
+				<input type="checkbox" class="checkbox" id="newsletter" name="newsletter">
+				</p>
+				<p>
+				<input class="submit" type="submit" value="Submit">
+				</p>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+<script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+			alert("submitted!");
+		}
+	});
+
+	$().ready(function() {
+		// validate signup form on keyup and submit
+		$('#signupForm').validate({
+			rules: {
+				firstname: 'required',
+				lastname: 'required',
+				username: {
+					required: true,
+					minlength: 2
+				},
+				password: {
+					required: true,
+					minlength: 5
+				},
+				confirm_password: {
+					required: true,
+					minlength: 5,
+					equalTo: '#password'
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				agree: 'required'
+			},
+			messages: {
+				username: {
+					required: 'Please enter a username',
+					minlength: 'Your username must consist of at least 2 characters'
+				},
+				password: {
+					required: 'Please provide a password',
+					minlength: 'Your password must be at least 5 characters long'
+				},
+				confirm_password: {
+					required: 'Please provide a password',
+					minlength: 'Your password must be at least 5 characters long',
+					equalTo: 'Please enter the same password as above'
+				},
+				email: 'Please enter a valid email address',
+				agree: 'Please accept our policy'
+			}
+		});	
+	});
+</script>
+</body>
+</html>

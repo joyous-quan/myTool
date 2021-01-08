@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DEMO - Canvas Base</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_navbar"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">Canvas</h2>
+		<canvas id="demo" width="500" height="500">
+			您的浏览器不支持canvas，请更换浏览器！
+		</canvas>
+		<h2 class="title_h2">Canvas 绘制国际象棋盘</h2>
+		<canvas id="demo_1" width="500" height="500">
+			您的浏览器不支持canvas，请更换浏览器！
+		</canvas>
+		<h2 class="title_h2">Canvas 绘制太极图</h2>
+		<canvas id="demo_2" width="400" height="400" style="background:#f5f5f5">
+			您的浏览器不支持canvas，请更换浏览器！
+		</canvas>
+	</div>
+</div>
+<script>
+
+	//moveTo(x,y)把画笔移动到指定的坐标 起始点
+	//lineTo(x,y)终点
+	//arc(x, y, r, startAngle, endAngle, anticlockwise): 以(x, y) 为圆心，以r 为半径，从 startAngle 弧度开始到endAngle弧度结束。anticlosewise 是布尔值，true 表示逆时针，false 表示顺时针(默认是顺时针)。
+	
+	draw()
+	function draw(){
+		var canvas = document.getElementById('demo');
+	    var ctx = canvas.getContext("2d");
+	    ctx.beginPath(); 
+    	ctx.moveTo(250, 0);
+    	ctx.lineTo(250, 500);
+    	ctx.strokeStyle="red";
+    	ctx.stroke();
+    	ctx.beginPath(); 
+    	ctx.moveTo(0, 250);
+    	ctx.lineTo(500, 250);
+    	ctx.stroke();
+
+	    ctx.beginPath();
+	    ctx.arc(250, 250, 100, 0, Math.PI * 2, true);
+    	ctx.strokeStyle="black";
+    	ctx.stroke();
+
+    	ctx.beginPath();
+	    ctx.arc(250, 250, 120, 0, Math.PI, true);
+    	ctx.strokeStyle="yellow";
+    	ctx.stroke();
+
+    	ctx.beginPath();
+	    ctx.arc(250, 250, 140, 0, Math.PI, false);
+    	ctx.strokeStyle="orange";
+    	ctx.stroke();
+
+    	ctx.beginPath();
+	    ctx.arc(250, 250, 160, -Math.PI/2, Math.PI/2, true);
+    	ctx.strokeStyle="green";
+    	ctx.stroke();
+
+    	ctx.beginPath();
+	    ctx.arc(250, 250, 170, Math.PI /4, Math.PI, true);
+    	ctx.strokeStyle="gray";
+    	ctx.stroke();
+
+    	ctx.beginPath();
+	    ctx.arc(250, 250, 190, Math.PI /2, Math.PI *2, true);
+    	ctx.strokeStyle="purple";
+    	ctx.lineWidth = 5;
+    	ctx.stroke();
+
+    	ctx.beginPath();
+	    ctx.arc(250, 250, 200, Math.PI /2, Math.PI *2, false);
+    	ctx.strokeStyle="blue";
+    	ctx.lineWidth = 2;
+    	ctx.stroke();
+	}
+	//Canvas 绘制国际象棋盘
+	draw_chessBoard()
+	function draw_chessBoard(){
+		var canvas = document.getElementById('demo_1');
+	    var ctx = canvas.getContext("2d");
+	    for(var i=0;i<10;i++){
+	    	for(var j=0;j<10;j++){
+	    		ctx.beginPath();
+	    		ctx.fillRect(i*100, j*100, 50, 50)
+	    		ctx.fillRect(i*100+50, j*100+50, 50, 50)
+	    	}
+	    }
+	}
+	//Canvas 绘制太极图
+	draw_present()
+	function draw_present(){
+		var canvas = document.getElementById('demo_2');
+	    var ctx = canvas.getContext("2d");
+	    //左黑半圆
+	    ctx.beginPath();
+	    ctx.arc(200, 200, 200, -Math.PI / 2, Math.PI / 2, true);
+    	ctx.fill();
+	    //右白半圆
+	    ctx.beginPath();
+	    ctx.arc(200, 200, 200, -Math.PI / 2, Math.PI / 2, false);
+	    ctx.fillStyle="white"
+    	ctx.fill();
+	    //上黑圆
+	    ctx.beginPath();
+	    ctx.arc(200, 100, 100, 0, Math.PI * 2, true);
+	    ctx.fillStyle="black"
+    	ctx.fill();
+	    //下白圆
+	    ctx.beginPath();
+	    ctx.arc(200, 300, 100, 0, Math.PI * 2, true);
+	    ctx.fillStyle="white"
+    	ctx.fill();
+	    //上白点
+	    ctx.beginPath();
+	    ctx.arc(200, 100, 20, 0, Math.PI * 2, true);
+	    ctx.fillStyle="white"
+    	ctx.fill();
+	    //下黑点
+	    ctx.beginPath();
+	    ctx.arc(200, 300, 20, 0, Math.PI * 2, true);
+	    ctx.fillStyle="black"
+    	ctx.fill();   
+	}
+</script>
+</body>
+</html>

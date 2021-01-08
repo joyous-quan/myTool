@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - json数据分页</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css" media="screen">
+		div.page{padding:30px;text-align:center;font-size:12px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+		div.page span{margin:0 5px;color:#333;}
+		div.page a{display:inline-block;margin:0 5px;padding:5px;min-width:25px;color:#333;}
+		div.page .current,div.page>a:hover{background:#bdc5e2;color:#fff;}
+		div.page span a{margin:0;width:auto;height:auto;}
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2" id="top">json数据分页</h2>
+		<div>
+			<table>
+				<colgroup><col width="13%"><col width="250px"><col width="13%"><col width="53%"></colgroup>
+				<thead><tr><td>货号</td><td>产品名称</td><td width="60%">描述</td></tr></thead>
+				<tbody class="data_list">
+					<tr><td colspan="4" align="center"><img src="/static/img/loading.gif"/></td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="page"></div>
+	</div>
+</div>
+
+<script>
+var dataArr = [];
+var currPage = 1;
+$(document).ready(function() {
+	$.getJSON('/static/data/data.json?t=' + Math.random(), {}, function(data) {
+		dataArr = data;
+		pagination(1, false);
+	})
+});
+
+function generateArray(min, max) {
+	var listArr = [];
+	for (var i = min; i <= max; i++) {
+		listArr.push(i);
+	}
+	return listArr
+}
+
+function pagination(pageNum, isTrue) {
+	if (isTrue == null) { isTrue = true; }
+	var pagesize = 10,
+		data_list = [];
+	if (pageNum >= 1) {
+		var slice_len = (pageNum - 1) * pagesize;
+		if (slice_len + pagesize >= dataArr.length) {
+			data_list = dataArr.slice(slice_len, dataArr.length)
+		} else {
+			data_list = dataArr.slice(slice_len, (slice_len + pagesize))
+		}
+		var data_html = '';
+		$.each(data_list, function(idx, item) {
+			data_html += '<tr><td>' + item.sku + '</td>' + '<td>' + item.name + '</td>' + '<td>' + item.description + '</td></tr>';
+		})
+		$('.data_list').html(data_html);
+		currPage = pageNum;
+		var totalPage = Math.ceil(dataArr.length / pagesize);
+		var prevPage = (currPage - 1 < 1 ? 1 : (currPage - 1));
+		var nextPage = (currPage + 1 > totalPage ? totalPage : (currPage + 1));
+		var page_html = '',
+			page_list = [];
+		if (totalPage <= 9) {
+			page_list = generateArray(1, totalPage);
+		} else {
+			if (currPage <= 5) {
+				page_list = generateArray(1, 9);
+			} else if ((currPage + 4) <= totalPage) {
+				page_list = generateArray((currPage - 4), (currPage + 4));
+			} else {
+				page_list = generateArray((totalPage - 8), totalPage);
+			}
+		}
+		$.each(page_list, function(idx, item) {
+			var curr_class = '',
+				onclick_html = 'onclick="pagination(' + item + ')"';
+			if (currPage == item) {
+				curr_class = 'current';
+				onclick_html = '';
+			}
+			page_html += '<a class="' + curr_class + '" href="javascript:;" ' + onclick_html + '>' + item + '</a>';
+		})
+		/*var page_html = '<span><a href="javascript:;" onclick="pagination(1)">HOMEPAGE</a></span>' + '<span class="prev"><a href="javascript:;" onclick="pagination(' + prevPage + ')">PREV</a></span>' + page_html + ((totalPage <= 9 || currPage > (totalPage - 5)) ? '' : '<span>...</span>') + '<span class="next"><a href="javascript:;" onclick="pagination(' + nextPage + ')">NEXT</a></span>' + '<span><a href="javascript:;" onclick="pagination(' + totalPage + ')">LASTPAGE</a></span>';*/
+
+		var page_html = '<span class="prev"><a href="javascript:;" onclick="pagination(' + prevPage + ')">PREV</a></span>' + page_html + ((totalPage <= 9 || currPage > (totalPage - 5)) ? '' : '<span>...</span>') + '<span class="next"><a href="javascript:;" onclick="pagination(' + nextPage + ')">NEXT</a></span>';
+		$(".page").html(page_html);
+		if (isTrue) {
+			$('html,body').animate({
+				scrollTop: $('#top').offset().top
+			}, 500)
+		};
+	}
+}
+</script>
+</body>
+</html>

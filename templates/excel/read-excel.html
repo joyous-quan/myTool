@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>DEMO - js读取本地Excel文件</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+<body>
+<div class="demo_body">
+    <div class="demo_header"></div>
+    <div class="demo_main">
+        <h2 class="title_h2">js读取本地Excel文件</h2>
+        <input type="file" id="input_file"/>
+        <div id="div_content"></div>
+        <table>
+            <thead>
+                <tr><td width="20%">name</td><td width="10%">sku</td><td>description</td></tr>
+            </thead>
+            <tbody id="tbody_content"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/static/js/xlsx.full.min.js"></script>
+<script>
+$(document).ready(function(){
+    /*
+    FileReader共有4种读取方法：
+    1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+    2.readAsBinaryString(file)：将文件读取为二进制字符串
+    3.readAsDataURL(file)：将文件读取为Data URL
+    4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+    */
+    var wb; //读取完成的数据
+    var rABS = false; //是否将文件读取为二进制字符串
+
+    function fixdata(data) { //文件流转BinaryString
+        var o = '',
+            l = 0,
+            w = 10240;
+        for (; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+
+    $('#input_file').change(function() {
+        if (!this.files) {
+            return;
+        }
+        var f = this.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var data = e.target.result;
+            if (rABS) {
+                wb = XLSX.read(btoa(fixdata(data)), {
+                    type: 'base64'
+                });
+            } else {
+                wb = XLSX.read(data, {
+                    type: 'binary'
+                });
+            }
+            var dataStr = JSON.stringify(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]));
+            var dataObj = JSON.parse(dataStr);
+            //$('#div_content').append(dataStr)
+            // console.log(dataStr)  
+            console.log(dataObj)
+
+            getData(dataStr)
+
+        };
+        if (rABS) {
+            reader.readAsArrayBuffer(f);
+        } else {
+            reader.readAsBinaryString(f);
+        }
+    })
+
+    //解析数据
+    function getData(data) {
+    //$('#tbody_content').html(data)
+
+    document.write(data)
+        /*$.each(data, function(idx, item) {
+            $('#tbody_content').append('<tr><td>' + item.name + '</td><td>' + item.sku + '</td><td>' + item.description + '</td></tr>')
+        })*/
+    }
+})
+</script> 
+</body>
+</html>

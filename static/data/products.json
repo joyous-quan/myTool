@@ -1,0 +1,22 @@
+[
+	{
+		"product_id" : "001",
+		"product_name" : "苹果",
+		"product_price" : "10"
+	},
+	{
+		"product_id" : "001",
+		"product_name" : "香蕉",
+		"product_price" : "8"
+	},
+	{
+		"product_id" : "001",
+		"product_name" : "草莓",
+		"product_price" : "20"
+	},
+	{
+		"product_id" : "001",
+		"product_name" : "芒果",
+		"product_price" : "16"
+	}
+]

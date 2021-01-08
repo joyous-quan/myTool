@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - table 冻结表头</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css">
+        .table_title{padding-right:17px/*浏览器滚动条的宽度*/;background:#f1f1f1;}
+        .table_container{max-height:541px;overflow-y:auto;margin-top:-1px;}    
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">table 冻结表头</h2>
+		<div class="table_thead table_title">
+			<table>
+				<colgroup>
+					<col width="10%">
+					<col width="20%">
+					<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<td><label><input type="checkbox" name="allSelt"></label></td>
+						<td>number</td>
+						<td>description</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="table_container">
+			<table class="table_con">
+				<colgroup>
+					<col width="10%">
+					<col width="20%">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>1</td>
+						<td>part one</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>2</td>
+						<td>part two</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>3</td>
+						<td>part three</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>4</td>
+						<td>part four</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>5</td>
+						<td>part five</td>
+					</tr>
+					
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>1</td>
+						<td>part one</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>2</td>
+						<td>part two</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>3</td>
+						<td>part three</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>4</td>
+						<td>part four</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>5</td>
+						<td>part five</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>1</td>
+						<td>part one</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>2</td>
+						<td>part two</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>3</td>
+						<td>part three</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>4</td>
+						<td>part four</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>5</td>
+						<td>part five</td>
+					</tr>
+
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>1</td>
+						<td>part one</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>2</td>
+						<td>part two</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>3</td>
+						<td>part three</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>4</td>
+						<td>part four</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>5</td>
+						<td>part five</td>
+					</tr>
+
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>1</td>
+						<td>part one</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>2</td>
+						<td>part two</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>3</td>
+						<td>part three</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>4</td>
+						<td>part four</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" name="selt"></label></td>
+						<td>5</td>
+						<td>part five</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script>
+$(function(){
+	//
+	var cht = $('.table_con').height(), 
+		ht = $('.table_container').height();
+	console.log(conh);
+
+	if (cht > ht) {
+		$('.table_thead').addClass('table_title');
+	}
+
+	/*全选*/
+	$('input[name=allSelt]').click(function () {
+	    var boolean1 = $(this).is(':checked');
+	    $('tbody input[type=checkbox]').each(function () {
+	        $(this).prop('checked', boolean1);
+	    })
+	});
+	$('input[name=selt]').click(function () {
+	    var boolean2 = true;
+	    for (var i = 0; i < $('input[name=selt]').length; i++) {
+	        if (!$($('input[name=selt]')[i]).is(':checked')) {
+	            boolean2 = false;
+	            break;
+	        }
+	    }
+	    $('input[name=allSelt]').prop('checked', boolean2);
+	})
+})
+</script>
+</body>
+</html>

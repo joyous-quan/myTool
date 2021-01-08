@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - Tab</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css" media="screen">
+		.btn{border:1px solid #707b9b;}
+		.tab_title .current{background:#bdc5e2;color:#fff;}
+		.tab_content-box{border:1px solid #707b9b;min-height:300px;padding:20px;margin-top:-1px ;}
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">Tab 跳转指定页面位置</h2>
+		<div class="tab_title">
+			<a href="javascript:;" class="btn current">Tab one</a>
+			<a href="javascript:;" class="btn">Tab two</a>
+			<a href="javascript:;" class="btn">Tab three</a>
+		</div>
+		<div class="tab_content-box">
+			<div id="1" class="tab_content current">Tab one content</div>
+			<div id="2" class="tab_content">Tab two content</div>
+			<div id="3" class="tab_content">Tab three content</div>
+		</div>
+	</div>
+</div>
+<script>
+$(function(){
+	//选项卡
+	$('.tab_title a').click(function(event) {
+		var $idx = $(this).index();
+		$(this).addClass('current').siblings().removeClass('current');
+		$('.tab_content').eq($idx).show().siblings().hide();
+	});
+	//获取被访问时的 url
+	var $url = location.href;
+	//获取该url = 后面的数字(id)
+	var $type = $url.split('?')[1].split('=')[1];
+	//使用传过来的 数字(id)来控制该选项卡的切换
+	//其实就是从页面tab-a通过URL？后面的参数给页面tab-b传一个index
+	$('.tab_content').hide();
+	$('.tab_title a').removeClass('current');
+	$('.tab_title a').eq($type-1).addClass('current');
+	$('.tab_content').eq($type-1).show();
+})
+</script>
+</body>
+</html>

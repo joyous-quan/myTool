@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - box-shadow</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<style type="text/css" media="screen">
+		.demo_main{}
+		.demo_main div{
+			display: inline-block;
+            width:100px;
+            height:100px;
+            text-align:center;
+            line-height:100px;
+            margin:30px;
+            background-color: #f8e6e6;
+        }
+        /* box-shadow: x坐标 y坐标 模糊程度 (可选-阴影的尺寸) 颜色值 (outset,inset); */
+        /*右下阴影*/
+        .box-shadow{
+        	-webkit-box-shadow: 0 12px 16px #6666cc;
+            -moz-box-shadow: 0 12px 16px #6666cc;
+            box-shadow: 0 12px 16px #6666cc;
+        }
+        /*右下阴影*/
+        .box-shadow-1{
+        	-webkit-box-shadow: 5px 5px 8px #ff00cc;
+            -moz-box-shadow: 5px 5px 8px #ff00cc;
+            box-shadow: 5px 5px 8px #ff00cc;
+        }
+        /*四边同色阴影*/
+        .box-shadow-2{
+            -webkit-box-shadow:0 0 20px #335f9c;
+            -moz-box-shadow:0 0 20px #335f9c;
+            box-shadow:0 0 20px #335f9c;
+        }
+        /*四边同色阴影扩展*/
+        .box-shadow-3{
+            -webkit-box-shadow:0 0 10px 10px #ff6600;
+            -moz-box-shadow:0 0 10px 10px #ff6600;
+            box-shadow:0 0 10px 10px #ff6600;
+        }
+        /*四边同色内阴影*/
+        .box-shadow-4{
+            -webkit-box-shadow:inset 0 0 20px #669900;
+            -moz-box-shadow:inset 0 0 20px #669900;
+            box-shadow:inset 0 0 20px #669900;
+        }
+        /*四边异色内阴影*/
+        .box-shadow-5{
+            box-shadow:inset -10px 0 10px #6666cc, /*右边阴影*/
+           inset 10px 0 10px #ff7b07, /*左边阴影*/
+           inset 0 -10px 10px #3a9736,/*上部阴影*/
+           inset 0 10px 10px  #ff00cc; /*下边阴影*/
+        }
+        /*四边异色外阴影*/
+        .box-shadow-6{
+            box-shadow:-10px 0 10px #ffff00, /*左边阴影*/
+            10px 0 10px  #335f9c, /*右边阴影*/
+            0 -10px 10px #ff6600,/*上部阴影*/
+            0 10px 10px  #669900; /*下边阴影*/
+        }
+        /*叠加异色阴影*/
+        .box-shadow-7{
+            box-shadow:0 0 10px 5px #ff6600,
+            0 0 10px 15px #ffff00;
+        }
+        
+	</style>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">box-shadow</h2>
+		<div class="box-shadow">左右下</div>
+		<div class="box-shadow-1">右下</div>
+		<div class="box-shadow-2">四边同色</div>
+		<div class="box-shadow-3">四边扩展</div>
+		<div class="box-shadow-4">四边内阴影</div>
+		<div class="box-shadow-5">四边异色内阴影</div>
+		<div class="box-shadow-6">四边异色</div>
+		<div class="box-shadow-7">叠加异色</div>
+	</div>
+</div>
+	
+</body>
+</html>

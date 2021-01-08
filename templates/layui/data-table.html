@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DEMO - layui数据表格</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<link rel="stylesheet" href="/static/layui/css/layui.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<script src="/static/layui/layui.js"></script>
+<style type="text/css" media="screen">
+.layui-table, .layui-table thead th{text-align:left}		
+</style>	
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_navbar"></div>
+	<div class="demo_main">
+		<h2 class="title_h2"></h2>
+		<div class="layui-form">
+			<table class="layui-table">
+				<colgroup>
+					<col width="50">
+					<col width="30%">
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col width="13%">
+			    </colgroup>
+			    <thead>
+					<tr>
+						<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
+						<th>文章标题</th>
+						<th>发布人</th>
+						<th>审核状态</th>
+						<th>浏览权限</th>
+						<th>是否展示</th>
+						<th>发布时间</th>
+						<th>操作</th>
+					</tr> 
+			    </thead>
+				<tbody class="news_content"></tbody>
+			</table>	
+		</div>
+		<div id="page"></div>
+	</div>
+</div>
+<script>
+layui.use(['form','layer','jquery','laypage'], function(){
+	var form = layui.form, layer = layui.layer, $ = layui.jquery, laypage = layui.laypage;
+
+	//加载页面数据
+	var newsData = '';
+	$.ajax({
+		url : '/static/data/newsList.json',
+		type : 'get',
+		dataType : 'json',
+		success : function(data){
+			newsData = data;
+			if(window.sessionStorage.getItem('addnews')){
+				var addnews = window.sessionStorage.getItem('addnews');
+				newsData = JSON.parse(addnews).concat(newsData);
+			}
+			//执行加载数据的方法
+			newsList();
+		}
+	})
+
+	function newsList(that){
+		//渲染数据
+		function renderDate(data,curr){
+			var dataHtml = '';
+			if(!that){
+				currData = newsData.concat().splice(curr*nums-nums, nums);
+			}else{
+				currData = that.concat().splice(curr*nums-nums, nums);
+			}
+			if(currData.length != 0){
+				for(var i=0;i<currData.length;i++){
+					dataHtml += '<tr>'
+			    	+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
+			    	+'<td align="left">'+currData[i].newsName+'</td>'
+			    	+'<td>'+currData[i].newsAuthor+'</td>';
+			    	if(currData[i].newsStatus == "待审核"){
+			    		dataHtml += '<td style="color:#f00">'+currData[i].newsStatus+'</td>';
+			    	}else{
+			    		dataHtml += '<td>'+currData[i].newsStatus+'</td>';
+			    	}
+			    	dataHtml += '<td>'+currData[i].newsLook+'</td>'
+			    	+'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].isShow+'></td>'
+			    	+'<td>'+currData[i].newsTime+'</td>'
+			    	+'<td>'
+					+  '<a class="layui-btn layui-btn-xs news_edit"><i class="iconfont icon-edit"></i>编辑</a>'
+					+  '<a class="layui-btn layui-btn-normal layui-btn-xs news_collect"><i class="layui-icon">&#xe600;</i>收藏</a>'
+					+  '<a class="layui-btn layui-btn-danger layui-btn-xs news_del" data-id="'+data[i].newsId+'"><i class="layui-icon">&#xe640;</i>删除</a>'
+			        +'</td>'
+			    	+'</tr>';
+				}
+			}else{
+				dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
+			}
+		    return dataHtml;
+		}
+
+		//分页
+		var nums = 10; //每页出现的数据量
+		if(that){
+			newsData = that;
+		}
+		laypage.render({
+			elem : 'page',
+			count : newsData.length,
+			//Math.ceil(newsData.length/nums),
+			jump : function(obj){
+				$('.news_content').html(renderDate(newsData,obj.curr));
+				//$('.news_list thead input[type="checkbox"]').prop("checked",false);
+		    	form.render();
+			}
+		})
+	}
+})
+
+</script>
+</body>
+</html>

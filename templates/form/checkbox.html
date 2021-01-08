@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>DEMO - Checkbox</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/common.js"></script>
+</head>
+<body>
+<div class="demo_body">
+	<div class="demo_header"></div>
+	<div class="demo_main">
+		<h2 class="title_h2">Checkbox - js关联全选</h2>
+		<table>
+			<thead>
+				<tr>
+					<td><label><input type="checkbox" name="allSelt">All select</label></td>
+					<td>number</td>
+					<td width="80%">description</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><label><input type="checkbox" name="selt">select</label></td>
+					<td>1</td>
+					<td>part one</td>
+				</tr>
+				<tr>
+					<td><label><input type="checkbox" name="selt">select</label></td>
+					<td>2</td>
+					<td>part two</td>
+				</tr>
+				<tr>
+					<td><label><input type="checkbox" name="selt">select</label></td>
+					<td>3</td>
+					<td>part three</td>
+				</tr>
+				<tr>
+					<td><label><input type="checkbox" name="selt">select</label></td>
+					<td>4</td>
+					<td>part four</td>
+				</tr>
+				<tr>
+					<td><label><input type="checkbox" name="selt">select</label></td>
+					<td>5</td>
+					<td>part five</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<script>
+$(function(){
+	/*全选*/
+	$('input[name=allSelt]').click(function () {
+	    var boolean1 = $(this).is(':checked');
+	    $('tbody input[type=checkbox]').each(function () {
+	        $(this).prop('checked', boolean1);
+	    })
+	});
+	$('input[name=selt]').click(function () {
+	    var boolean2 = true;
+	    for (var i = 0; i < $('input[name=selt]').length; i++) {
+	        if (!$($('input[name=selt]')[i]).is(':checked')) {
+	            boolean2 = false;
+	            break;
+	        }
+	    }
+	    $('input[name=allSelt]').prop('checked', boolean2);
+	})
+})
+</script>
+</body>
+</html>

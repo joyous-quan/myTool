@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<form id="getForm">
+		<input id="ipt"  name="name" type="text">
+		<!-- <input type="submit" value="submit"> -->
+		<!-- <button id="btn">submit</button> -->
+	</form>
+	<button id="btn">submit</button>
+	
+
+<script>
+	document.getElementById('btn').addEventListener('click',getData);
+
+	function getData(e){
+		e.preventDefault();
+		var name = document.getElementById('ipt').value;
+		
+		var xhr = new XMLHttpRequest();
+
+		xhr.open('GET','test.php', true);
+
+		xhr.onload = function(){
+			console.log(this.responseText)
+		}
+		xhr.send();
+	}
+</script>
+</body>
+</html>

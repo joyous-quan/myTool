@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="robots" content="index,follow">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <title>豆瓣电影列表</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--cookie操作的js库-->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/cookie.js"></script>
+    <script src="./js/server.js"></script>
+    <style>
+        .dv_list dl{position:relative;margin-top:20px;min-height:100px;padding-left:120px;line-height:24px;}
+        .dv_list dl dt{position:absolute;left:0;top:0;border:1px solid #ddd;width:100px;height:100px;}
+        .details-btn{border:1px solid #ddd;padding:5px 15px;}
+    </style>
+</head>
+<body class="demo_body">
+    <div class="demo_header">
+        <div class="layout">
+            <strong><a href="/index.html" title="">首页</a></strong><span>/</span>
+            <a href="/templates/about/contact-us.html">联系我们</a><span>/</span>
+            <a href="javascript:history.go(-1);">返回</a> 
+        </div>
+    </div>
+    <div class="demo_main">
+        <div class="layout con">
+            <h2 class="title_h2">豆瓣电影列表</h2>
+            <p>点击影片详情进入对应的影片详情页</p>
+            <div class="dv_list">
+            </div>
+        </div>
+    </div>
+    <div class="dv_footer">
+        &copy;2021 <a href="mailto:joyousquan@outlook.com">Contact</a>
+    </div>
+    <script>
+        $(function(){
+            $.ajax({
+                type: "GET",
+                url: "./data/douban_movie.json?t=20210201",
+                dataType: "json", 
+                success: function(res) {
+                    //1.加载数据成功 进行字符串拼接
+                    $.each(res,function (idx,item) {
+                        $(".dv_list").append(
+                            "<dl><dt><a href='movie-details.html?id="
+                            + item.id + "'><img src='"
+                            + item.cover + "'></a></dt><dd>《"
+                            + item.title + "》</dd><dd>导演："
+                            + item.directors + "</dd><dd>演员："
+                            + item.casts + "</dd><dd><a class='details-btn' href='movie-details.html?id="
+                            + item.id + "'>影片详情</a></dd></dl>"
+                        )     
+                    })
+                },
+                error: function(){ alert("error") }        
+            });
+        })
+    </script>
+</body>
+</html>

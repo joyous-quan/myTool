@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="robots" content="index,follow">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="stylesheet" href="/static/css/common.css">
+	<title>电影详情页</title>
+    <style>
+        .dv_list dl{position:relative;margin-top:20px;min-height:400px;padding-left:260px;line-height:30px;}
+        .dv_list dl dt{position:absolute;left:0;top:30px;border:1px solid #ddd;width:240px;height:240px;}
+        .add-cart{border:1px solid #ddd;padding:5px 15px;}
+    </style>
+</head>
+<body class="demo_body">
+    <div class="demo_header">
+        <div class="layout">
+            <strong><a href="/index.html" title="">首页</a></strong><span>/</span>
+            <a href="/templates/about/contact-us.html">联系我们</a><span>/</span>
+            <a href="javascript:history.go(-1);">返回</a> 
+        </div>
+    </div>
+    <div class="demo_main">
+        <div class="layout">
+            <div class="dv_list details-con">
+            </div>
+        </div>
+    </div>
+
+<!--cookie操作的js库-->
+<script src="./js/jquery.js" ></script>
+<script src="./js/cookie.js"></script>
+<script src="./js/server.js"></script>
+<script>
+$(function(){
+    //获取url中的参数
+    /*function getUrlParam(name) {
+       var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)'); //构造一个含有目标参数的正则表达式对象
+       var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+       if (r != null) return unescape(r[2]); return null; //返回参数值
+    }*/
+    function getUrlParam(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return unescape(r[2]);
+        return null;
+    }
+
+   //接收URL中的参数Id
+   var id = getUrlParam('id');
+    $.ajax({
+        type:'get',
+        url:'./data/douban_movie.json?t=20210201',
+        dataType:'json',
+        success:function(res,status){
+            $.each(res, function(idx,item) {
+                //根据id获取详情数据
+                if(id == item.id){
+                   var str ="<dl class='dl_list' pid='"+item.id+"'><dt><img src='"
+                        + item.cover + "'></dt><dd>《"
+                        + item.title + "》</dd><dd>导演："
+                        + item.directors + "</dd><dd>演员："
+                        + item.casts + "</dd><dd>评分："
+                        + item.rate + "</dd><dd><button class='add-cart' pid='"+item.id+"' onclick='addCart()'>加入片单</button></li></dd></dl>"
+                }
+                $('.dv_list').append(str);
+            });
+        }
+    })
+
+});
+
+function addCart() {
+    var listStr = cookieObj.get("datas_cart");
+    if(!listStr) { 
+        cookieObj.set({
+            name: "datas_cart",
+            value: "[]"
+        });
+        listStr = cookieObj.get("datas_cart");
+    }
+    var listObj = JSON.parse(listStr);
+    var dl_list = $('.dl_list')
+    var pid = dl_list.attr("pid");//获取自定义属性
+    var pCount = Number(dl_list.find('input').val());
+    if(checkObjByPid(pid)) {
+        listObj = updateObjById(pid, pCount);
+        //console.log(listObj);
+        //console.log(cookieObj.get("datas_cart"));
+    } else {
+        var imgSrc = dl_list.find('img').attr('src');
+        var pName = dl_list.find('.pName').html();
+        var price = dl_list.find('.price').html();
+        var obj = {
+            pid: pid,
+            pImg: imgSrc,
+            pName: pName,
+            price: price,
+            pCount: pCount
+        };
+
+        listObj.push(obj);
+        listObj = updateData(listObj);
+        $('#ccount').html( getTotalCount());
+    }
+    $('#ccount').html( getTotalCount());    
+}
+
+</script>
+</body>
+</html>

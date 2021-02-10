@@ -11,6 +11,7 @@
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/js/common.js"></script>
 	<style type="text/css" media="screen">
+		table td{height:40px;}
 		div.page{padding:30px;text-align:center;font-size:12px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
 		div.page span{margin:0 5px;color:#333;}
 		div.page a{display:inline-block;margin:0 5px;padding:5px;min-width:25px;color:#333;}
@@ -25,8 +26,8 @@
 		<h2 class="title_h2" id="top">json数据分页</h2>
 		<div>
 			<table>
-				<colgroup><col width="13%"><col width="250px"><col width="13%"><col width="53%"></colgroup>
-				<thead><tr><td>货号</td><td>产品名称</td><td width="60%">描述</td></tr></thead>
+				<colgroup><col width="40%"><col><col width="15%"></colgroup>
+				<thead><tr><td>标题</td><td>导演</td><td>评分</td></tr></thead>
 				<tbody class="data_list">
 					<tr><td colspan="4" align="center"><img src="/static/img/loading.gif"/></td></tr>
 				</tbody>
@@ -40,7 +41,7 @@
 var dataArr = [];
 var currPage = 1;
 $(document).ready(function() {
-	$.getJSON('/static/data/data.json?t=' + Math.random(), {}, function(data) {
+	$.getJSON('/static/data/douban_movie.json?t=' + Math.random(), {}, function(data) {
 		dataArr = data;
 		pagination(1, false);
 	})
@@ -56,7 +57,7 @@ function generateArray(min, max) {
 
 function pagination(pageNum, isTrue) {
 	if (isTrue == null) { isTrue = true; }
-	var pagesize = 10,
+	var pagesize = 5,
 		data_list = [];
 	if (pageNum >= 1) {
 		var slice_len = (pageNum - 1) * pagesize;
@@ -67,7 +68,7 @@ function pagination(pageNum, isTrue) {
 		}
 		var data_html = '';
 		$.each(data_list, function(idx, item) {
-			data_html += '<tr><td>' + item.sku + '</td>' + '<td>' + item.name + '</td>' + '<td>' + item.description + '</td></tr>';
+			data_html += '<tr><td>《' + item.title + '》</td>' + '<td>' + item.directors + '</td>' + '<td>' + item.rate + '</td></tr>';
 		})
 		$('.data_list').html(data_html);
 		currPage = pageNum;

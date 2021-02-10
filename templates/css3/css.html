@@ -7,9 +7,9 @@
 	<meta name="format-detection" content="telephone=no"/>
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 	<title>DEMO - css3</title>
-	<link rel="stylesheet" href="/static/css/common.css">
+	<!-- <link rel="stylesheet" href="/static/css/common.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/js/common.js"></script>
+	<script src="/static/js/common.js"></script> -->
 	<style type="text/css" media="screen">
     .multi-column{
         width: 1000px;
@@ -41,12 +41,29 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
+
+    .dv_animation{border:1px solid #ddd;width:500px;}
+    .dv_animation div{position:relative;margin:5px;width:30px;height:30px;border-radius:30px;background:#abc; animation:_move 2s linear infinite;}
+    @keyframes _move{
+        from {left:0;}
+        to {left:100%;}
+    }
+
+    .linear-gradient{width:600px;height:100px;background:linear-gradient(90deg,#aab,20px,#def,20px,#def);background-size:40px;}
+    .conic-gradient{width:200px;height:200px;border-radius:200px;background:conic-gradient(red 0 25%, blue 25% 70%, green 70% 100%);transition: all 8s}
+    .conic-gradient:hover{transform: rotate(10turn);}
+
+
+    /*打印时 另起一页*/
+    @media print{
+        table {page-break-before:always;}
+    }
 	</style>
 </head>
 <body>
 <div class="demo_body">
 	<div class="demo_header"></div>
-	<div class="demo_main">
+	<div class="demo_main layout">
 		<h2 class="title_h2">多行溢出</h2>
         <div class="overflow-duo">
             jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. jquery-3.3.1.min.js:4 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as 
@@ -54,29 +71,29 @@
 
         <h2 class="title_h2">Marquee 属性</h2>
         <marquee behavior="alternate" bgcolor="lightblue" direction="down" loop="-1" scrollamount="2" onmouseout="this.start()" onmouseover="this.stop()" vspace="10" height="200"  width="400" >
-        <ul>
-            <li>11111111111</li>
-            <li>2222222222</li>
-            <li>333333333</li>
-            <li>4444444444</li>
-            <li>5555555555</li>
-            <li>66666666666</li>
-            <li>777777777</li>
-            <li>8888888888</li>
-            <li>9999999999</li>
-            <li>00000000000</li>
-            <li>11111111111</li>
-            <li>2222222222</li>
-            <li>333333333</li>
-            <li>4444444444</li>
-            <li>5555555555</li>
-            <li>66666666666</li>
-            <li>777777777</li>
-            <li>8888888888</li>
-            <li>9999999999</li>
-            <li>00000000000</li>
-        </ul>
-    </marquee>
+            <ul>
+                <li>11111111111</li>
+                <li>2222222222</li>
+                <li>333333333</li>
+                <li>4444444444</li>
+                <li>5555555555</li>
+                <li>66666666666</li>
+                <li>777777777</li>
+                <li>8888888888</li>
+                <li>9999999999</li>
+                <li>00000000000</li>
+                <li>11111111111</li>
+                <li>2222222222</li>
+                <li>333333333</li>
+                <li>4444444444</li>
+                <li>5555555555</li>
+                <li>66666666666</li>
+                <li>777777777</li>
+                <li>8888888888</li>
+                <li>9999999999</li>
+                <li>00000000000</li>
+            </ul>
+        </marquee>
 
         <h2 class="title_h2">多列属性（Multi-column)</h2>
         <dl class="multi-column">
@@ -132,6 +149,21 @@
                 <a href="">Sourcing Team</a>
             </dd>
         </dl>
+
+        <h2 class="title_h2">动画</h2>
+        <div class="dv_animation">
+            <div style="animation-direction:alternate">a</div>
+            <div style="animation-direction:alternate-reverse">b</div>
+            <div style="animation-direction:reverse;">c</div>
+            <div>d</div>
+        </div>
+        <h2 class="title_h2">线性渐变 - 条纹</h2>
+        <div class="linear-gradient"></div>
+
+        <h2 class="title_h2">角向渐变 - 饼图</h2>
+        <div class="conic-gradient"></div>
+
+
 	</div>
 </div>
 	

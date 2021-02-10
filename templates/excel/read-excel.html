@@ -16,6 +16,7 @@
     <div class="demo_header"></div>
     <div class="demo_main layout">
         <h2 class="title_h2">js读取本地Excel文件</h2>
+        <p>Excel 表格标题统一</p>
         <input type="file" id="input_file"/>
         <div id="div_content"></div>
         <table>
@@ -68,11 +69,10 @@ $(document).ready(function(){
             }
             var dataStr = JSON.stringify(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]));
             var dataObj = JSON.parse(dataStr);
-            //$('#div_content').append(dataStr)
             // console.log(dataStr)  
-            console.log(dataObj)
+            //console.log(dataObj)
 
-            getData(dataStr)
+            getData(dataObj)
 
         };
         if (rABS) {
@@ -84,12 +84,12 @@ $(document).ready(function(){
 
     //解析数据
     function getData(data) {
-    //$('#tbody_content').html(data)
-
-    document.write(data)
-        /*$.each(data, function(idx, item) {
+    
+        $.each(data, function(idx, item) {
             $('#tbody_content').append('<tr><td>' + item.name + '</td><td>' + item.sku + '</td><td>' + item.description + '</td></tr>')
-        })*/
+        })
+    //document.write(data)
+        
     }
 })
 </script> 

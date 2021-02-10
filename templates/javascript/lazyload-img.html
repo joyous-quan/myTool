@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<!-- <link rel="stylesheet" type="text/css" href="/static/css/common.css?v=20210120000001"> -->
+	<script src="/static/js/jquery.min.js"></script>
+	<style type="text/css">
+		.products_cart{display:inline-block;width:23%;}
+	</style>
+</head>
+<body>
+<div class="layout">
+	<div class="nav-com-title">
+		<p>
+		<a href="/" class="home-logo"><img src="/static/img/home-logo.png" alt=""></a>
+		<a href="javascript:;" class="current">Chiral Phosphoric Acids</a>
+		</p>
+		<h3>Chiral Phosphoric Acids</h3>
+	</div>
+	<div class="product_list"></div>
+	<div class="pages"></div>
+</div>
+
+<script>
+var all_data = [];
+$(document).ready(function() {
+	$.getJSON("/static/json/chiral-phosphoric-acids.json?t=" + Math.random(), {}, function(data) {
+		all_data = data;
+		var dl_html = '', imghtml = '';
+		$.each(all_data, function(idx, item) {
+			if(idx>4){
+				imghtml = '<img data-src="'+item.Image+'" src="/static/img/logo.png" alt="">'
+			}else{
+				imghtml = '<img data-src="'+item.Image+'" src="'+item.Image+'" alt="">'
+			}
+			dl_html += '<dl class="products_cart"><dt><a href="'+_getProUrl(item.CAS, item.Proid)+'" target="_blank" class="a_img_box">'+imghtml+'</a></dt><dd class="product_txt"><p class="product_ifo"><b>'+item.AMNum+'</b><b class="b_cas">'+item.CAS+'</b><b>'+item.Purity+'</b></p><p class="p_product_name"><a class="product_name" href="'+_getProUrl(item.CAS, item.Proid)+'" target="_blank">'+item.NameEn+'</a></p><div class="btn_box"><a class="btn detail_btn" href="'+_getProUrl(item.CAS, item.Proid)+'" target="_blank">Detail</a></div></dd></dl>'
+		})
+		$(".product_list").html(dl_html);
+	})
+});
+
+//  $(window).scrollTop()
+//  $('#dv_top').offset().top - 700
+
+//获取产品主图
+function _getProimg(cas, pid) {
+	var filedomainname = "https://file.ambeed.com";
+	var foldername = Math.ceil(parseInt(pid.substring(1)) / 1000); //该产品图片存放的文件夹名称
+	var img = '';
+	if (!isempty(cas) && cas != "N/A") {
+		img = cas + ".png";
+	} else {
+		img = pid + ".png";
+	}
+	return filedomainname + "/static/upload/proimg/" + foldername + "/" + img;
+}
+	//获取产品url
+function _getProUrl(cas, pid) {
+	var url = "javascript:;";
+	if (!isempty(cas) && cas != "N/A") {
+		url = "/products/" + cas + '.html'
+	} else if (!isempty(pid)) {
+		url = "/products/" + pid + '.html'
+	}
+	return url
+}
+function isempty (v) {
+	switch (typeof v) {
+		case undefined : return true;
+		case 'undefined' : return true;
+		case 'string' : if(v.Trim().length == 0||v.Trim()=='undefined') return true; break;
+		case 'boolean' : if(!v) return true; break;
+		case 'number' : if(0 === v) return true; break;
+		case 'object' :
+		if(null === v) return true;
+		if(undefined !== v.length && v.length==0) return true;
+		for(var k in v){return false;} return true;
+		break;
+	}
+return false;
+}
+String.prototype.Trim = function(){
+	return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+</script>	
+
+
+
+
+<script>
+$(function(){
+	// 获取所有的图片标签
+	const imgs = document.getElementsByTagName('img')
+	// 获取可视区域的高度
+	const viewHeight = window.innerHeight || document.documentElement.clientHeight
+	// num用于统计当前显示到了哪一张图片，避免每次都从第一张图片开始检查是否露出
+	let num = 0
+
+	function lazyload () {
+		for (let i = num; i < imgs.length; i++) {
+			// 用可视区域高度减去元素顶部距离可视区域顶部的高度
+			let distance = viewHeight - imgs[i].getBoundingClientRect().top
+			// 如果可视区域高度大于等于元素顶部距离可视区域顶部的高度，说明元素露出
+			if (distance >= 0) {
+				// 给元素写入真实的src，展示图片
+				imgs[i].src = imgs[i].getAttribute('data-src')
+				// 前i张图片已经加载完毕，下次从第i+1张开始检查是否露出
+				num = i + 1
+			}
+		}
+	}
+	// 监听Scroll事件
+	window.addEventListener('scroll', lazyload, true)
+})
+
+
+
+</script>
+</body>
+</html>
